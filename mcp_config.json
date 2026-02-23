@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "paypal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@paypal/mcp-server",
+        "--tools",
+        "payments,orders,disputes,vault"
+      ],
+      "env": {
+        "PAYPAL_CLIENT_ID": "AXuws00c1V8owpIBaNt421hD1tiN4Da8FQRU7D3a99drOXXbun-heMv_7n1RvCJe8QIahPDVGxBEqkbS",
+        "PAYPAL_CLIENT_SECRET": "EPRslU5uDInA88jzPvizELXW367E0jbwGcAQrkktc7qtcCOFO5-wX2dxxXU6BEuG3NRW7jDo8PQ_dHs_",
+        "PAYPAL_MODE": "sandbox"
+      }
+    }
+  }
+}

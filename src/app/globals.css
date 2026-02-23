@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+:root {
+    --pink-50: #fff0f5;
+    --pink-100: #ffe0ec;
+    --pink-200: #ffb3d1;
+    --pink-300: #ff80b5;
+    --pink-400: #ff4d96;
+    --pink-500: #ff1f7a;
+    --pink-600: #e6006b;
+    --rose-400: #fb7185;
+    --rose-500: #f43f5e;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: #fff8fb;
+        color: #1e1e2d;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* 스크롤바 커스텀 */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #fff0f5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ffb3d1;
+        border-radius: 99px;
+    }
+}
+
+/* ===================== ANIMATIONS ===================== */
+
+/* 위에서 아래로 부드럽게 등장 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 아래에서 위로 부드럽게 등장 */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 페이드인 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* 스케일 팝 */
+@keyframes popIn {
+    0%   { opacity: 0; transform: scale(0.85); }
+    70%  { transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* 하트 둥실 */
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50%       { transform: translateY(-14px) rotate(8deg); }
+}
+
+/* 좌우 살짝 흔들림 (CTA 버튼) */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    20%       { transform: rotate(-2deg); }
+    40%       { transform: rotate(2deg); }
+    60%       { transform: rotate(-1.5deg); }
+    80%       { transform: rotate(1.5deg); }
+}
+
+/* 부드러운 맥박 (진행 표시 점) */
+@keyframes pulsePink {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 100, 160, 0.5); }
+    50%       { box-shadow: 0 0 0 6px rgba(255, 100, 160, 0); }
+}
+
+/* 스캔라인 shimmer (카드 hover 효과용) */
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* ===================== UTILITY CLASSES ===================== */
+
+.animate-slide-up {
+    animation: slideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease both;
+}
+
+.animate-pop-in {
+    animation: popIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float-heart {
+    animation: floatHeart 3.5s ease-in-out infinite;
+}
+
+.animate-wiggle {
+    animation: wiggle 1.6s ease-in-out infinite;
+}
+
+.animate-pulse-pink {
+    animation: pulsePink 2s ease-in-out infinite;
+}
+
+/* 순차적 지연 유틸 */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ===================== CUSTOM COMPONENTS ===================== */
+
+/* 핑크 그라디언트 카드 */
+.card-pink {
+    background: #ffffff;
+    border: 1.5px solid #ffe0ec;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(255, 100, 160, 0.10),
+                0 1px 4px rgba(255, 100, 160, 0.08);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card-pink:hover {
+    box-shadow: 0 8px 32px rgba(255, 100, 160, 0.18),
+                0 2px 8px rgba(255, 100, 160, 0.12);
+    transform: translateY(-2px);
+}
+
+/* CTA 버튼 */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #ff6baa 0%, #ff4080 100%);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 99px;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    box-shadow: 0 6px 20px rgba(255, 64, 128, 0.40);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(255, 64, 128, 0.50);
+    transform: translateY(-2px) scale(1.01);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(255, 64, 128, 0.35);
+}
+
+/* 보조 버튼 */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #ff4080;
+    font-weight: 700;
+    border-radius: 99px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #ffb3d1;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #fff0f5;
+    border-color: #ff80b5;
+}
+
+/* 답변 선택 버튼 */
+.answer-btn {
+    width: 100%;
+    text-align: left;
+    padding: 1.1rem 1.25rem;
+    background: #fff;
+    border: 1.5px solid #ffe0ec;
+    border-radius: 16px;
+    color: #1e1e2d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 2px 8px rgba(255, 100, 160, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.answer-btn:hover {
+    border-color: #ff80b5;
+    box-shadow: 0 4px 16px rgba(255, 100, 160, 0.18);
+    transform: translateY(-1px);
+}
+
+.answer-btn:hover::before {
+    opacity: 1;
+}
+
+.answer-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.answer-btn:active {
+    transform: scale(0.98);
+}
+
+/* 성별 선택 카드 */
+.gender-card {
+    background: #fff;
+    border: 2px solid #ffe0ec;
+    border-radius: 20px;
+    padding: 1.75rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 16px rgba(255, 100, 160, 0.08);
+    text-align: center;
+}
+
+.gender-card:hover {
+    border-color: #ff80b5;
+    box-shadow: 0 8px 28px rgba(255, 100, 160, 0.20);
+    transform: translateY(-3px);
+}
+
+.gender-card:active {
+    transform: scale(0.97);
+}
+
+/* 핑크 그라디언트 텍스트 */
+.text-pink-gradient {
+    background: linear-gradient(135deg, #ff6baa 0%, #ff4080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 진행바 */
+.progress-bar {
+    height: 8px;
+    background: #ffe0ec;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9dc5, #ff4080);
+    border-radius: 99px;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 12px rgba(255, 64, 128, 0.40);
+}
+
+/* 장식용 배경 버블 */
+.bg-bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
