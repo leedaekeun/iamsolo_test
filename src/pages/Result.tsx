@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { CHARACTERS, Archetype } from '@/data/characters';
-import HeroIllustration from '@/components/HeroIllustration';
 
 /* ═══════════════════════════════════════════
    MATCH CIRCLE
@@ -201,7 +200,15 @@ export default function ResultClient() {
                 <div className="px-10 pb-2 animate-pop-in delay-200 md:pr-10 md:pb-8"
                     style={{ maxWidth: '380px', margin: '0 auto', width: '100%' }}>
                     <div className="animate-float-y">
-                        <HeroIllustration />
+                        <img
+                            src="/images/main.jpg"
+                            alt="메인 일러스트"
+                            className="w-full h-auto rounded-[2rem]"
+                            style={{
+                                boxShadow: '0 16px 40px rgba(255,80,128,0.25)',
+                                border: '6px solid white'
+                            }}
+                        />
                     </div>
                 </div>
 
