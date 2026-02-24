@@ -96,7 +96,7 @@ function FeatureCard({ Icon, title, desc }: FeatureCardProps) {
 const FEATURES: FeatureCardProps[] = [
     { Icon: IllustQuiz, title: '10개 문항', desc: '실전 연애 상황으로 구성된 심층 문제' },
     { Icon: IllustHeart, title: '생생한 상황', desc: '나는 솔로 실제 에피소드 기반 시나리오' },
-    { Icon: IllustChars, title: '8가지 캐릭터', desc: '연애 원형 캐릭터 중 나의 매칭 결과' },
+    { Icon: IllustChars, title: '6가지 캐릭터', desc: '연애 원형 캐릭터 중 나의 매칭 결과' },
     { Icon: IllustTimer, title: '단 2분 · 무료', desc: '익명 100% · 개인정보 수집 없음' },
 ];
 
@@ -268,7 +268,7 @@ export default function Home() {
                     {[
                         { icon: '🎯', title: '실전 연애 상황', desc: '실제 솔로나라에서 일어날 법한 상황 기반' },
                         { icon: '🔬', title: '심리학 기반 분석', desc: 'Archetype 이론 + 성향 척도 알고리즘' },
-                        { icon: '💌', title: '8가지 연애 유형', desc: '나만의 연애 패턴과 궁합까지 분석' },
+                        { icon: '💌', title: '6가지 연애 유형', desc: '나만의 연애 패턴과 궁합까지 분석' },
                     ].map((item) => (
                         <div
                             key={item.title}
@@ -281,13 +281,13 @@ export default function Home() {
                     ))}
                 </div>
 
-                {/* 8가지 캐릭터 소개 */}
+                {/* 6가지 캐릭터 소개 */}
                 <div className="mb-6">
                     <h3
                         className="font-black text-center mb-5"
                         style={{ fontSize: 'var(--fs-h3)', color: '#1e1e2d' }}
                     >
-                        8가지 연애 유형 캐릭터
+                        6가지 연애 유형 캐릭터
                     </h3>
                     <div
                         style={{
