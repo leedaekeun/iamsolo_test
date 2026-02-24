@@ -251,7 +251,7 @@ export default function TestPage() {
                                     여성 출연진
                                 </p>
                                 <p className="text-xs" style={{ color: '#8888a8' }}>
-                                    옥순 · 영숙 · 현숙 · 정숙
+                                    영숙 · 정숙 · 순자 · 영자 · 옥순 · 현숙
                                 </p>
                                 <span
                                     className="mt-3 inline-block text-xs font-bold px-3 py-1 rounded-full"
@@ -278,7 +278,7 @@ export default function TestPage() {
                                     남성 출연진
                                 </p>
                                 <p className="text-xs" style={{ color: '#8888a8' }}>
-                                    영수 · 영호 · 영식 · 영철
+                                    영수 · 영호 · 영식 · 영철 · 광수 · 상철
                                 </p>
                                 <span
                                     className="mt-3 inline-block text-xs font-bold px-3 py-1 rounded-full"

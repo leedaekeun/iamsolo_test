@@ -93,14 +93,20 @@ function TraitBar({ label, value }: { label: string; value: number }) {
    CHARACTER AVATAR — 이모지 대신 인라인 SVG
 ═══════════════════════════════════════════ */
 const CHARACTER_CONFIG: Record<string, { emoji: string; bg: string; accent: string }> = {
+    // 남자
     'm1_youngsoo': { emoji: '🧐', bg: 'linear-gradient(135deg, #EEF0FF, #D8DFFF)', accent: '#5B7CCC' },
     'm2_youngho': { emoji: '😄', bg: 'linear-gradient(135deg, #FFF5E0, #FFE8B0)', accent: '#E09020' },
     'm3_youngsik': { emoji: '🤗', bg: 'linear-gradient(135deg, #E8F5E9, #C8EDD0)', accent: '#2A8A5A' },
     'm4_youngchul': { emoji: '😤', bg: 'linear-gradient(135deg, #FFE8E8, #FFCFCF)', accent: '#C04040' },
-    'f1_oksoon': { emoji: '✨', bg: 'linear-gradient(135deg, #FFF0F5, #FFD8E8)', accent: '#FF4080' },
-    'f2_hyunsook': { emoji: '📚', bg: 'linear-gradient(135deg, #F0F4FF, #D8E4FF)', accent: '#5060C0' },
-    'f3_youngsook': { emoji: '👑', bg: 'linear-gradient(135deg, #FFF8E0, #FFE8A0)', accent: '#C08000' },
-    'f4_jungsook': { emoji: '🌟', bg: 'linear-gradient(135deg, #F5FFF0, #D8F5C8)', accent: '#3A9030' },
+    'm5_kwangsoo': { emoji: '🤓', bg: 'linear-gradient(135deg, #F0F4FF, #D8E4FF)', accent: '#5060C0' },
+    'm6_sangchul': { emoji: '😊', bg: 'linear-gradient(135deg, #F5F5F5, #EAEAEA)', accent: '#606060' },
+    // 여자
+    'f1_youngsook': { emoji: '👑', bg: 'linear-gradient(135deg, #FFF8E0, #FFE8A0)', accent: '#C08000' },
+    'f2_jungsook': { emoji: '🔥', bg: 'linear-gradient(135deg, #FFE8E8, #FFCFCF)', accent: '#C04040' },
+    'f3_soonja': { emoji: '🏕️', bg: 'linear-gradient(135deg, #E8F5E9, #C8EDD0)', accent: '#2A8A5A' },
+    'f4_youngja': { emoji: '🥺', bg: 'linear-gradient(135deg, #FFF0F5, #FFD8E8)', accent: '#FF4080' },
+    'f5_oksoon': { emoji: '✨', bg: 'linear-gradient(135deg, #F5FFF0, #D8F5C8)', accent: '#3A9030' },
+    'f6_hyunsook': { emoji: '📚', bg: 'linear-gradient(135deg, #EEF0FF, #D8DFFF)', accent: '#5B7CCC' },
 };
 
 /* ═══════════════════════════════════════════
