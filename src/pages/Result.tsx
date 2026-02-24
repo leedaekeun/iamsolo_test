@@ -1,11 +1,7 @@
-"use client";
-
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { CHARACTERS, Archetype } from '@/data/characters';
-import Link from 'next/link';
 
-/* ─── 매칭 퍼센트 원형 게이지 ─── */
 function MatchCircle({ pct }: { pct: number }) {
     const r = 42;
     const circ = 2 * Math.PI * r;
@@ -15,10 +11,8 @@ function MatchCircle({ pct }: { pct: number }) {
         <div className="flex flex-col items-center gap-1">
             <div className="relative w-28 h-28">
                 <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                    {/* 배경 트랙 */}
                     <circle cx="50" cy="50" r={r} strokeWidth="9"
                         stroke="#ffe0ec" fill="none" />
-                    {/* 진행 아크 */}
                     <circle
                         cx="50" cy="50" r={r}
                         strokeWidth="9"
@@ -35,7 +29,6 @@ function MatchCircle({ pct }: { pct: number }) {
                         </linearGradient>
                     </defs>
                 </svg>
-                {/* 중앙 숫자 */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-2xl font-black" style={{ color: '#ff4080' }}>
                         {pct}%
@@ -47,9 +40,7 @@ function MatchCircle({ pct }: { pct: number }) {
     );
 }
 
-/* ─── 성격 특성 바 ─── */
 function TraitBar({ label, value }: { label: string; value: number }) {
-    // value: -100 ~ 100, 50% = 중립
     const leftPct = 50 - value / 2;
     const rightPct = 50 + value / 2;
     const [pair] = label.split('/');
@@ -77,21 +68,21 @@ function TraitBar({ label, value }: { label: string; value: number }) {
     );
 }
 
-/* ─── 캐릭터 아바타 이모지 매핑 ─── */
 const CHARACTER_EMOJI: Record<string, { emoji: string; bg: string }> = {
     'm1_youngsoo': { emoji: '🧐', bg: '#EEF0FF' },
-    'm2_youngho':  { emoji: '😄', bg: '#FFF5E0' },
+    'm2_youngho': { emoji: '😄', bg: '#FFF5E0' },
     'm3_youngsik': { emoji: '🤗', bg: '#E8F5E9' },
     'm4_youngchul': { emoji: '😤', bg: '#FFE8E8' },
-    'f1_oksoon':   { emoji: '✨', bg: '#FFF0F5' },
+    'f1_oksoon': { emoji: '✨', bg: '#FFF0F5' },
     'f2_hyunsook': { emoji: '📚', bg: '#F0F4FF' },
     'f3_youngsook': { emoji: '👑', bg: '#FFF8E0' },
     'f4_jungsook': { emoji: '🌟', bg: '#F5FFF0' },
 };
 
-export default function ResultClient({ characterId }: { characterId: string }) {
-    const router = useRouter();
-    const searchParams = useSearchParams();
+export default function ResultClient() {
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const characterId = searchParams.get('resultId');
     const rawMatch = parseInt(searchParams.get('match') || '0', 10);
     const matchPct = Math.min(Math.max(rawMatch, 0), 100);
 
@@ -99,13 +90,17 @@ export default function ResultClient({ characterId }: { characterId: string }) {
     const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
 
     useEffect(() => {
+        if (!characterId) {
+            navigate('/');
+            return;
+        }
         const found = CHARACTERS.find(c => c.id === characterId);
         if (!found) {
-            router.push('/');
+            navigate('/');
             return;
         }
         setCharacter(found);
-    }, [characterId, router]);
+    }, [characterId, navigate]);
 
     if (!character) {
         return (
@@ -149,8 +144,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
 
     return (
         <div className="flex flex-col min-h-screen pb-32">
-
-            {/* ── HERO 헤더 ── */}
             <div
                 className="relative px-6 pt-10 pb-8 text-center overflow-hidden"
                 style={{
@@ -158,7 +151,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     borderRadius: '0 0 32px 32px',
                 }}
             >
-                {/* 배경 장식 원 */}
                 <div
                     className="absolute top-[-30px] right-[-30px] w-32 h-32 rounded-full opacity-40"
                     style={{ background: 'radial-gradient(circle, #ffb3d1, transparent)' }}
@@ -170,7 +162,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     aria-hidden="true"
                 />
 
-                {/* 배지 */}
                 <span
                     className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 animate-slide-down"
                     style={{
@@ -183,7 +174,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     💕 당신의 캐릭터 매칭 결과
                 </span>
 
-                {/* 캐릭터 아바타 */}
                 <div
                     className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-5xl animate-pop-in"
                     style={{
@@ -196,7 +186,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     {avatar.emoji}
                 </div>
 
-                {/* 이름 & 타이틀 */}
                 <h1
                     className="text-4xl font-black mb-1 animate-slide-up"
                     style={{ color: '#1e1e2d', letterSpacing: '-0.03em' }}
@@ -210,16 +199,12 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     {character.title}
                 </p>
 
-                {/* 매칭 원형 게이지 */}
                 <div className="animate-pop-in delay-200">
                     <MatchCircle pct={matchPct} />
                 </div>
             </div>
 
-            {/* ── 메인 콘텐츠 ── */}
             <div className="px-5 pt-6 space-y-4">
-
-                {/* 한 줄 평 */}
                 <div className="card-pink p-5 animate-slide-up delay-100">
                     <h3 className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#ffb3d1' }}>
                         📖 캐릭터 분석
@@ -229,9 +214,7 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     </p>
                 </div>
 
-                {/* 강점 & 주의점 */}
                 <div className="grid grid-cols-2 gap-3 animate-slide-up delay-200">
-                    {/* 강점 */}
                     <div
                         className="p-4 rounded-2xl"
                         style={{
@@ -251,7 +234,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                         </ul>
                     </div>
 
-                    {/* 주의점 */}
                     <div
                         className="p-4 rounded-2xl"
                         style={{
@@ -272,7 +254,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     </div>
                 </div>
 
-                {/* 성향 바 차트 */}
                 <div className="card-pink p-5 space-y-4 animate-slide-up delay-300">
                     <h3 className="text-xs font-bold uppercase tracking-widest" style={{ color: '#ffb3d1' }}>
                         📊 연애 성향 분석
@@ -283,7 +264,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     <TraitBar label="즉흥/계획" value={-traits.J_P} />
                 </div>
 
-                {/* 궁합 카드 */}
                 <div
                     className="rounded-2xl p-5 animate-slide-up delay-400"
                     style={{
@@ -298,7 +278,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                         ❤️ 솔로나라 궁합 리포트
                     </h3>
                     <div className="flex items-center">
-                        {/* 환상의 짝꿍 */}
                         <div className="flex-1 text-center">
                             <div
                                 className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center text-2xl"
@@ -318,7 +297,6 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                             <div className="w-px h-10" style={{ background: '#ffb3d1' }} />
                         </div>
 
-                        {/* 환장의 짝꿍 */}
                         <div className="flex-1 text-center">
                             <div
                                 className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center text-2xl"
@@ -333,10 +311,8 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            {/* ── 하단 고정 버튼 ── */}
             <div
                 className="fixed bottom-0 left-1/2 w-full"
                 style={{
@@ -369,7 +345,7 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     </button>
 
                     <Link
-                        href="/"
+                        to="/"
                         className="btn-secondary flex-shrink-0"
                         style={{ borderRadius: '16px', padding: '0.9rem 1.25rem', fontSize: '0.9rem' }}
                     >
@@ -377,12 +353,10 @@ export default function ResultClient({ characterId }: { characterId: string }) {
                     </Link>
                 </div>
 
-                {/* 친구 공유 유도 문구 */}
                 <p className="text-center text-xs mt-3" style={{ color: '#d0b8d0' }}>
                     친구의 캐릭터도 궁금하다면? 💌 공유해보세요
                 </p>
             </div>
-
         </div>
     );
 }

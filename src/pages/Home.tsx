@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 /* ─── 인라인 SVG 일러스트: 러블리 커플 + 하트 ─── */
 function HeroIllustration() {
@@ -124,8 +124,6 @@ function FeatureItem({ icon, text }: { icon: string; text: string }) {
 export default function Home() {
     return (
         <div className="flex flex-col min-h-screen">
-
-            {/* ── HEADER ── */}
             <header className="pt-10 px-6 text-center animate-slide-down">
                 <span
                     className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4"
@@ -154,12 +152,10 @@ export default function Home() {
                 </p>
             </header>
 
-            {/* ── 일러스트 HERO ── */}
             <div className="px-6 py-6 animate-pop-in delay-100">
                 <HeroIllustration />
             </div>
 
-            {/* ── 테스트 소개 카드 ── */}
             <div className="px-6 animate-slide-up delay-200">
                 <div className="card-pink p-5">
                     <p
@@ -177,9 +173,8 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* ── CTA ── */}
             <div className="px-6 pt-5 pb-12 animate-slide-up delay-300">
-                <Link href="/test" className="btn-primary animate-wiggle">
+                <Link to="/test" className="btn-primary animate-wiggle">
                     <span>내 캐릭터 확인하러 가기</span>
                     <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}
@@ -187,7 +182,6 @@ export default function Home() {
                     </svg>
                 </Link>
 
-                {/* 신뢰 배지 */}
                 <div className="flex items-center justify-center gap-4 mt-5">
                     <span className="text-xs" style={{ color: '#bbb0c0' }}>
                         💖 누적 테스트 <strong style={{ color: '#ff80b5' }}>10만+</strong>
@@ -202,7 +196,6 @@ export default function Home() {
                     </span>
                 </div>
             </div>
-
         </div>
     );
 }
