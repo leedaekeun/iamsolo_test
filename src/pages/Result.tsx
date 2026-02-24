@@ -27,7 +27,7 @@ function MatchCircle({ pct }: { pct: number }) {
                     />
                     <defs>
                         <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%"   stopColor="#ff9dc5" />
+                            <stop offset="0%" stopColor="#ff9dc5" />
                             <stop offset="100%" stopColor="#ff2070" />
                         </linearGradient>
                     </defs>
@@ -94,12 +94,12 @@ function TraitBar({ label, value }: { label: string; value: number }) {
 ═══════════════════════════════════════════ */
 const CHARACTER_CONFIG: Record<string, { emoji: string; bg: string; accent: string }> = {
     'm1_youngsoo': { emoji: '🧐', bg: 'linear-gradient(135deg, #EEF0FF, #D8DFFF)', accent: '#5B7CCC' },
-    'm2_youngho':  { emoji: '😄', bg: 'linear-gradient(135deg, #FFF5E0, #FFE8B0)', accent: '#E09020' },
+    'm2_youngho': { emoji: '😄', bg: 'linear-gradient(135deg, #FFF5E0, #FFE8B0)', accent: '#E09020' },
     'm3_youngsik': { emoji: '🤗', bg: 'linear-gradient(135deg, #E8F5E9, #C8EDD0)', accent: '#2A8A5A' },
-    'm4_youngchul':{ emoji: '😤', bg: 'linear-gradient(135deg, #FFE8E8, #FFCFCF)', accent: '#C04040' },
-    'f1_oksoon':   { emoji: '✨', bg: 'linear-gradient(135deg, #FFF0F5, #FFD8E8)', accent: '#FF4080' },
+    'm4_youngchul': { emoji: '😤', bg: 'linear-gradient(135deg, #FFE8E8, #FFCFCF)', accent: '#C04040' },
+    'f1_oksoon': { emoji: '✨', bg: 'linear-gradient(135deg, #FFF0F5, #FFD8E8)', accent: '#FF4080' },
     'f2_hyunsook': { emoji: '📚', bg: 'linear-gradient(135deg, #F0F4FF, #D8E4FF)', accent: '#5060C0' },
-    'f3_youngsook':{ emoji: '👑', bg: 'linear-gradient(135deg, #FFF8E0, #FFE8A0)', accent: '#C08000' },
+    'f3_youngsook': { emoji: '👑', bg: 'linear-gradient(135deg, #FFF8E0, #FFE8A0)', accent: '#C08000' },
     'f4_jungsook': { emoji: '🌟', bg: 'linear-gradient(135deg, #F5FFF0, #D8F5C8)', accent: '#3A9030' },
 };
 
@@ -195,6 +195,19 @@ export default function ResultClient() {
                 >
                     💕 당신의 캐릭터 매칭 결과
                 </span>
+
+                {/* 메인 일러스트 추가 */}
+                <div className="px-4 pb-6 animate-pop-in" style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }}>
+                    <img
+                        src="/images/main.jpg"
+                        alt="메인 일러스트"
+                        className="w-full h-auto rounded-[2rem]"
+                        style={{
+                            boxShadow: '0 16px 40px rgba(255,80,128,0.25)',
+                            border: '5px solid white'
+                        }}
+                    />
+                </div>
 
                 {/* 데스크탑: 캐릭터 + 퍼센트 나란히 */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
@@ -326,10 +339,10 @@ export default function ResultClient() {
                 {/* 연애 성향 분석 */}
                 <div className="card-pink p-5 space-y-4 animate-slide-up delay-300">
                     <p className="text-label">📊 연애 성향 분석</p>
-                    <TraitBar label="외향/내향"  value={character.traits.E_I} />
-                    <TraitBar label="직관/감각"  value={character.traits.N_S} />
-                    <TraitBar label="감정/논리"  value={-character.traits.T_F} />
-                    <TraitBar label="즉흥/계획"  value={-character.traits.J_P} />
+                    <TraitBar label="외향/내향" value={character.traits.E_I} />
+                    <TraitBar label="직관/감각" value={character.traits.N_S} />
+                    <TraitBar label="감정/논리" value={-character.traits.T_F} />
+                    <TraitBar label="즉흥/계획" value={-character.traits.J_P} />
                 </div>
 
                 {/* 궁합 리포트 */}
