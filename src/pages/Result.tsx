@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { CHARACTERS, Archetype } from '@/data/characters';
+import HeroIllustration from '@/components/HeroIllustration';
 
 /* ═══════════════════════════════════════════
    MATCH CIRCLE
@@ -197,16 +198,11 @@ export default function ResultClient() {
                 </span>
 
                 {/* 메인 일러스트 추가 */}
-                <div className="px-4 pb-6 animate-pop-in" style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }}>
-                    <img
-                        src="/images/main.jpg"
-                        alt="메인 일러스트"
-                        className="w-full h-auto rounded-[2rem]"
-                        style={{
-                            boxShadow: '0 16px 40px rgba(255,80,128,0.25)',
-                            border: '5px solid white'
-                        }}
-                    />
+                <div className="px-10 pb-2 animate-pop-in delay-200 md:pr-10 md:pb-8"
+                    style={{ maxWidth: '380px', margin: '0 auto', width: '100%' }}>
+                    <div className="animate-float-y">
+                        <HeroIllustration />
+                    </div>
                 </div>
 
                 {/* 데스크탑: 캐릭터 + 퍼센트 나란히 */}

@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHARACTERS } from '@/data/characters';
 import Footer from '@/components/Footer';
+import HeroIllustration from '@/components/HeroIllustration';
 
 /* ═══════════════════════════════════════════
    HERO ILLUSTRATION
 ═══════════════════════════════════════════ */
-// 메인 이미지를 외부 파일(/public/images/main.jpg)로 대체함
+// 메인 일러스트레이션을 별도 컴포넌트로 분리
+
 /* ═══════════════════════════════════════════
    FEATURE ILLUSTRATIONS (팝업 & 데스크탑용)
 ═══════════════════════════════════════════ */
@@ -180,15 +182,7 @@ export default function Home() {
                 <div className="px-10 pb-2 animate-pop-in delay-200 md:pr-10 md:pb-8"
                     style={{ maxWidth: '380px', margin: '0 auto', width: '100%' }}>
                     <div className="animate-float-y">
-                        <img
-                            src="/images/main.jpg"
-                            alt="메인 일러스트"
-                            className="w-full h-auto rounded-[2rem]"
-                            style={{
-                                boxShadow: '0 16px 40px rgba(255,80,128,0.25)',
-                                border: '6px solid white'
-                            }}
-                        />
+                        <HeroIllustration />
                     </div>
                 </div>
             </div>
