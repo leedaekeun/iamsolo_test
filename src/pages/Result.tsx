@@ -245,13 +245,39 @@ export default function ResultClient() {
 
                 {/* 캐릭터 분석 */}
                 <div className="card-pink p-5 animate-slide-up delay-100">
-                    <p className="text-label mb-3">📖 캐릭터 분석</p>
+                    <p className="text-label mb-2">📖 캐릭터 분석</p>
+
+                    {/* 연애 스타일 한 줄 요약 */}
                     <p
-                        className="leading-relaxed"
+                        className="text-xs font-bold mb-3 px-3 py-2 rounded-xl"
+                        style={{ background: '#fff0f5', color: '#ff4080', border: '1px solid #ffcce0' }}
+                    >
+                        💡 {character.loveStyle}
+                    </p>
+
+                    <p
+                        className="leading-relaxed mb-4"
                         style={{ color: '#4a4a68', fontSize: 'var(--fs-sm)' }}
                     >
                         {character.description}
                     </p>
+
+                    {/* 키워드 태그 */}
+                    <div className="flex flex-wrap gap-1.5">
+                        {character.keywords.map((kw) => (
+                            <span
+                                key={kw}
+                                className="text-xs font-bold px-2.5 py-1 rounded-full"
+                                style={{
+                                    background: 'linear-gradient(135deg, #fff0f5, #ffe0ec)',
+                                    color: '#ff4080',
+                                    border: '1px solid #ffb3d1',
+                                }}
+                            >
+                                #{kw}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* 강점 / 주의점 */}
@@ -361,6 +387,45 @@ export default function ResultClient() {
                             </p>
                         </div>
                     </div>
+                </div>
+
+                {/* 연애 성장 조언 */}
+                <div
+                    className="rounded-3xl p-5 animate-slide-up delay-500"
+                    style={{
+                        background: 'linear-gradient(135deg, #f8f0ff, #ede0ff)',
+                        border: '1.5px solid #d0b0f0',
+                    }}
+                >
+                    <p className="text-label text-center mb-4" style={{ color: '#8040c0' }}>
+                        🌱 나를 위한 연애 성장 조언
+                    </p>
+                    <ul className="space-y-3">
+                        {character.advice.map((tip, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                                <span
+                                    className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black"
+                                    style={{ background: '#d0b0f0', color: '#6020a0' }}
+                                >
+                                    {i + 1}
+                                </span>
+                                <p className="text-xs leading-relaxed" style={{ color: '#5030a0' }}>
+                                    {tip}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* 면책 조항 */}
+                <div
+                    className="rounded-2xl p-4 animate-slide-up delay-500"
+                    style={{ background: '#fff8e0', border: '1px solid #ffe0a0' }}
+                >
+                    <p className="text-xs leading-relaxed text-center" style={{ color: '#907000' }}>
+                        ⚠️ 본 테스트 결과는 심리학적 원형 이론 기반의 <strong>오락·자기이해 목적</strong>이며,
+                        의학적·심리상담적 진단이 아닙니다. 결과는 참고용으로만 활용하세요.
+                    </p>
                 </div>
 
             </div>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CHARACTERS } from '@/data/characters';
+import Footer from '@/components/Footer';
 
 /* ═══════════════════════════════════════════
    HERO ILLUSTRATION — 러블리 커플
@@ -297,6 +299,136 @@ export default function Home() {
                 <span className="stat-divider" />
                 <span className="text-xs" style={{ color: '#bbb0c0' }}>🔒 익명 보장</span>
             </div>
+
+            {/* ══════════════════════════════════════
+                이 테스트란? — 크롤러/SEO용 콘텐츠 영역
+            ══════════════════════════════════════ */}
+            <section
+                className="px-5 py-10 relative z-10"
+                style={{ borderTop: '1.5px solid #ffe0ec' }}
+                aria-label="테스트 소개"
+            >
+                {/* 소개 텍스트 */}
+                <div className="text-center mb-8">
+                    <span className="badge-pink inline-block mb-3">🧠 테스트 소개</span>
+                    <h2
+                        className="text-section mb-3"
+                        style={{ letterSpacing: '-0.02em' }}
+                    >
+                        나는솔로 연애유형 테스트란?
+                    </h2>
+                    <p
+                        className="leading-relaxed mx-auto"
+                        style={{ color: '#6b6b8a', fontSize: 'var(--fs-sm)', maxWidth: '420px' }}
+                    >
+                        인기 연애 예능 '나는 솔로' 출연진 캐릭터를 모티브로 한 심리 성향 분석 테스트입니다.
+                        실제 방송에서 벌어질 법한 생생한 연애 상황 10가지에 답하면,
+                        심리학 원형(Archetype) 이론 기반으로 나와 가장 싱크로율이 높은 연애 유형 캐릭터를 찾아줍니다.
+                    </p>
+                </div>
+
+                {/* 테스트 특징 3가지 */}
+                <div
+                    className="mb-10"
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '10px',
+                    }}
+                >
+                    {[
+                        { icon: '🎯', title: '실전 연애 상황', desc: '실제 솔로나라에서 일어날 법한 상황 기반' },
+                        { icon: '🔬', title: '심리학 기반 분석', desc: 'Archetype 이론 + 성향 척도 알고리즘' },
+                        { icon: '💌', title: '8가지 연애 유형', desc: '나만의 연애 패턴과 궁합까지 분석' },
+                    ].map((item) => (
+                        <div
+                            key={item.title}
+                            className="card-pink p-4 text-center"
+                        >
+                            <p className="text-2xl mb-2">{item.icon}</p>
+                            <p className="font-bold text-xs mb-1" style={{ color: '#1e1e2d' }}>{item.title}</p>
+                            <p className="text-xs leading-relaxed" style={{ color: '#8888a8' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* 8가지 캐릭터 소개 */}
+                <div className="mb-6">
+                    <h3
+                        className="font-black text-center mb-5"
+                        style={{ fontSize: 'var(--fs-h3)', color: '#1e1e2d' }}
+                    >
+                        8가지 연애 유형 캐릭터
+                    </h3>
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gap: '10px',
+                        }}
+                    >
+                        {CHARACTERS.map((char) => (
+                            <div
+                                key={char.id}
+                                className="card-pink p-4"
+                                style={{ borderLeft: `3px solid ${char.gender === 'F' ? '#ff80b5' : '#5B7CCC'}` }}
+                            >
+                                <div className="flex items-center gap-2 mb-1.5">
+                                    <span
+                                        className="font-black text-base"
+                                        style={{ color: char.gender === 'F' ? '#ff4080' : '#5B7CCC' }}
+                                    >
+                                        {char.name}
+                                    </span>
+                                    <span
+                                        className="text-xs px-2 py-0.5 rounded-full font-bold flex-shrink-0"
+                                        style={{
+                                            background: char.gender === 'F' ? '#fff0f5' : '#f0f4ff',
+                                            color: char.gender === 'F' ? '#ff80b5' : '#5B7CCC',
+                                        }}
+                                    >
+                                        {char.gender === 'F' ? '여' : '남'}
+                                    </span>
+                                </div>
+                                <p className="text-xs font-bold mb-1.5" style={{ color: '#8888a8' }}>
+                                    {char.title}
+                                </p>
+                                <p className="text-xs leading-relaxed" style={{ color: '#6b6b8a' }}>
+                                    {char.description.slice(0, 45)}…
+                                </p>
+                                <div className="flex flex-wrap gap-1 mt-2">
+                                    {char.keywords.slice(0, 3).map((kw) => (
+                                        <span
+                                            key={kw}
+                                            className="text-xs px-1.5 py-0.5 rounded-full"
+                                            style={{
+                                                background: '#fff8fb',
+                                                color: '#ff80b5',
+                                                border: '1px solid #ffcce0',
+                                            }}
+                                        >
+                                            #{kw}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 테스트 시작 CTA */}
+                <div className="text-center">
+                    <Link to="/test" className="btn-primary" style={{ maxWidth: '300px', margin: '0 auto', display: 'inline-flex' }}>
+                        <span>나의 연애 유형 알아보기</span>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </Link>
+                </div>
+            </section>
+
+            {/* 푸터 */}
+            <Footer />
 
             {/* ══════════════════════════════════════
                 테스트 안내 바텀시트 팝업 (모바일)

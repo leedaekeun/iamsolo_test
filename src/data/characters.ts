@@ -1,23 +1,26 @@
 export type Archetype = {
     id: string;
-    name: string;      // '영수', '옥순' 등
+    name: string;
     gender: 'M' | 'F';
-    title: string;     // '분석가', '몽상가' 등
+    title: string;
     description: string;
     strengths: string[];
     weaknesses: string[];
-    bestMatch: string; // 환상의 짝꿍
-    worstMatch: string; // 환장의 짝꿍
+    bestMatch: string;
+    worstMatch: string;
     traits: {
         E_I: number; // 외향(100) - 내향(-100)
         N_S: number; // 직관(100) - 감각(-100)
         T_F: number; // 사고(100) - 감정(-100)
         J_P: number; // 판단(100) - 인식(-100)
-    }
+    };
+    keywords: string[];   // 성향 키워드 태그
+    advice: string[];     // 연애 성장 조언 3가지
+    loveStyle: string;    // 연애 스타일 한 줄 요약
 };
 
 export const CHARACTERS: Archetype[] = [
-    // 남성 캐릭터
+    // ── 남성 캐릭터 ──────────────────────────────
     {
         id: 'm1_youngsoo',
         name: '영수',
@@ -28,7 +31,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['감정 표현 부족', '지나친 계산'],
         bestMatch: '현숙',
         worstMatch: '정숙',
-        traits: { E_I: -60, N_S: 40, T_F: 80, J_P: 70 }
+        traits: { E_I: -60, N_S: 40, T_F: 80, J_P: 70 },
+        keywords: ['논리적', '신중함', '내향적', '책임감'],
+        loveStyle: '말보다 행동으로 사랑을 증명하는 신중한 연애러',
+        advice: [
+            '감정을 논리로 해석하려 하지 말고, 먼저 느끼는 연습을 해보세요.',
+            '상대방에게 "오늘 어떠셨어요?"처럼 작은 감정 질문을 던져보세요.',
+            '완벽한 타이밍을 기다리기보다 불완전하더라도 표현하는 용기를 내보세요.',
+        ],
     },
     {
         id: 'm2_youngho',
@@ -40,7 +50,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['가벼워 보일 수 있음', '거절을 잘 못함'],
         bestMatch: '옥순',
         worstMatch: '영자',
-        traits: { E_I: 80, N_S: 20, T_F: -50, J_P: -30 }
+        traits: { E_I: 80, N_S: 20, T_F: -50, J_P: -30 },
+        keywords: ['사교적', '공감력', '외향적', '유머'],
+        loveStyle: '분위기를 주도하며 상대를 자연스럽게 편안하게 만드는 연애러',
+        advice: [
+            '넓은 관계를 유지하되, 특별한 한 사람과의 깊이 있는 연결에 집중해 보세요.',
+            '상대의 부탁을 거절하는 것이 관계를 해치지 않는다는 것을 기억하세요.',
+            '유머로만 가득 채우지 말고, 진지한 대화 시간을 의도적으로 만들어보세요.',
+        ],
     },
     {
         id: 'm3_youngsik',
@@ -52,7 +69,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['변화에 대한 두려움', '보수적 성향'],
         bestMatch: '영숙',
         worstMatch: '옥순',
-        traits: { E_I: -20, N_S: -60, T_F: 30, J_P: 80 }
+        traits: { E_I: -20, N_S: -60, T_F: 30, J_P: 80 },
+        keywords: ['성실함', '안정감', '헌신', '계획적'],
+        loveStyle: '묵묵히 곁을 지키며 믿음직한 울타리가 되어주는 연애러',
+        advice: [
+            '익숙하지 않더라도 가끔은 즉흥적인 데이트를 제안해 보세요. 설레임이 살아납니다.',
+            '내 감정도 소중합니다. 상대에게 솔직하게 표현하는 연습을 시작해 보세요.',
+            '상대의 다양한 의견을 받아들이는 유연함이 관계의 깊이를 더해줍니다.',
+        ],
     },
     {
         id: 'm4_youngchul',
@@ -64,10 +88,17 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['성급함', '타인의 감정에 둔감'],
         bestMatch: '정숙',
         worstMatch: '현숙',
-        traits: { E_I: 90, N_S: -20, T_F: 60, J_P: 30 }
+        traits: { E_I: 90, N_S: -20, T_F: 60, J_P: 30 },
+        keywords: ['추진력', '솔직함', '자신감', '직진'],
+        loveStyle: '마음이 정해지면 망설임 없이 달려드는 다이렉트 연애러',
+        advice: [
+            '상대방도 자신만의 속도와 템포가 있습니다. 그 리듬을 먼저 파악해 보세요.',
+            '빠른 결정이 항상 옳지는 않습니다. 상대의 감정에 귀를 기울이는 시간을 늘려보세요.',
+            '솔직함과 배려 사이의 균형을 찾으면 관계가 한층 더 성숙해집니다.',
+        ],
     },
 
-    // 여성 캐릭터 
+    // ── 여성 캐릭터 ──────────────────────────────
     {
         id: 'f1_oksoon',
         name: '옥순',
@@ -78,7 +109,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['현실 감각 부족', '변덕스러움'],
         bestMatch: '영호',
         worstMatch: '영식',
-        traits: { E_I: 30, N_S: 80, T_F: -60, J_P: -50 }
+        traits: { E_I: 30, N_S: 80, T_F: -60, J_P: -50 },
+        keywords: ['낭만적', '신비로움', '감성적', '개성'],
+        loveStyle: '운명적 사랑을 꿈꾸며 감성으로 상대를 사로잡는 연애러',
+        advice: [
+            '꿈꾸는 사랑과 현실적인 관계 사이의 간극을 좁혀가는 연습이 필요합니다.',
+            '감정의 파도가 클수록 상대방도 힘들 수 있어요. 감정 조절 루틴을 만들어 보세요.',
+            '지금 이 순간의 작은 행복에도 충분히 가치가 있다는 것을 잊지 마세요.',
+        ],
     },
     {
         id: 'f2_hyunsook',
@@ -90,7 +128,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['본인의 감정은 억누름', '완벽주의'],
         bestMatch: '영수',
         worstMatch: '영철',
-        traits: { E_I: -10, N_S: 30, T_F: 50, J_P: 80 }
+        traits: { E_I: -10, N_S: 30, T_F: 50, J_P: 80 },
+        keywords: ['지성적', '현명함', '완벽주의', '사회성'],
+        loveStyle: '이성과 감성을 균형 있게 활용하는 성숙한 연애러',
+        advice: [
+            '타인의 감정을 돌보는 것처럼, 나 자신의 감정도 동등하게 소중히 여기세요.',
+            '완벽하지 않아도 충분히 사랑받을 수 있다는 것을 마음에 새겨보세요.',
+            '가끔은 모든 것을 분석하지 말고, 순간의 감정에 자신을 맡겨보는 용기를 내세요.',
+        ],
     },
     {
         id: 'f3_youngsook',
@@ -102,7 +147,14 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['고집이 셈', '위압감 조성 가능성'],
         bestMatch: '영식',
         worstMatch: '영자',
-        traits: { E_I: 70, N_S: -40, T_F: 60, J_P: 60 }
+        traits: { E_I: 70, N_S: -40, T_F: 60, J_P: 60 },
+        keywords: ['리더십', '카리스마', '결단력', '의리'],
+        loveStyle: '명확한 기준으로 관계를 이끌어 나가는 주도형 연애러',
+        advice: [
+            '강한 카리스마 뒤에 숨겨진 부드러운 면을 가끔 보여주는 것이 관계의 온도를 높입니다.',
+            '나의 방식이 항상 옳다는 생각을 잠시 내려놓고, 상대방의 의견에 귀 기울여 보세요.',
+            '의존하는 것이 약함이 아닙니다. 믿는 사람에게는 편안하게 기댈 수 있어야 합니다.',
+        ],
     },
     {
         id: 'f4_jungsook',
@@ -114,6 +166,13 @@ export const CHARACTERS: Archetype[] = [
         weaknesses: ['직설적 화법으로 상처를 줌', '눈치가 부족함'],
         bestMatch: '영철',
         worstMatch: '영수',
-        traits: { E_I: 80, N_S: 10, T_F: 20, J_P: -40 }
-    }
+        traits: { E_I: 80, N_S: 10, T_F: 20, J_P: -40 },
+        keywords: ['솔직함', '털털함', '유쾌함', '직설적'],
+        loveStyle: '가식 없는 솔직함으로 상대방의 마음을 시원하게 열어주는 연애러',
+        advice: [
+            '솔직함은 큰 장점이지만, 때로는 말의 영향력을 먼저 생각하는 배려가 필요합니다.',
+            '상대방의 섬세한 감수성을 이해하는 노력이 관계의 깊이를 만들어 줍니다.',
+            '즉흥적인 매력을 살리되, 중요한 결정 앞에서는 한 박자 쉬어가는 여유도 가져보세요.',
+        ],
+    },
 ];
