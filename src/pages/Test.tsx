@@ -188,7 +188,7 @@ export default function TestPage() {
                     <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[5rem]">
 
                         {/* Image Container (Filled inside rounded box) */}
-                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-6 border border-slate-100 mt-4 max-h-[260px]">
+                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-6 border border-slate-100 mt-[46px] max-h-[260px]">
                             <img
                                 src={`/images/questions/q${currentStep}_${genderPref === 'M' ? 'm' : 'w'}.png`}
                                 alt={`상황 ${currentStep} 이미지`}
