@@ -75,8 +75,8 @@ export default function ResultClient() {
         <div className="relative w-full min-h-screen flex flex-col bg-off-white text-deep-charcoal overflow-x-hidden">
 
             {/* ── 상단 헤더 ── */}
-            <div className="bg-white rounded-section-b shadow-natural px-6 pt-4 pb-8 relative z-20">
-                <header className="flex items-center justify-between mx-auto max-w-md w-full mb-6">
+            <div className="bg-white rounded-section-b shadow-natural px-6 pt-4 pb-6 relative z-20">
+                <header className="flex items-center justify-between mx-auto max-w-md w-full mb-4">
                     <Link
                         to="/"
                         className="btn-icon"
@@ -97,15 +97,14 @@ export default function ResultClient() {
                 {/* 결과 타이틀 */}
                 <div className="text-center space-y-4 animate-slide-up">
                     <div className="badge mx-auto w-fit">Match Result</div>
-                    <h1 className="text-page-title px-2 break-keep">
-                        당신은 '솔로나라'의<br />
-                        <span className="text-vibrant-pink">{character.name}</span>
+                    <h1 className="text-[26px] font-extrabold px-2 break-keep leading-snug">
+                        당신은 '솔로나라'의 <span className="text-vibrant-pink">{character.name}</span>
                     </h1>
                 </div>
             </div>
 
             {/* ── 캐릭터 히어로 카드 영역 (풀위드 배경) ── */}
-            <div className="relative w-full py-12 flex flex-col items-center z-10">
+            <div className="relative w-full py-8 flex flex-col items-center z-10">
 
                 {/* 캐릭터 백그라운드 블러 글로우 효과 (풀위드) */}
                 {character.imageUrl && (
