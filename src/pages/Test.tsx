@@ -60,8 +60,7 @@ export default function TestPage() {
     const [answers, setAnswers] = useState<Answer[]>([]);
     const [genderPref, setGenderPref] = useState<'M' | 'F' | null>(null);
     const [isTransitioning, setIsTransitioning] = useState(false);
-
-    const totalSteps = QUESTIONS.length;
+    const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number | null>(null);
 
     const handleGenderSelect = (gender: 'M' | 'F') => {
         setIsTransitioning(true);
@@ -69,17 +68,27 @@ export default function TestPage() {
         setTimeout(() => {
             setCurrentStep(1);
             setIsTransitioning(false);
+            window.scrollTo(0, 0);
         }, 200);
     };
 
-    const handleAnswerClick = (answer: Answer) => {
+    const handleAnswerSelect = (index: number) => {
         if (isTransitioning) return;
+        setSelectedAnswerIndex(index);
+    };
+
+    const handleNext = () => {
+        if (selectedAnswerIndex === null || isTransitioning) return;
         setIsTransitioning(true);
-        const newAnswers = [...answers, answer];
-        setAnswers(newAnswers);
+        const selectedAnswer = currentQuestion!.answers[selectedAnswerIndex];
+        const newAnswers = [...answers, selectedAnswer];
+
         setTimeout(() => {
             if (currentStep < QUESTIONS.length) {
+                setAnswers(newAnswers);
                 setCurrentStep(prev => prev + 1);
+                setSelectedAnswerIndex(null);
+                window.scrollTo(0, 0);
             } else {
                 const result = getBestMatch(newAnswers, genderPref!);
                 navigate(`/result?resultId=${result.character.id}&match=${result.matchPercentage}`);
@@ -97,9 +106,12 @@ export default function TestPage() {
             setAnswers([]);
             setGenderPref(null);
             setCurrentStep(0);
+            setSelectedAnswerIndex(null);
         } else {
             setAnswers(prev => prev.slice(0, -1));
             setCurrentStep(prev => prev - 1);
+            setSelectedAnswerIndex(null);
+            window.scrollTo(0, 0);
         }
     };
 
@@ -110,45 +122,27 @@ export default function TestPage() {
     const currentQuestion = currentStep > 0 ? QUESTIONS[currentStep - 1] : null;
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col bg-off-white overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white">
+        <div className="relative min-h-screen w-full flex flex-col bg-[#fcfcfc] overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white">
 
-            {/* Header / Progress Section merged as a solid rounded-b header */}
-            <div className="bg-white rounded-b-[3.5rem] shadow-natural z-20 pb-4 mb-6 relative">
-                <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
-                    <button onClick={handleBack} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="이전으로">
-                        <span className="material-symbols-outlined text-deep-charcoal">arrow_back_ios_new</span>
-                    </button>
-                    <h2 className="text-deep-charcoal text-lg font-bold leading-tight tracking-tight flex-1 text-center">
-                        나는 솔로 퀴즈
-                    </h2>
-                    <button onClick={handleClose} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="닫기">
-                        <span className="material-symbols-outlined text-deep-charcoal">close</span>
-                    </button>
-                </header>
-
-                {/* Progress Indicator (only after gender selection) */}
-                {currentStep > 0 && (
-                    <div className="px-8 mt-2 transition-all duration-300 max-w-md mx-auto w-full">
-                        <div className="flex justify-between items-end mb-3">
-                            <span className="text-vibrant-pink text-[10px] font-bold tracking-widest uppercase">
-                                Question {String(currentStep).padStart(2, '0')}
-                            </span>
-                            <p className="text-slate-grey text-xs font-bold">{currentStep} <span className="text-slate-300 font-normal">/ {totalSteps}</span></p>
-                        </div>
-                        <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden shadow-inner">
-                            <div
-                                className="h-full rounded-full bg-vibrant-pink transition-all duration-500 ease-out shadow-btn"
-                                style={{
-                                    width: `${(currentStep / totalSteps) * 100}%`,
-                                }}
-                            />
-                        </div>
-                    </div>
-                )}
-            </div>
+            {/* Header (Only show for Gender Selection step) */}
+            {currentStep === 0 && (
+                <div className="bg-white rounded-b-[3.5rem] shadow-natural z-20 pb-4 mb-6 relative">
+                    <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
+                        <button onClick={handleBack} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="이전으로">
+                            <span className="material-symbols-outlined text-deep-charcoal">arrow_back_ios_new</span>
+                        </button>
+                        <h2 className="text-deep-charcoal text-lg font-bold leading-tight tracking-tight flex-1 text-center">
+                            나는 솔로 퀴즈
+                        </h2>
+                        <button onClick={handleClose} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="닫기">
+                            <span className="material-symbols-outlined text-deep-charcoal">close</span>
+                        </button>
+                    </header>
+                </div>
+            )}
 
             {/* Main Content Area */}
-            <main className={`flex-1 px-6 pt-2 pb-24 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            <main className={`flex-1 flex flex-col px-6 pt-2 pb-32 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'} h-full`}>
 
                 {/* ── 성별 선택 ── */}
                 {currentStep === 0 && (
@@ -217,56 +211,101 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up space-y-6">
-                        {/* Question Illustration Card */}
-                        <div className="w-full bg-white rounded-[2.5rem] overflow-hidden shadow-floating border border-slate-50 mb-8 group transition-transform duration-500 hover:-translate-y-1 relative">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-soft-pink/50 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-lavender-tag/50 rounded-full blur-xl translate-y-1/2 -translate-x-1/2"></div>
+                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-8">
+                        {/* Question Badge */}
+                        <div className="flex justify-center mb-10 mt-2">
+                            <span className="text-vibrant-pink text-sm font-extrabold tracking-[0.15em] uppercase bg-soft-pink/30 px-6 py-2 rounded-full border border-vibrant-pink/10 shadow-sm">
+                                QUESTION {String(currentStep).padStart(2, '0')}
+                            </span>
+                        </div>
 
-                            <div className="w-full aspect-[4/3] bg-off-white flex items-center justify-center relative overflow-hidden px-4 pt-4">
-                                <div className="w-full h-full rounded-2xl overflow-hidden shadow-inner relative z-10 border border-slate-100">
-                                    <div className="absolute inset-0 opacity-[0.03] bg-vibrant-pink mix-blend-multiply transition-opacity group-hover:opacity-10 z-10"></div>
-                                    <img
-                                        src={currentQuestion.imageUrl}
-                                        alt={`상황 ${currentStep} 이미지`}
-                                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </div>
-                            <div className="p-8 pt-6 relative z-10 bg-white">
-                                <p className="text-vibrant-pink text-[10px] font-bold mb-3 text-center uppercase tracking-widest border border-soft-pink inline-block px-4 py-1.5 bg-soft-pink/30 rounded-full mx-auto block w-fit shadow-sm">
-                                    {currentQuestion.situation}
-                                </p>
-                                <h3 className="text-deep-charcoal text-[22px] font-bold leading-snug text-center break-keep mt-4 px-2">
-                                    {currentQuestion.text}
-                                </h3>
-                            </div>
+                        {/* Image Container (Filled inside rounded box) */}
+                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-soft-card mb-10 border border-slate-50/50">
+                            <img
+                                src={currentQuestion.imageUrl}
+                                alt={`상황 ${currentStep} 이미지`}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        {/* Typography */}
+                        <div className="text-center px-1 mb-10">
+                            <h3 className="text-deep-charcoal text-[21px] font-extrabold leading-snug break-keep">
+                                {/* Replacing newline with <br/> for UI string */}
+                                {currentQuestion.situation.split('\n').map((line, i) => (
+                                    <span key={i}>
+                                        {line}
+                                        {i !== currentQuestion.situation.split('\n').length - 1 && <br />}
+                                    </span>
+                                ))}
+                            </h3>
                         </div>
 
                         {/* Choice Options */}
-                        <div className="flex flex-col gap-4 px-1 pb-10">
-                            {currentQuestion.answers.map((answer, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleAnswerClick(answer)}
-                                    className="w-full p-6 text-left bg-white border border-slate-100 rounded-[2rem] hover:border-vibrant-pink/50 hover:bg-soft-pink/10 transition-all duration-300 shadow-soft-card active:scale-[0.98] focus:outline-none group hover:shadow-floating hover:-translate-y-1 relative overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-soft-pink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    <div className="flex items-center gap-5 relative z-10">
-                                        <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-slate-100 text-[14px] font-extrabold text-slate-400 bg-off-white group-hover:bg-vibrant-pink group-hover:text-white group-hover:border-vibrant-pink shadow-inner group-hover:shadow-btn transition-all duration-300">
-                                            {String.fromCharCode(65 + index)}
-                                        </span>
-                                        <p className="text-deep-charcoal font-bold text-[15px] leading-relaxed flex-1 group-hover:translate-x-1 transition-transform duration-300">
+                        <div className="flex flex-col gap-4">
+                            {currentQuestion.answers.map((answer, index) => {
+                                const isSelected = selectedAnswerIndex === index;
+                                return (
+                                    <button
+                                        key={index}
+                                        onClick={() => handleAnswerSelect(index)}
+                                        className={`w-full p-6 text-left rounded-[1.5rem] transition-all duration-300 focus:outline-none flex flex-col relative ${isSelected
+                                                ? 'bg-white border-[2.5px] border-vibrant-pink shadow-md hover:-translate-y-0.5'
+                                                : 'bg-white border border-slate-200/80 shadow-sm hover:border-vibrant-pink/40 hover:bg-soft-pink/5 hover:-translate-y-0.5'
+                                            }`}
+                                    >
+                                        <div className="flex justify-between items-center w-full mb-3">
+                                            <span className={`text-[19px] font-extrabold ${isSelected ? 'text-vibrant-pink' : 'text-slate-400'}`}>
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                            <div className={`flex items-center justify-center size-7 rounded-full border-2 transition-colors ${isSelected
+                                                    ? 'bg-vibrant-pink border-vibrant-pink'
+                                                    : 'bg-transparent border-slate-200'
+                                                }`}>
+                                                {isSelected && (
+                                                    <span className="material-symbols-outlined text-white text-[18px] font-bold leading-none" style={{ marginTop: '1px' }}>
+                                                        check
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <p className={`text-[16px] leading-[1.6] break-keep ${isSelected ? 'text-deep-charcoal font-bold' : 'text-slate-600 font-semibold'}`}>
                                             {answer.text}
                                         </p>
-                                    </div>
-                                </button>
-                            ))}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
                 )}
             </main>
+
+            {/* Bottom Sticky Navigation (Only for Questions) */}
+            {currentStep > 0 && (
+                <div className="fixed bottom-0 left-0 w-full bg-[#fcfcfc]/90 backdrop-blur-md border-t border-slate-100/50 z-50 py-5 px-6 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+                    <div className="max-w-md mx-auto w-full flex gap-3">
+                        <button
+                            onClick={handleBack}
+                            className="flex-1 py-4 bg-slate-100/80 text-slate-500 font-extrabold text-[16px] rounded-[1.2rem] flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
+                        >
+                            <span className="material-symbols-outlined text-[19px]">arrow_back</span>
+                            이전
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            disabled={selectedAnswerIndex === null || isTransitioning}
+                            className={`flex-[1.8] py-4 font-extrabold text-[17px] rounded-[1.2rem] flex items-center justify-center gap-2 transition-all duration-300 ${selectedAnswerIndex !== null && !isTransitioning
+                                    ? 'bg-vibrant-pink text-white hover:bg-[#eb1163] shadow-btn active:scale-95'
+                                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                                }`}
+                        >
+                            다음 질문
+                            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
