@@ -3,7 +3,18 @@
     "loading": "Loading...",
     "error": "An error occurred.",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "footer": {
+      "brand_title": "I am Solo Dating Test",
+      "brand_desc": "This unofficial psychological test was created for fun,<br/>inspired by the characters from ENA's 'I am SOLO'.",
+      "nav_home": "Home",
+      "nav_test": "Start Test",
+      "nav_privacy": "Privacy Policy",
+      "nav_about": "About",
+      "disclaimer": "This service is created for personal entertainment<br/>and has no official affiliation with the actual broadcast or cast.",
+      "ads_notice": "Ad inquiries & Bug reports",
+      "copyright": "© {{year}} Solo Love Test. All rights reserved."
+    }
   },
   "home": {
     "title": "I am Solo Personality Test",

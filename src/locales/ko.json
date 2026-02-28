@@ -3,7 +3,18 @@
     "loading": "로딩 중...",
     "error": "에러가 발생했습니다.",
     "back": "뒤로",
-    "close": "닫기"
+    "close": "닫기",
+    "footer": {
+      "brand_title": "나는 솔로 연애유형 테스트",
+      "brand_desc": "본 테스트는 ENA '나는 SOLO'의 캐릭터들을 모티브로<br/>재미를 위해 제작된 비공식 심리테스트입니다.",
+      "nav_home": "홈",
+      "nav_test": "테스트 시작",
+      "nav_privacy": "개인정보처리방침",
+      "nav_about": "서비스 소개",
+      "disclaimer": "본 서비스는 개인적인 즐거움을 위해 제작되었으며,<br/>실제 방송 및 출연진과 공식적인 연관이 없습니다.",
+      "ads_notice": "광고 문의 및 오류 제보",
+      "copyright": "© {{year}} Solo Love Test. All rights reserved."
+    }
   },
   "home": {
     "title": "나는 솔로 심리테스트",

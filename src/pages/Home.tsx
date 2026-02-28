@@ -38,7 +38,7 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
                     ? 'bg-vibrant-pink text-white'
                     : 'bg-deep-charcoal text-white'
                     }`}>
-                    {isFemale ? t('common.gender_female') : t('common.gender_male')}
+                    {isFemale ? t('test.femaleSub') : t('test.maleSub')}
                 </span>
             </div>
 
@@ -68,8 +68,8 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
             </p>
 
             <div className="flex flex-wrap gap-2">
-                {hashtags.map(tag => (
-                    <span key={tag} className="tag">#{tag}</span>
+                {hashtags.map((_, idx) => (
+                    <span key={idx} className="tag">#{t(`characters.${character.id}.keywords.${idx}`)}</span>
                 ))}
             </div>
         </div>

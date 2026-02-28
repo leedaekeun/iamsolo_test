@@ -3,7 +3,18 @@
     "loading": "ロード中...",
     "error": "エラーが発生しました。",
     "back": "戻る",
-    "close": "閉じる"
+    "close": "閉じる",
+    "footer": {
+      "brand_title": "私はSOLO 恋愛タイプテスト",
+      "brand_desc": "このテストはENA「私はSOLO」のキャラクターをモチーフに<br/>お楽しみのために作成された非公式の心理テストです。",
+      "nav_home": "ホーム",
+      "nav_test": "テスト開始",
+      "nav_privacy": "プライバシーポリシー",
+      "nav_about": "サービス紹介",
+      "disclaimer": "本サービスは個人的な娯楽のために作成されており、<br/>実際の放送や出演者とは公式な関係はありません。",
+      "ads_notice": "広告の問い合わせとエラー報告",
+      "copyright": "© {{year}} Solo Love Test. All rights reserved."
+    }
   },
   "home": {
     "title": "私はソロ 心理テスト",

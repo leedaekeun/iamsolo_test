@@ -131,9 +131,10 @@ export default function TestPage() {
                 {currentStep === 0 && (
                     <div className="animate-slide-up space-y-3 sm:space-y-4">
                         <div className="text-center space-y-1 sm:space-y-2 mb-4 sm:mb-6 mt-0">
-                            <h2 className="text-3xl font-bold tracking-tight text-deep-charcoal leading-tight">
-                                <Trans i18nKey="test.genderSelectTitle" />
-                            </h2>
+                            <h2
+                                className="text-2xl xs:text-3xl font-bold tracking-tight text-deep-charcoal leading-tight break-keep whitespace-pre-wrap"
+                                dangerouslySetInnerHTML={{ __html: t('test.genderSelectTitle') }}
+                            ></h2>
                             <p className="text-slate-grey text-sm font-medium mt-2 tracking-wide leading-relaxed">
                                 {t('test.genderSelectDesc')}
                             </p>

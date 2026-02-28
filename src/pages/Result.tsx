@@ -193,7 +193,7 @@ export default function ResultClient() {
                                     ) : (
                                         <span className="material-symbols-outlined text-vibrant-pink text-4xl">volunteer_activism</span>
                                     )}
-                                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-max z-10">
+                                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-max z-10">
                                         <p className="text-[11px] font-bold text-white bg-vibrant-pink px-3 py-1.5 rounded-full shadow-md whitespace-nowrap">
                                             {t('result.bestMatchBadge')}
                                         </p>
@@ -214,7 +214,7 @@ export default function ResultClient() {
                                     ) : (
                                         <span className="material-symbols-outlined text-slate-400 text-4xl">sentiment_dissatisfied</span>
                                     )}
-                                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-max z-10">
+                                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-max z-10">
                                         <p className="text-[11px] font-bold text-slate-600 bg-white/90 backdrop-blur-sm border border-slate-200/50 px-3 py-1.5 rounded-full shadow-sm">
                                             {t('result.worstMatchBadge')}
                                         </p>

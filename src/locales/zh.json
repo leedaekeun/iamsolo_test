@@ -3,7 +3,18 @@
     "loading": "加载中...",
     "error": "发生错误。",
     "back": "返回",
-    "close": "关闭"
+    "close": "关闭",
+    "footer": {
+      "brand_title": "我是SOLO 恋爱类型测试",
+      "brand_desc": "本测试是以ENA《我是SOLO》中的角色为原型，<br/>为增添乐趣而制作的非官方心理测试。",
+      "nav_home": "首页",
+      "nav_test": "开始测试",
+      "nav_privacy": "隐私政策",
+      "nav_about": "关于我们",
+      "disclaimer": "本服务仅供个人娱乐，<br/>与实际广播及演员无官方联系。",
+      "ads_notice": "广告咨询与错误报告",
+      "copyright": "© {{year}} Solo Love Test. All rights reserved."
+    }
   },
   "home": {
     "title": "我是单身 心理测试",
