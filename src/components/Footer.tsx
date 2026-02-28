@@ -41,6 +41,11 @@ export default function Footer() {
                         홈
                     </Link>
                     <span className="stat-divider" aria-hidden="true" />
+                    <Link to="/about" className="text-xs font-medium transition-colors"
+                        style={{ color: 'var(--text-muted)' }}>
+                        소개
+                    </Link>
+                    <span className="stat-divider" aria-hidden="true" />
                     <Link to="/test" className="text-xs font-medium transition-colors"
                         style={{ color: 'var(--text-muted)' }}>
                         테스트 시작

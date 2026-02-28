@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /c/Users/sun_f/수익화웹사이트첫걸음 && npm run build 2>&12)",
+      "Bash(cd:*)",
+      "Bash(cd /c/Users/sun_f/수익화웹사이트첫걸음 && git push origin main 2>&1)",
+      "Bash(cd /c/Users/sun_f/수익화웹사이트첫걸음 && npm run build 2>&1)",
+      "Bash(cd /c/Users/sun_f/수익화웹사이트첫걸음 && git add src/globals.css src/pages/Home.tsx dist/ && git commit -m \"$\\(cat <<'EOF'\nMove 테스트 안내 to bottom-sheet popup, keep CTA on first screen\n\n- Remove feature card grid from main mobile layout\n- Add '테스트 안내 보기' pill button that opens a slide-up bottom sheet\n- Bottom sheet includes 2x2 feature cards + secondary CTA button\n- Desktop keeps full feature grid below hero\n- Slim title to 2 lines \\(나는 솔로 / 어떤 캐릭터일까?\\)\n- Reduce --fs-display min to 2.25rem for compact mobile fit\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main 2>&1)",
+      "WebFetch(domain:adsense-ko.googleblog.com)",
+      "Bash(cd /c/Users/sun_f/수익화웹사이트첫걸음 && git add src/ dist/ && git commit -m \"$\\(cat <<'EOF'\nOptimize for Google AdSense approval\n\n- Add 개인정보처리방침 \\(/privacy\\) with Google AdSense cookie disclosure\n- Add shared Footer with nav links, disclaimer, ad notice, copyright\n- Add /privacy route to App.tsx\n- Enhance characters.ts: add advice \\(연애 조언 3가지\\), keywords, loveStyle per character\n- Home: add '이 테스트란?' section with 8-character grid + feature cards \\(SEO content\\)\n- Home: import Footer at bottom\n- Result: add loveStyle summary + keywords tags to character card\n- Result: add '연애 성장 조언' section using advice data\n- Result: add disclaimer card \\(오락 목적 면책 조항\\)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main 2>&1)"
+    ]
+  }
+}

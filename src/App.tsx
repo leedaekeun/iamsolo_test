@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Test from './pages/Test';
 import Result from './pages/Result';
 import Privacy from './pages/Privacy';
+import About from './pages/About';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Route path="/test" element={<Test />} />
                     <Route path="/result" element={<Result />} />
                     <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/about" element={<About />} />
                 </Routes>
             </div>
         </BrowserRouter>
