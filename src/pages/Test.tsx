@@ -188,7 +188,7 @@ export default function TestPage() {
                     <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[5rem]">
 
                         {/* Image Container (Filled inside rounded box) */}
-                        <div className="w-full aspect-square bg-white rounded-[2rem] overflow-hidden shadow-card mb-10 border border-slate-100 mt-10">
+                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-6 border border-slate-100 mt-4 max-h-[260px]">
                             <img
                                 src={`/images/questions/q${currentStep}_${genderPref === 'M' ? 'm' : 'w'}.png`}
                                 alt={`상황 ${currentStep} 이미지`}
@@ -198,8 +198,8 @@ export default function TestPage() {
                         </div>
 
                         {/* Typography */}
-                        <div className="text-center px-1 mb-10">
-                            <h3 className="text-deep-charcoal text-[21px] font-extrabold leading-snug break-keep">
+                        <div className="text-center px-1 mb-8">
+                            <h3 className="text-deep-charcoal text-[20px] font-extrabold leading-snug break-keep">
                                 {/* Replacing newline with <br/> for UI string */}
                                 {currentQuestion.situation.split('\n').map((line, i) => (
                                     <span key={i}>
@@ -211,36 +211,36 @@ export default function TestPage() {
                         </div>
 
                         {/* Choice Options (Side-by-Side Grid) */}
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-3 mb-4">
                             {currentQuestion.answers.map((answer, index) => {
                                 const isSelected = selectedAnswerIndex === index;
                                 return (
                                     <button
                                         key={index}
                                         onClick={() => handleAnswerClick(answer, index)}
-                                        className={`w-full p-5 text-left rounded-[1.5rem] transition-all duration-300 focus:outline-none flex flex-col relative group min-h-[160px] ${isSelected
-                                            ? 'bg-vibrant-pink border-2 border-vibrant-pink shadow-md hover:-translate-y-0.5'
-                                            : 'bg-white border-2 border-slate-200/80 shadow-sm hover:border-vibrant-pink hover:bg-vibrant-pink hover:-translate-y-0.5'
+                                        className={`w-full p-4 text-left rounded-[1.5rem] transition-all duration-200 focus:outline-none flex flex-col relative group min-h-[140px] ${isSelected
+                                            ? 'bg-vibrant-pink border-2 border-vibrant-pink shadow-md translate-y-[-2px]'
+                                            : 'bg-white border-2 border-slate-200/80 shadow-sm active:bg-pink-50 sm:hover:border-vibrant-pink sm:hover:bg-vibrant-pink sm:hover:-translate-y-0.5'
                                             }`}
                                     >
                                         <div className="flex justify-between items-start w-full mb-3">
-                                            <span className={`text-3xl font-black transition-colors ${isSelected || isSelected ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>
+                                            <span className={`text-2xl font-black transition-colors ${isSelected ? 'text-white' : 'text-slate-300 sm:group-hover:text-white'}`}>
                                                 {String.fromCharCode(65 + index)}
                                             </span>
-                                            <div className={`flex items-center justify-center size-7 rounded-full border-2 transition-all duration-300 mt-1 ${isSelected
+                                            <div className={`flex items-center justify-center size-6 rounded-full border-2 transition-all duration-200 mt-1 ${isSelected
                                                 ? 'bg-white border-white'
-                                                : 'bg-transparent border-slate-200 group-hover:bg-white group-hover:border-white'
+                                                : 'bg-transparent border-slate-200 sm:group-hover:bg-white sm:group-hover:border-white'
                                                 }`}>
-                                                <span className={`material-symbols-outlined text-[18px] font-bold leading-none transition-colors duration-300 ${isSelected
+                                                <span className={`material-symbols-outlined text-[16px] font-bold leading-none transition-colors duration-200 ${isSelected
                                                     ? 'text-vibrant-pink'
-                                                    : 'text-transparent group-hover:text-vibrant-pink'
+                                                    : 'text-transparent sm:group-hover:text-vibrant-pink'
                                                     }`} style={{ marginTop: '1px' }}>
                                                     check
                                                 </span>
                                             </div>
                                         </div>
                                         <div className="mt-auto">
-                                            <p className={`text-[15px] leading-[1.6] break-keep transition-colors ${isSelected ? 'text-white font-bold' : 'text-slate-600 font-semibold group-hover:text-white'}`}>
+                                            <p className={`text-[14px] leading-[1.5] break-keep transition-colors ${isSelected ? 'text-white font-bold' : 'text-slate-600 font-semibold sm:group-hover:text-white'}`}>
                                                 {answer.text}
                                             </p>
                                         </div>

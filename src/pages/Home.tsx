@@ -84,27 +84,27 @@ export default function Home() {
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal">
 
             {/* ── 히어로 헤더 ── */}
-            <header className="relative pt-24 pb-16 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
+            <header className="relative pt-16 pb-12 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
 
                 {/* 배지 */}
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-10 w-fit mx-auto">
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-6 w-fit mx-auto">
                     <span className="text-caption text-vibrant-pink text-center tracking-wide inline-block translate-y-[2px]">Love Psychology Test</span>
                 </div>
 
                 {/* 제목 */}
-                <h1 className="text-hero mb-5">
+                <h1 className="text-hero mb-4">
                     솔로 나라에서<br />
                     <span className="text-vibrant-pink">나는 무슨 이름일까?</span>
                 </h1>
 
                 {/* 서브 */}
-                <p className="text-body max-w-xs mx-auto mb-14">
+                <p className="text-body max-w-xs mx-auto mb-8 text-[15px]">
                     심리학 원형 데이터 기반<br />
                     나의 <span className="text-vibrant-pink font-semibold">찐 연애 성향 캐릭터</span> 매칭
                 </p>
 
                 {/* 메인 이미지 */}
-                <div className="relative w-full max-w-[340px] mx-auto aspect-[4/3] mb-14 group">
+                <div className="relative w-full max-w-[320px] mx-auto aspect-[4/3] mb-10 group">
                     <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-natural bg-white transition-transform duration-500 group-hover:scale-[1.01]">
                         <img
                             src="/images/main.jpg"
