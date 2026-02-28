@@ -1,0 +1,136 @@
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e60a15",
+                        "background-light": "#ffffff",
+                        "background-dark": "#221011",
+                        "neutral-gray": "#666666",
+                        "deep-black": "#111111"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-deep-black dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto">
+<!-- Top Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 justify-between sticky top-0 z-10">
+<div class="text-deep-black dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h2 class="text-deep-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">나는 솔로 테스트</h2>
+</div>
+<!-- Hero Section -->
+<div class="px-6 pt-4 pb-8 flex flex-col items-center">
+<div class="w-full aspect-square max-w-[320px] rounded-xl overflow-hidden mb-8">
+<div class="w-full h-full bg-cover bg-center rounded-xl bg-slate-50 flex items-center justify-center" data-alt="3D character illustration of a romantic couple on white background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWTfvlB9bETpaNXPV2qO2-Mong9Xpa6euIeqW58BMHy6xoI1QwKSWCdJay6WjTXXCeMI1FJRbwGq8ji5R7TXlY9qKQQfSnGh2XedyBrJRvbPi2klKAcqumtk2ocZggjVXwaHoDjwCbwIfxNasulxasnk-3Dtvd8c-rnWFS1m4XNt0Xo3Dkzvn3q5bLOh1uHSMPHFPd23eihgwQrCCEy0a0nyrxh3ToPjAACHxL45b9bUDLBaB9LRuWuAFZ4lcS2J3rRryOqTV_Pw");'>
+</div>
+</div>
+<h1 class="text-deep-black dark:text-white tracking-tight text-2xl font-extrabold leading-tight text-center mb-2">
+                나에게 맞는 솔로나라<br/>데이트 스타일은?
+            </h1>
+<p class="text-neutral-gray dark:text-slate-400 text-base font-medium text-center">나는 솔로 테스트 (프리미엄 화이트)</p>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col px-6 gap-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-primary text-white text-lg font-bold leading-normal tracking-wide shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="truncate">테스트 시작하기</span>
+</button>
+<div class="flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-neutral-gray text-sm">person</span>
+<p class="text-neutral-gray dark:text-slate-500 text-xs font-semibold">참여자 수 12,345명</p>
+</div>
+</div>
+<!-- Real-time Popular Types -->
+<div class="mt-12 px-6 pb-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-deep-black dark:text-white text-lg font-bold">실시간 인기 유형</h3>
+<span class="text-primary text-sm font-bold">LIVE</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="flex items-center p-4 bg-white dark:bg-background-dark border border-slate-100 dark:border-slate-800 rounded-2xl shadow-soft">
+<div class="size-12 rounded-xl bg-slate-100 mr-4 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Profile icon of a romantic type candidate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfHgR6rG8FNzzAflhMcMCW7n55YOBwBd9E8rKMSx7CuVEUEY_CSZTrMUX9w0ZLO8S10qUSjid37nsudm5c6x-cYKUwm7AUYondfuw3XWqHJwOuxpjd95qsABlqpJFZPrHI7JRDQ8WJIeqqkBGnMWlwUMLIkyNYlMPtCg3aJ85zcgNm7vBsTGgg2LD6zWKto6VhOwKYvudR05QO4VUmLLs8sV8HFmSRyXYHYCZkmP9Zn1gy0BRjnBHcIGLOn_vtRybUifC6W-z7-Q");'></div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-deep-black dark:text-white font-bold text-sm">로맨틱 가이</h4>
+<span class="px-2 py-0.5 bg-primary text-[10px] text-white font-bold rounded-full">HOT</span>
+</div>
+<p class="text-neutral-gray dark:text-slate-400 text-xs">순애보적인 사랑을 꿈꾸는 스타일</p>
+</div>
+<div class="text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex items-center p-4 bg-white dark:bg-background-dark border border-slate-100 dark:border-slate-800 rounded-2xl shadow-soft">
+<div class="size-12 rounded-xl bg-slate-100 mr-4 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Profile icon of a confident lady candidate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPtqYh8IpVyco5AJL4CzpvORbk7iWUTJwhY-oysTUeIWA3gf4ddrr9lDgCwBo9qckgtKDgLDML1amIV7TT9q7adijDEp4jMOO80RWE2MgUfXbXyzz5JC5yTFofCVRDPK2FEpgNBomXeVsHh5Yc7g8llNcO4Wu2AcLXSlmWuJxlrgFKmVdW1eOIl3Xy_y8ogMCCG9DWWDQXvRNTih3DYwNjdkYUOq09qh58Jcb5KA6P2XRo0Azqsdt2NFzlwN-2pZZHv2yoVPhUnw");'></div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-deep-black dark:text-white font-bold text-sm">걸크러쉬 리더</h4>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">UP</span>
+</div>
+<p class="text-neutral-gray dark:text-slate-400 text-xs">당당하고 솔직한 매력의 소유자</p>
+</div>
+<div class="text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex items-center p-4 bg-white dark:bg-background-dark border border-slate-100 dark:border-slate-800 rounded-2xl shadow-soft">
+<div class="size-12 rounded-xl bg-slate-100 mr-4 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Profile icon of a funny guy candidate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTa5kU0E-jSOV0aLq5s0Lw-VXyVkDhATVNcmm8L3BcdkXyle91s3WickKPTU2Y33SVXGp9TKBAd1Qtn4OvnE6aVw6AqmNhXx0zux89B8cRB4F45p0rS1OFOuxnkhwoPXJQrrZuI6nI-SbEyafNwrQ3IKjNDNxzPCec4NPDssPvxCKJzSHNy5sPvZ1TkiuYCwCYBu6jmLzcCGagQKsBpcGchBba4q6gi2OC9Y7M-zx8Ne0S3b7gwCLSxM8kkrQiRI7N-WTDQGQi8Q");'></div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-deep-black dark:text-white font-bold text-sm">재치만점 분위기메이커</h4>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">NEW</span>
+</div>
+<p class="text-neutral-gray dark:text-slate-400 text-xs">언제 어디서나 웃음을 주는 스타일</p>
+</div>
+<div class="text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<div class="h-10"></div>
+</div>
+</body></html>

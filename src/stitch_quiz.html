@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ff243d",
+              "background-light": "#f8f5f6",
+              "background-dark": "#230f11",
+              "neutral-100": "#fefefe",
+              "neutral-200": "#f1eced",
+              "neutral-300": "#e7dadc",
+              "neutral-800": "#3d2a2c",
+              "neutral-900": "#181011",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .progress-glow { box-shadow: 0 0 8px rgba(255, 36, 61, 0.4); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-900 dark:text-slate-100">
+<div class="relative flex h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-hidden max-w-[480px] mx-auto shadow-2xl">
+<!-- Header Section -->
+<header class="flex items-center bg-white dark:bg-neutral-900 px-4 py-3 justify-between border-b border-neutral-200 dark:border-neutral-800">
+<div class="flex size-10 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-neutral-900 dark:text-white">arrow_back_ios</span>
+</div>
+<h2 class="text-neutral-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">나는 솔로 퀴즈</h2>
+<div class="flex size-10 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-neutral-900 dark:text-white">close</span>
+</div>
+</header>
+<!-- Progress Indicator -->
+<div class="flex flex-col gap-2 p-5 bg-white dark:bg-neutral-900">
+<div class="flex justify-between items-end">
+<span class="text-primary text-sm font-bold tracking-widest uppercase">Question 03</span>
+<p class="text-neutral-800 dark:text-neutral-300 text-xs font-medium">3 / 12</p>
+</div>
+<div class="h-1.5 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+<div class="h-full rounded-full bg-primary progress-glow" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-5 pt-6 pb-24 scrollbar-hide">
+<!-- Question Illustration Card -->
+<div class="w-full bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-200 dark:border-neutral-800 mb-8">
+<div class="w-full aspect-[4/3] bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-primary/20"></div>
+<img alt="Romantic date setting illustration" class="w-full h-full object-cover" data-alt="Minimalist illustration of a romantic dinner table for two" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2wJV1TLNO6MJ9Y50PLRZYHY76sqmUUhFIZWL2IekV7CyYpb-BO4emeEiHG835w9ArzwQX6mEWp4b_q53-CcqcwD1zNnBtf0zQXYO22E81IgDiR0mojpsBpdiPqKOnXTvOCdT0TglLfpPwVztu0nkRzaE-p8TLPxx_BQoAYcRS1enmLfv9kHQof7Kfo14BWTczo90KqQAYw3YmH8GjkS3Ud1zRrJ4tYXIRE3J5CzzyDC5AxjxK81Dx7mpgiJoCFRaid3MAeNXLzw"/>
+</div>
+<div class="p-6">
+<h3 class="text-neutral-900 dark:text-white text-xl font-bold leading-relaxed text-center">
+                        첫 데이트 장소를 정할 때<br/>당신의 선택은?
+                    </h3>
+</div>
+</div>
+<!-- Choice Options -->
+<div class="flex flex-col gap-3">
+<!-- Option A (Standard) -->
+<button class="w-full p-5 text-left bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-primary/50 transition-all active:scale-[0.98]">
+<div class="flex items-center gap-4">
+<span class="flex size-6 shrink-0 items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-400">A</span>
+<p class="text-neutral-800 dark:text-neutral-200 font-medium">조용하고 분위기 있는 파인 다이닝 레스토랑</p>
+</div>
+</button>
+<!-- Option B (Selected State Example) -->
+<button class="w-full p-5 text-left bg-white dark:bg-neutral-900 border-2 border-primary rounded-xl transition-all shadow-md shadow-primary/10">
+<div class="flex items-center gap-4">
+<span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">B</span>
+<p class="text-primary font-bold">활기차고 대화가 끊이지 않는 핫플레이스 카페</p>
+</div>
+</button>
+<!-- Option C (Standard) -->
+<button class="w-full p-5 text-left bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-primary/50 transition-all active:scale-[0.98]">
+<div class="flex items-center gap-4">
+<span class="flex size-6 shrink-0 items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-400">C</span>
+<p class="text-neutral-800 dark:text-neutral-200 font-medium">산책하며 가볍게 즐길 수 있는 야외 공원</p>
+</div>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (CGV Style Minimal) -->
+<nav class="absolute bottom-0 w-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800 pb-8 pt-2">
+<div class="flex items-center justify-around px-2">
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold">홈</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-neutral-400" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-[10px] font-medium">예매</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-neutral-400" href="#">
+<span class="material-symbols-outlined">featured_video</span>
+<span class="text-[10px] font-medium">무비로그</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-neutral-400" href="#">
+<span class="material-symbols-outlined">fastfood</span>
+<span class="text-[10px] font-medium">매점</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-neutral-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">MY</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>
