@@ -114,10 +114,6 @@ export default function Home() {
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-deep-charcoal text-white px-5 py-2.5 rounded-full shadow-lg text-xs font-bold flex items-center gap-1.5 whitespace-nowrap border-[3px] border-white">
-                        <span className="material-symbols-outlined text-sm text-vibrant-pink">verified</span>
-                        {t('home.badge_100_sync')}
-                    </div>
                 </div>
 
                 {/* CTA */}
@@ -128,23 +124,6 @@ export default function Home() {
                     </button>
                 </div>
 
-                {/* 신뢰 지표 */}
-                <div className="flex justify-center items-center gap-5 mt-10 text-caption text-slate-400">
-                    <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-vibrant-pink inline-block" />
-                        {t('home.trust_users')}
-                    </span>
-                    <span className="w-px h-3 bg-slate-200" />
-                    <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-vibrant-pink inline-block" />
-                        {t('home.trust_satisfaction')}
-                    </span>
-                    <span className="w-px h-3 bg-slate-200" />
-                    <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-vibrant-pink inline-block" />
-                        {t('home.trust_anonymous')}
-                    </span>
-                </div>
             </header>
 
             {/* ── 분석 방법 섹션 ── */}
