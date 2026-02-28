@@ -94,17 +94,17 @@ export default function ResultClient() {
 
             {/* Overlapping Hero Card Wrapper */}
             <div className="px-6 relative -mt-16 z-10 max-w-md mx-auto w-full animate-slide-up ">
-                <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center justify-center relative border border-slate-50">
+                <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center justify-center relative border border-slate-50 group hover:-translate-y-2 transition-transform duration-500">
                     {/* Abstract decorative elements using correct Stitch colors */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-soft-pink rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-70"></div>
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-lavender-tag rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 opacity-70"></div>
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-soft-pink rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-lavender-tag rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
 
-                    <div className="text-8xl mb-12 z-10 drop-shadow-xl animate-float-y">
+                    <div className="text-8xl mb-12 z-10 drop-shadow-xl animate-float-y group-hover:scale-110 transition-transform duration-500">
                         {getCharacterEmoji(character.id)}
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 z-10 text-center">
-                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[10px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md opacity-90">
+                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[10px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md opacity-90 backdrop-blur-sm">
                             {character.title}
                         </span>
                         <h3 className="text-deep-charcoal text-3xl font-extrabold leading-tight break-keep">
@@ -130,16 +130,16 @@ export default function ResultClient() {
                     <div className="space-y-6 animate-slide-up delay-200">
                         <h4 className="text-xl font-bold text-deep-charcoal pl-2 mb-2">나의 연애 특징</h4>
                         <div className="grid grid-cols-1 gap-5">
-                            <div className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-lg transition-transform hover:-translate-y-1">
+                            <div className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-floating transition-all duration-300 hover:-translate-y-1">
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-soft-pink/50 p-3 rounded-full shrink-0 group-hover:scale-110 transition-transform">
-                                        <span className="material-symbols-outlined text-vibrant-pink">favorite</span>
+                                    <div className="bg-soft-pink/50 p-3 rounded-full shrink-0 group-hover:scale-110 group-hover:bg-vibrant-pink group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span className="material-symbols-outlined text-vibrant-pink group-hover:text-white transition-colors">favorite</span>
                                     </div>
                                     <div>
                                         <p className="font-bold text-deep-charcoal text-[15px] mb-3 leading-relaxed">{character.loveStyle}</p>
                                         <div className="flex flex-wrap gap-2 mt-2">
                                             {character.keywords.map(kw => (
-                                                <span key={kw} className="px-3 py-1 bg-lavender-tag text-deep-purple text-[10px] font-bold rounded-xl tracking-wide uppercase">
+                                                <span key={kw} className="px-3 py-1.5 bg-lavender-tag text-deep-purple text-[10px] font-bold rounded-xl tracking-wide uppercase border border-deep-purple/10">
                                                     #{kw}
                                                 </span>
                                             ))}
@@ -149,14 +149,15 @@ export default function ResultClient() {
                             </div>
 
                             {character.strengths.slice(0, 2).map((str, idx) => (
-                                <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-lg transition-transform hover:-translate-y-1">
-                                    <div className="flex items-start gap-4">
-                                        <div className="bg-off-white p-3 rounded-full shrink-0 group-hover:scale-110 transition-transform">
-                                            <span className="material-symbols-outlined text-deep-charcoal">verified</span>
+                                <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-floating transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-20 h-20 bg-soft-pink/30 rounded-full blur-xl -translate-y-1/2 translate-x-1/3 group-hover:scale-150 transition-transform duration-500"></div>
+                                    <div className="flex items-start gap-4 relative z-10">
+                                        <div className="bg-off-white p-3 rounded-full shrink-0 group-hover:scale-110 group-hover:bg-deep-charcoal group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100">
+                                            <span className="material-symbols-outlined text-deep-charcoal group-hover:text-white transition-colors">verified</span>
                                         </div>
                                         <div>
-                                            <p className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-1.5">장점 포인트 {idx + 1}</p>
-                                            <p className="text-sm font-semibold text-deep-charcoal leading-relaxed">{str}</p>
+                                            <p className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-1.5 group-hover:text-vibrant-pink transition-colors">장점 포인트 {idx + 1}</p>
+                                            <p className="text-[14px] font-semibold text-deep-charcoal leading-relaxed">{str}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -166,20 +167,23 @@ export default function ResultClient() {
 
                     {/* Matches */}
                     <div className="mt-16 animate-slide-up delay-300">
-                        <h4 className="text-xl font-bold pl-2 mb-6 text-deep-charcoal">환상의 케미 매칭</h4>
+                        <div className="flex items-center gap-3 pl-2 mb-6">
+                            <h4 className="text-xl font-bold text-deep-charcoal">환상의 케미 매칭</h4>
+                            <div className="h-px flex-1 bg-slate-100 rounded-full"></div>
+                        </div>
                         <div className="grid grid-cols-2 gap-5">
-                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-lg transition-shadow">
-                                <p className="inline-block border border-vibrant-pink/20 bg-soft-pink/30 px-3 py-1 rounded-full text-[10px] text-vibrant-pink font-bold mb-4 uppercase tracking-wider">최고의 궁합</p>
-                                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 relative">
+                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-floating transition-all duration-300 hover:-translate-y-1 group">
+                                <p className="inline-block border border-vibrant-pink/20 bg-soft-pink/30 px-3 py-1 rounded-full text-[10px] text-vibrant-pink font-bold mb-4 uppercase tracking-wider group-hover:bg-vibrant-pink group-hover:text-white transition-colors">최고의 궁합</p>
+                                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 relative group-hover:scale-110 transition-transform duration-300">
                                     <span className="material-symbols-outlined text-vibrant-pink text-3xl">volunteer_activism</span>
                                     {/* Small overlapping badge representing character correlation */}
                                 </div>
                                 <p className="font-bold text-deep-charcoal text-sm">{character.bestMatch}</p>
                             </div>
 
-                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-lg transition-shadow">
-                                <p className="inline-block border border-slate-200 bg-off-white px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold mb-4 uppercase tracking-wider">최악의 궁합</p>
-                                <div className="w-16 h-16 bg-off-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50">
+                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-floating transition-all duration-300 hover:-translate-y-1 group">
+                                <p className="inline-block border border-slate-200 bg-off-white px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold mb-4 uppercase tracking-wider group-hover:bg-deep-charcoal group-hover:text-white group-hover:border-deep-charcoal transition-colors">최악의 궁합</p>
+                                <div className="w-16 h-16 bg-off-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 group-hover:scale-110 transition-transform duration-300">
                                     <span className="material-symbols-outlined text-slate-400 text-3xl">sentiment_dissatisfied</span>
                                 </div>
                                 <p className="font-bold text-deep-charcoal text-sm">{character.worstMatch}</p>
@@ -191,17 +195,18 @@ export default function ResultClient() {
                     <div className="mt-20 space-y-4 animate-slide-up delay-400">
                         <button
                             onClick={handleShare}
-                            className="w-full bg-vibrant-pink text-white font-bold text-lg py-5 rounded-full shadow-btn transform active:scale-95 hover:scale-[1.02] hover:bg-[#E00055] transition-all flex items-center justify-center gap-3"
+                            className="w-full bg-vibrant-pink text-white font-bold text-[17px] py-[1.125rem] rounded-full shadow-btn transform active:scale-95 hover:-translate-y-1 hover:shadow-[0_12px_24px_-6px_rgba(255,45,120,0.4)] transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group"
                         >
-                            <span className="material-symbols-outlined text-[20px]">share</span>
-                            {shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}
+                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></div>
+                            <span className="material-symbols-outlined text-[22px] relative z-10">share</span>
+                            <span className="relative z-10">{shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}</span>
                         </button>
 
                         <Link
                             to="/"
-                            className="w-full bg-off-white border border-slate-100 text-deep-charcoal font-bold text-lg py-5 rounded-full shadow-sm transform active:scale-95 hover:bg-slate-50 transition-all flex items-center justify-center gap-3"
+                            className="w-full bg-white border border-slate-200 text-deep-charcoal font-bold text-[17px] py-[1.125rem] rounded-full shadow-sm transform active:scale-95 hover:bg-slate-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
                         >
-                            <span className="material-symbols-outlined text-[20px]">refresh</span>
+                            <span className="material-symbols-outlined text-[22px]">refresh</span>
                             테스트 다시하기
                         </Link>
                     </div>

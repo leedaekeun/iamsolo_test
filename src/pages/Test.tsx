@@ -113,8 +113,8 @@ export default function TestPage() {
         <div className="relative flex min-h-screen w-full flex-col bg-off-white overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white">
 
             {/* Header / Progress Section merged as a solid rounded-b header */}
-            <div className="bg-white rounded-b-[2.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] z-20 pb-4 mb-6">
-                <header className="flex items-center px-6 py-4 justify-between">
+            <div className="bg-white rounded-b-[3.5rem] shadow-natural z-20 pb-4 mb-6 relative">
+                <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
                     <button onClick={handleBack} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="이전으로">
                         <span className="material-symbols-outlined text-deep-charcoal">arrow_back_ios_new</span>
                     </button>
@@ -128,19 +128,18 @@ export default function TestPage() {
 
                 {/* Progress Indicator (only after gender selection) */}
                 {currentStep > 0 && (
-                    <div className="px-8 mt-2 transition-all duration-300">
+                    <div className="px-8 mt-2 transition-all duration-300 max-w-md mx-auto w-full">
                         <div className="flex justify-between items-end mb-3">
                             <span className="text-vibrant-pink text-[10px] font-bold tracking-widest uppercase">
                                 Question {String(currentStep).padStart(2, '0')}
                             </span>
                             <p className="text-slate-grey text-xs font-bold">{currentStep} <span className="text-slate-300 font-normal">/ {totalSteps}</span></p>
                         </div>
-                        <div className="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                        <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden shadow-inner">
                             <div
-                                className="h-full rounded-full bg-vibrant-pink transition-all duration-300 ease-out"
+                                className="h-full rounded-full bg-vibrant-pink transition-all duration-500 ease-out shadow-btn"
                                 style={{
                                     width: `${(currentStep / totalSteps) * 100}%`,
-                                    boxShadow: '0 0 12px rgba(255, 45, 120, 0.4)'
                                 }}
                             />
                         </div>
@@ -164,46 +163,46 @@ export default function TestPage() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col gap-5 mt-6">
+                        <div className="flex flex-col gap-5 mt-6 px-1">
                             {/* 여성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('F')}
-                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/40 rounded-[2rem] transition-all shadow-soft-card active:scale-[0.98] group"
+                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/20 rounded-[2rem] transition-all duration-300 shadow-soft-card active:scale-[0.98] group hover:-translate-y-2 hover:shadow-floating"
                             >
-                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner">
+                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner border border-slate-100 group-hover:border-vibrant-pink/30 transition-colors">
                                     <GirlIllustration />
                                 </div>
                                 <div className="flex-1 text-left">
                                     <p className="font-bold text-lg text-deep-charcoal mb-1">
-                                        여성 출연진
+                                        여성 매칭
                                     </p>
                                     <p className="text-[11px] text-slate-grey font-semibold tracking-wide uppercase">
                                         Female characters
                                     </p>
                                 </div>
-                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-3xl">chevron_right</span>
+                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center bg-off-white group-hover:bg-soft-pink w-10 h-10 rounded-full">
+                                    <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                                 </div>
                             </button>
 
                             {/* 남성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('M')}
-                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/40 rounded-[2rem] transition-all shadow-soft-card active:scale-[0.98] group"
+                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/20 rounded-[2rem] transition-all duration-300 shadow-soft-card active:scale-[0.98] group hover:-translate-y-2 hover:shadow-floating"
                             >
-                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner">
+                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner border border-slate-100 group-hover:border-vibrant-pink/30 transition-colors">
                                     <BoyIllustration />
                                 </div>
                                 <div className="flex-1 text-left">
                                     <p className="font-bold text-lg text-deep-charcoal mb-1">
-                                        남성 출연진
+                                        남성 매칭
                                     </p>
                                     <p className="text-[11px] text-slate-grey font-semibold tracking-wide uppercase">
                                         Male characters
                                     </p>
                                 </div>
-                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-3xl">chevron_right</span>
+                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center bg-off-white group-hover:bg-soft-pink w-10 h-10 rounded-full">
+                                    <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                                 </div>
                             </button>
                         </div>
@@ -218,41 +217,47 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up space-y-8">
+                    <div className="animate-slide-up space-y-6">
                         {/* Question Illustration Card */}
-                        <div className="w-full bg-white rounded-[2.5rem] overflow-hidden shadow-natural border border-slate-50 mb-10 group">
-                            <div className="w-full aspect-[4/3] bg-off-white flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 opacity-[0.03] bg-vibrant-pink mix-blend-multiply transition-opacity group-hover:opacity-10"></div>
-                                <img
-                                    src={currentQuestion.imageUrl}
-                                    alt={`상황 ${currentStep} 이미지`}
-                                    className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
-                                    loading="lazy"
-                                />
+                        <div className="w-full bg-white rounded-[2.5rem] overflow-hidden shadow-floating border border-slate-50 mb-8 group transition-transform duration-500 hover:-translate-y-1 relative">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-soft-pink/50 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-lavender-tag/50 rounded-full blur-xl translate-y-1/2 -translate-x-1/2"></div>
+
+                            <div className="w-full aspect-[4/3] bg-off-white flex items-center justify-center relative overflow-hidden px-4 pt-4">
+                                <div className="w-full h-full rounded-2xl overflow-hidden shadow-inner relative z-10 border border-slate-100">
+                                    <div className="absolute inset-0 opacity-[0.03] bg-vibrant-pink mix-blend-multiply transition-opacity group-hover:opacity-10 z-10"></div>
+                                    <img
+                                        src={currentQuestion.imageUrl}
+                                        alt={`상황 ${currentStep} 이미지`}
+                                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                </div>
                             </div>
-                            <div className="p-8">
-                                <p className="text-vibrant-pink text-[10px] font-bold mb-3 text-center uppercase tracking-widest border border-soft-pink inline-block px-3 py-1 bg-soft-pink/30 rounded-full mx-auto block w-fit">
+                            <div className="p-8 pt-6 relative z-10 bg-white">
+                                <p className="text-vibrant-pink text-[10px] font-bold mb-3 text-center uppercase tracking-widest border border-soft-pink inline-block px-4 py-1.5 bg-soft-pink/30 rounded-full mx-auto block w-fit shadow-sm">
                                     {currentQuestion.situation}
                                 </p>
-                                <h3 className="text-deep-charcoal text-[22px] font-bold leading-snug text-center break-keep mt-4">
+                                <h3 className="text-deep-charcoal text-[22px] font-bold leading-snug text-center break-keep mt-4 px-2">
                                     {currentQuestion.text}
                                 </h3>
                             </div>
                         </div>
 
                         {/* Choice Options */}
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 px-1 pb-10">
                             {currentQuestion.answers.map((answer, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handleAnswerClick(answer)}
-                                    className="w-full p-6 text-left bg-white border border-slate-50 rounded-[2rem] hover:border-vibrant-pink hover:bg-soft-pink/30 transition-all shadow-soft-card active:scale-[0.98] focus:outline-none group hover:shadow-lg hover:-translate-y-1"
+                                    className="w-full p-6 text-left bg-white border border-slate-100 rounded-[2rem] hover:border-vibrant-pink/50 hover:bg-soft-pink/10 transition-all duration-300 shadow-soft-card active:scale-[0.98] focus:outline-none group hover:shadow-floating hover:-translate-y-1 relative overflow-hidden"
                                 >
-                                    <div className="flex items-center gap-5">
-                                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-slate-100 text-[13px] font-extrabold text-slate-400 bg-off-white group-hover:bg-white group-hover:text-vibrant-pink group-hover:border-vibrant-pink/30 shadow-inner group-hover:shadow-none transition-all">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-soft-pink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div className="flex items-center gap-5 relative z-10">
+                                        <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-slate-100 text-[14px] font-extrabold text-slate-400 bg-off-white group-hover:bg-vibrant-pink group-hover:text-white group-hover:border-vibrant-pink shadow-inner group-hover:shadow-btn transition-all duration-300">
                                             {String.fromCharCode(65 + index)}
                                         </span>
-                                        <p className="text-deep-charcoal font-bold text-[15px] leading-relaxed flex-1 group-hover:-translate-x-1 transition-transform">
+                                        <p className="text-deep-charcoal font-bold text-[15px] leading-relaxed flex-1 group-hover:translate-x-1 transition-transform duration-300">
                                             {answer.text}
                                         </p>
                                     </div>
