@@ -15,7 +15,34 @@
     "footerDesc": "本测试是以ENA节目《我是SOLO》的角色为灵感，\n仅供娱乐制作的非官方心理测试。",
     "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
     "footerPrivacy": "隐私政策",
-    "footerAbout": "关于服务"
+    "footerAbout": "关于服务",
+    "badge": "我是单身恋爱类型测试",
+    "title_line1": "我的恋爱特征\n",
+    "title_line2": "最像单身国的哪个角色？",
+    "badge_100_sync": "100% 同步率",
+    "btn_check_character": "查看我的角色",
+    "trust_users": "累计10万+用户",
+    "trust_satisfaction": "满意度 4.9",
+    "trust_anonymous": "100% 匿名保证",
+    "method_title": "我们如何分析？",
+    "method_desc": "结合了数万份恋爱心理数据<br />与性格类型算法。",
+    "method_cards": [
+      {
+        "title": "12个角色",
+        "desc": "全面分析单身国的\n各种角色类型"
+      },
+      {
+        "title": "深层心理分析",
+        "desc": "识别隐藏在行为模式中的\n潜意识恋爱倾向"
+      },
+      {
+        "title": "定制建议",
+        "desc": "从完美匹配\n到恋爱成长建议"
+      }
+    ],
+    "characters_title": "单身国角色图鉴",
+    "characters_total": "共12个",
+    "btn_start_test": "开始测试"
   },
   "test": {
     "genderSelect": "请告诉我您的性别",

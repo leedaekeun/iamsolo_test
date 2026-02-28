@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="flex justify-center items-center gap-2 mb-8">
                 <span className="material-symbols-outlined text-slate-400 text-[18px]">language</span>
                 <select
-                    value={i18n.language.split('-')[0]}
+                    value={(i18n.resolvedLanguage || i18n.language || 'ko').split('-')[0]}
                     onChange={(e) => i18n.changeLanguage(e.target.value)}
                     className="bg-white border border-slate-200 text-slate-600 text-[13px] font-medium py-1.5 px-3 rounded-full outline-none shadow-sm focus:border-vibrant-pink/50 focus:ring-2 focus:ring-soft-pink transition-all appearance-none pr-8 cursor-pointer relative"
                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 10px center', backgroundSize: '16px 16px' }}

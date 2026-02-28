@@ -15,7 +15,34 @@
     "footerDesc": "This is an unofficial personality test created for fun,\ninspired by characters from the ENA show 'I am SOLO'.",
     "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
     "footerPrivacy": "Privacy Policy",
-    "footerAbout": "About Service"
+    "footerAbout": "About Service",
+    "badge": "I am Solo Dating Archetype Test",
+    "title_line1": "My dating traits,\n",
+    "title_line2": "Which Solo Land character do I resemble?",
+    "badge_100_sync": "100% Sync Rate",
+    "btn_check_character": "Check My Character",
+    "trust_users": "100K+ Users",
+    "trust_satisfaction": "4.9 Satisfaction",
+    "trust_anonymous": "100% Anonymous",
+    "method_title": "How do we analyze?",
+    "method_desc": "We combined tens of thousands of relationship psychology data<br />with personality type algorithms.",
+    "method_cards": [
+      {
+        "title": "12 Characters",
+        "desc": "Complete analysis of\nvarious Solo Land characters"
+      },
+      {
+        "title": "Deep Psychology",
+        "desc": "Identifying unconscious traits\nhidden in behavior patterns"
+      },
+      {
+        "title": "Custom Advice",
+        "desc": "From perfect matches\nto dating growth tips"
+      }
+    ],
+    "characters_title": "Solo Land Character Dictionary",
+    "characters_total": "Total 12 Characters",
+    "btn_start_test": "Start Test"
   },
   "test": {
     "genderSelect": "Please select your gender",

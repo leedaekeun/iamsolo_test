@@ -15,7 +15,34 @@
     "footerDesc": "このテストはENA「私はSOLO」のキャラクターをモチーフに、\n楽しみのために作成された非公式の心理テストです。",
     "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
     "footerPrivacy": "プライバシーポリシー",
-    "footerAbout": "サービス紹介"
+    "footerAbout": "サービス紹介",
+    "badge": "私はソロ恋愛類型テスト",
+    "title_line1": "私の恋愛の特徴は\n",
+    "title_line2": "どのソロの国のキャラクターに似ている？",
+    "badge_100_sync": "100%シンクロ率",
+    "btn_check_character": "自分のキャラクターを確認する",
+    "trust_users": "累計10万人以上利用",
+    "trust_satisfaction": "満足度 4.9",
+    "trust_anonymous": "100%匿名保証",
+    "method_title": "どのように分析しますか？",
+    "method_desc": "何万件もの恋愛心理データと<br />性格診断アルゴリズムを組み合わせました。",
+    "method_cards": [
+      {
+        "title": "12種類のキャラクター",
+        "desc": "ソロの国の多様な\nキャラクタータイプを分析"
+      },
+      {
+        "title": "深層心理分析",
+        "desc": "行動パターンに隠された\n無意識の恋愛傾向を把握"
+      },
+      {
+        "title": "オーダーメイドのアドバイス",
+        "desc": "最高の相性から\n恋愛のアドバイスまで"
+      }
+    ],
+    "characters_title": "ソロの国キャラクター図鑑",
+    "characters_total": "全12名",
+    "btn_start_test": "テストを始める"
   },
   "test": {
     "genderSelect": "あなたの性別を教えてください",

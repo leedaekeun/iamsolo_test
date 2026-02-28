@@ -31,9 +31,8 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
         <div className="card p-7">
             <div className="flex justify-between items-start mb-5">
                 <div>
-                    {/* // TODO: translate character name and title later in characters.ts task */}
-                    <h3 className="text-card-title">{character.name}</h3>
-                    <p className="text-caption text-slate-400 mt-1">{character.title}</p>
+                    <h3 className="text-card-title">{t(`result.${character.id}`)}</h3>
+                    <p className="text-caption text-slate-400 mt-1">{t(`characters.${character.id}.title`)}</p>
                 </div>
                 <span className={`text-caption px-3 py-1 rounded-full ${isFemale
                     ? 'bg-vibrant-pink text-white'
@@ -48,7 +47,7 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
                 {character.imageUrl ? (
                     <img
                         src={character.imageUrl}
-                        alt={character.name}
+                        alt={t(`result.${character.id}`)}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                         loading="lazy"
                     />
@@ -65,7 +64,7 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
             </div>
 
             <p className="text-body text-sm line-clamp-2 mb-5">
-                {character.description}
+                {t(`characters.${character.id}.description`)}
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -88,27 +87,27 @@ export default function Home() {
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal">
 
             {/* ── 히어로 헤더 ── */}
-            <header className="relative pt-16 pb-12 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
+            <header className="relative pt-8 sm:pt-16 pb-6 sm:pb-12 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
 
                 {/* 배지 */}
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-6 w-fit mx-auto">
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-4 sm:mb-6 w-fit mx-auto">
                     <span className="text-caption text-vibrant-pink text-center tracking-wide inline-block translate-y-[2px]">{t('home.badge')}</span>
                 </div>
 
                 {/* 제목 */}
-                <h1 className="text-hero mb-4">
+                <h1 className="text-[26px] sm:text-[32px] font-extrabold leading-tight tracking-tight mb-3 sm:mb-4">
                     <Trans i18nKey="home.title_line1" />
                     <span className="text-vibrant-pink"><Trans i18nKey="home.title_line2" /></span>
                 </h1>
 
                 {/* 서브 */}
-                <p className="text-body max-w-xs mx-auto mb-8 text-[15px]">
+                <p className="text-body max-w-xs mx-auto mb-6 sm:mb-8 text-[14px] sm:text-[15px]">
                     <Trans i18nKey="home.subtitle" components={{ span: <span className="text-vibrant-pink font-semibold" /> }} />
                 </p>
 
                 {/* 메인 이미지 */}
-                <div className="relative w-full max-w-[320px] mx-auto aspect-[4/3] mb-10 group">
-                    <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-natural bg-white transition-transform duration-500 group-hover:scale-[1.01]">
+                <div className="relative w-full max-w-[260px] sm:max-w-[320px] mx-auto aspect-[4/3] mb-8 sm:mb-10 group">
+                    <div className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-natural bg-white transition-transform duration-500 group-hover:scale-[1.01]">
                         <img
                             src="/images/main.jpg"
                             alt="연애 성향 테스트 일러스트"

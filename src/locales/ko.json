@@ -15,7 +15,34 @@
     "footerDesc": "본 테스트는 ENA '나는 SOLO'의 캐릭터들을 모티브로\n재미를 위해 제작된 비공식 심리테스트입니다.",
     "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
     "footerPrivacy": "개인정보처리방침",
-    "footerAbout": "서비스 소개"
+    "footerAbout": "서비스 소개",
+    "badge": "나는 솔로 연애유형 테스트",
+    "title_line1": "나의 연애 특징은\n",
+    "title_line2": "어떤 솔로나라 캐릭터와 닮았을까?",
+    "badge_100_sync": "100% 씽크로율",
+    "btn_check_character": "내 캐릭터 확인하기",
+    "trust_users": "누적 10만+ 이용",
+    "trust_satisfaction": "만족도 4.9",
+    "trust_anonymous": "100% 익명 보장",
+    "method_title": "어떻게 분석하나요?",
+    "method_desc": "수만 건의 연애 심리 데이터와<br />성격 유형(MBTI) 알고리즘을 결합했습니다.",
+    "method_cards": [
+      {
+        "title": "12가지 캐릭터",
+        "desc": "솔로나라의 다양한\n캐릭터 유형 완벽 분석"
+      },
+      {
+        "title": "심층 심리 분석",
+        "desc": "행동 패턴에 숨겨진\n무의식적 연애 성향 파악"
+      },
+      {
+        "title": "맞춤형 조언",
+        "desc": "나와 환상의 짝꿍부터\n연애 성장 팁까지 제공"
+      }
+    ],
+    "characters_title": "솔로나라 캐릭터 도감",
+    "characters_total": "총 12명",
+    "btn_start_test": "테스트 시작하기"
   },
   "test": {
     "genderSelect": "당신의 성별을 알려주세요",

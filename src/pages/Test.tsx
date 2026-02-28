@@ -129,8 +129,8 @@ export default function TestPage() {
 
                 {/* ── 성별 선택 ── */}
                 {currentStep === 0 && (
-                    <div className="animate-slide-up space-y-4">
-                        <div className="text-center space-y-2 mb-6 mt-2">
+                    <div className="animate-slide-up space-y-3 sm:space-y-4">
+                        <div className="text-center space-y-1 sm:space-y-2 mb-4 sm:mb-6 mt-0">
                             <h2 className="text-3xl font-bold tracking-tight text-deep-charcoal leading-tight">
                                 <Trans i18nKey="test.genderSelectTitle" />
                             </h2>
@@ -187,10 +187,10 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[5rem]">
+                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[3.5rem]">
 
                         {/* Image Container (Filled inside rounded box) */}
-                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-6 border border-slate-100 mt-[46px] max-h-[260px]">
+                        <div className="w-full aspect-[16/9] sm:aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-4 border border-slate-100 mt-[40px] sm:mt-[76px] max-h-[220px]">
                             <img
                                 src={`/images/questions/q${currentStep}_${genderPref === 'M' ? 'm' : 'w'}.png`}
                                 alt={`상황 ${currentStep} 이미지`}
@@ -218,7 +218,7 @@ export default function TestPage() {
                                 const isSelected = selectedAnswerIndex === index;
                                 return (
                                     <button
-                                        key={index}
+                                        key={`step-${currentStep}-ans-${index}`}
                                         onClick={() => handleAnswerClick(answer, index)}
                                         className={`w-full p-4 text-left rounded-[1.5rem] transition-all duration-200 focus:outline-none flex flex-col relative group min-h-[140px] ${isSelected
                                             ? 'bg-vibrant-pink border-2 border-vibrant-pink shadow-md translate-y-[-2px]'
