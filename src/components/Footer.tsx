@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <footer className="relative z-10 mt-auto bg-slate-50 pt-2 pb-6 px-6">
+        <footer className="relative z-10 mt-auto bg-slate-50 pt-7 -mt-5 pb-6 px-6">
 
 
 
