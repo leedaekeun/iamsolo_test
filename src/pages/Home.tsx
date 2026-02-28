@@ -65,68 +65,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Real-time Popular Types */}
-            <div className="mt-8 px-6 pb-12 animate-slide-up delay-400">
-                <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-deep-black text-lg font-bold">실시간 인기 유형</h3>
-                    <span className="text-primary text-sm font-bold">LIVE</span>
-                </div>
 
-                <div className="flex flex-col gap-4">
-                    {/* Card 1 */}
-                    <div className="flex items-center p-4 bg-white border border-slate-100 rounded-2xl shadow-soft hover:shadow-lg transition-shadow cursor-default">
-                        <div className="size-12 rounded-xl bg-pink-50 text-3xl mr-4 flex items-center justify-center overflow-hidden">
-                            🥰
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-deep-black font-bold text-sm">로맨틱 가이</h4>
-                                <span className="px-2 py-0.5 bg-primary text-[10px] text-white font-bold rounded-full">HOT</span>
-                            </div>
-                            <p className="text-neutral-gray text-xs">순애보적인 사랑을 꿈꾸는 스타일</p>
-                        </div>
-                        <div className="text-primary">
-                            <span className="material-symbols-outlined">chevron_right</span>
-                        </div>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="flex items-center p-4 bg-white border border-slate-100 rounded-2xl shadow-soft hover:shadow-lg transition-shadow cursor-default">
-                        <div className="size-12 rounded-xl bg-purple-50 text-3xl mr-4 flex items-center justify-center overflow-hidden">
-                            😎
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-deep-black font-bold text-sm">걸크러쉬 리더</h4>
-                                <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">UP</span>
-                            </div>
-                            <p className="text-neutral-gray text-xs">당당하고 솔직한 매력의 소유자</p>
-                        </div>
-                        <div className="text-primary">
-                            <span className="material-symbols-outlined">chevron_right</span>
-                        </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="flex items-center p-4 bg-white border border-slate-100 rounded-2xl shadow-soft hover:shadow-lg transition-shadow cursor-default">
-                        <div className="size-12 rounded-xl bg-orange-50 text-3xl mr-4 flex items-center justify-center overflow-hidden">
-                            🤩
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-deep-black font-bold text-sm">재치만점 분위기메이커</h4>
-                                <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">NEW</span>
-                            </div>
-                            <p className="text-neutral-gray text-xs">언제 어디서나 웃음을 주는 스타일</p>
-                        </div>
-                        <div className="text-primary">
-                            <span className="material-symbols-outlined">chevron_right</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex-1"></div>
             <Footer />
         </div>
     );
