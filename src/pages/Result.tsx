@@ -84,10 +84,10 @@ export default function ResultClient() {
 
                     {/* Character Card / Image */}
                     <div className="relative group animate-slide-down">
-                        <div className="w-full aspect-[4/5] overflow-hidden rounded-[32px] shadow-xl bg-teal-50 flex flex-col items-center justify-center relative border border-slate-100">
+                        <div className="w-full aspect-[4/5] overflow-hidden rounded-[32px] shadow-xl bg-primary/5 flex flex-col items-center justify-center relative border border-slate-100">
                             {/* Abstract decorative elements */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
+                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
 
                             <div className="text-8xl mb-8 z-10 drop-shadow-xl animate-float-y">
                                 {getCharacterEmoji(character.id)}
