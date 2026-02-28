@@ -132,7 +132,7 @@ export default function TestPage() {
                     <div className="animate-slide-up space-y-3 sm:space-y-4">
                         <div className="text-center space-y-1 sm:space-y-2 mb-4 sm:mb-6 mt-0">
                             <h2
-                                className="text-2xl xs:text-3xl font-bold tracking-tight text-deep-charcoal leading-tight break-keep whitespace-pre-wrap"
+                                className="text-2xl xs:text-3xl font-bold tracking-tight text-deep-charcoal leading-tight break-words whitespace-pre-wrap"
                                 dangerouslySetInnerHTML={{ __html: t('test.genderSelectTitle') }}
                             ></h2>
                             <p className="text-slate-grey text-sm font-medium mt-2 tracking-wide leading-relaxed">
@@ -202,7 +202,7 @@ export default function TestPage() {
 
                         {/* Typography */}
                         <div className="text-center px-1 mb-8">
-                            <h3 className="text-deep-charcoal text-[20px] font-extrabold leading-snug break-keep">
+                            <h3 className="text-deep-charcoal text-[20px] font-extrabold leading-snug break-words">
                                 {/* Replacing newline with <br/> for UI string */}
                                 {t(`questions.q${currentStep}.situation`).split('\n').map((line, i) => (
                                     <span key={i}>
@@ -243,7 +243,7 @@ export default function TestPage() {
                                             </div>
                                         </div>
                                         <div className="mt-auto">
-                                            <p className={`text-[14px] leading-[1.5] break-keep transition-colors ${isSelected ? 'text-white font-bold' : 'text-slate-600 font-semibold sm:group-hover:text-white'}`}>
+                                            <p className={`text-[14px] leading-[1.5] break-words transition-colors ${isSelected ? 'text-white font-bold' : 'text-slate-600 font-semibold sm:group-hover:text-white'}`}>
                                                 {t(`questions.q${currentStep}.a${index + 1}`)}
                                             </p>
                                         </div>

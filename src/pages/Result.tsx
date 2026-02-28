@@ -143,7 +143,7 @@ export default function ResultClient() {
                             <p className="text-[32px] font-extrabold leading-none tracking-tight text-deep-charcoal mb-4">
                                 {t(`result.${character.id}`)}
                             </p>
-                            <p className="text-[15px] font-medium leading-relaxed text-slate-600 break-keep">
+                            <p className="text-[15px] font-medium leading-relaxed text-slate-600 break-words">
                                 {t(`characters.${character.id}.description`)}
                             </p>
 
@@ -163,7 +163,7 @@ export default function ResultClient() {
                                                 <div className={`p-3 rounded-full ${colorClasses[idx]} flex items-center justify-center shadow-sm`}>
                                                     <span className="material-symbols-outlined text-[20px]">{icons[idx]}</span>
                                                 </div>
-                                                <span className="text-[12px] font-extrabold text-deep-charcoal break-keep leading-tight">{t(`characters.${character.id}.keywords.${idx}`)}</span>
+                                                <span className="text-[12px] font-extrabold text-deep-charcoal break-words leading-tight text-center">{t(`characters.${character.id}.keywords.${idx}`)}</span>
                                             </div>
                                         )
                                     })}

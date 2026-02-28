@@ -1,526 +1,526 @@
 {
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred.",
-    "back": "Back",
-    "close": "Close",
-    "footer": {
-      "brand_title": "I am Solo Dating Test",
-      "brand_desc": "This unofficial psychological test was created for fun,<br/>inspired by the characters from ENA's 'I am SOLO'.",
-      "nav_home": "Home",
-      "nav_test": "Start Test",
-      "nav_privacy": "Privacy Policy",
-      "nav_about": "About",
-      "disclaimer": "This service is created for personal entertainment<br/>and has no official affiliation with the actual broadcast or cast.",
-      "ads_notice": "Ad inquiries & Bug reports",
-      "copyright": "© {{year}} Solo Love Test. All rights reserved."
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred.",
+        "back": "Back",
+        "close": "Close",
+        "footer": {
+            "brand_title": "I am Solo Dating Test",
+            "brand_desc": "This unofficial psychological test was created for fun,<br/>inspired by the characters from ENA's 'I am SOLO'.",
+            "nav_home": "Home",
+            "nav_test": "Start Test",
+            "nav_privacy": "Privacy Policy",
+            "nav_about": "About",
+            "disclaimer": "This service is created for personal entertainment<br/>and has no official affiliation with the actual broadcast or cast.",
+            "ads_notice": "Ad inquiries & Bug reports",
+            "copyright": "© {{year}} Solo Love Test. All rights reserved."
+        }
+    },
+    "home": {
+        "title": "I am Solo Personality Test",
+        "subtitle": "Based on psychological archetype data\n<span className=\"text-vibrant-pink font-semibold\">My true dating character match</span>",
+        "startBtn": "Find My Character",
+        "statUsers": "100K+ Users",
+        "statSatisfaction": "4.9 Satisfaction",
+        "statAnonymous": "100% Anonymous",
+        "footerDesc": "This is an unofficial personality test created for fun,\ninspired by characters from the ENA show 'I am SOLO'.",
+        "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
+        "footerPrivacy": "Privacy Policy",
+        "footerAbout": "About Service",
+        "badge": "I am Solo Dating Archetype Test",
+        "title_line1": "In Solo Land,\n",
+        "title_line2": "what would my name be?",
+        "badge_100_sync": "100% Sync Rate",
+        "btn_check_character": "Check My Character",
+        "trust_users": "100K+ Users",
+        "trust_satisfaction": "4.9 Satisfaction",
+        "trust_anonymous": "100% Anonymous",
+        "method_title": "How do we analyze?",
+        "method_desc": "We combined tens of thousands of relationship psychology data<br />with personality type algorithms.",
+        "method_cards": [
+            {
+                "title": "12 Characters",
+                "desc": "Complete analysis of\nvarious Solo Land characters"
+            },
+            {
+                "title": "Deep Psychology",
+                "desc": "Identifying unconscious traits\nhidden in behavior patterns"
+            },
+            {
+                "title": "Custom Advice",
+                "desc": "From perfect matches\nto dating growth tips"
+            }
+        ],
+        "characters_title": "Solo Land Character Dictionary",
+        "characters_total": "Total 12 Characters",
+        "btn_start_test": "Start Test"
+    },
+    "test": {
+        "genderSelect": "Please select your gender",
+        "male": "Male",
+        "female": "Female",
+        "questionBadge": "QUESTION {{step}}",
+        "prevBtn": "Previous",
+        "nextBtn": "Next",
+        "title": "Solo Character Test",
+        "genderSelectTitle": "What is my <span className=\"text-vibrant-pink\">Gender</span>?",
+        "genderSelectDesc": "The result character changes based on your selection",
+        "maleMatch": "Male Match",
+        "femaleMatch": "Female Match",
+        "maleSub": "Male",
+        "femaleSub": "Female",
+        "genderNotice": "💕 You can enjoy the test regardless of the gender you choose"
+    },
+    "result": {
+        "titleBase": "You are Solo Land's",
+        "traits": "My Relationship Traits",
+        "chemistry": "Who is my best match?",
+        "bestMatch": "Perfect Match",
+        "worstMatch": "Worst Match",
+        "shareBtn": "Share Test",
+        "restartBtn": "Retake Test",
+        "m1_youngsoo": "Youngsoo",
+        "m2_youngho": "Youngho",
+        "m3_youngsik": "Youngsik",
+        "m4_youngchul": "Youngchul",
+        "m5_kwangsoo": "Kwangsoo",
+        "m6_sangchul": "Sangchul",
+        "f1_youngsook": "Youngsook",
+        "f2_jungsook": "Jungsook",
+        "f3_soonja": "Soonja",
+        "f4_youngja": "Youngja",
+        "f5_oksoon": "Oksoon",
+        "f6_hyunsook": "Hyunsook",
+        "top_title": "My Matched Character",
+        "match_result": "Match Result",
+        "dating_characteristics": "Dating Characteristics",
+        "chemistry_title": "Perfect Chemistry Match",
+        "bestMatchBadge": "Best Match",
+        "worstMatchBadge": "Worst Match",
+        "dating_advice": "Dating Growth Advice",
+        "share_copied": "Link Copied!",
+        "share_btn": "Share Result & Ask for a Date",
+        "shareTitle": "I am Solo Test — My Character is {{name}}?",
+        "shareText": "Check your dating archetype! 💕",
+        "copyAlert": "Please copy the link manually: "
+    },
+    "questions": {
+        "q1": {
+            "situation": "You tentatively enter 'Solo Land'. At the very first gathering with everyone, what do you do?",
+            "text": "What is your behavior at the first gathering?",
+            "a1": "I take the lead, make jokes, and try to break the ice.",
+            "a2": "I sit quietly, scan people's faces and behaviors, and figure out their personalities."
+        },
+        "q2": {
+            "situation": "The BBQ party has started. While everyone is happily grilling meat, you spot someone you like.",
+            "text": "How do you approach them?",
+            "a1": "I go right next to them, grill the meat for them, and actively show my interest.",
+            "a2": "I quietly hover around and hand them water or a drink right when they need it most."
+        },
+        "q3": {
+            "situation": "It's self-introduction time. Age and jobs are revealed, and the person you liked has specs completely different from what you expected.",
+            "text": "What is your inner thought?",
+            "a1": "'The person is more important than specs.' Their unexpected twist actually makes them more attractive.",
+            "a2": "'Hmm... real-world conditions can't be ignored.' My brain quickly starts calculating the pros and cons."
+        },
+        "q4": {
+            "situation": "You got lucky and are on a 1:1 random date with your crush.",
+            "text": "What is your preferred topic of conversation for the date?",
+            "a1": "Deep, imaginative conversations like, 'What if we had met 10 years ago?'",
+            "a2": "Concrete, everyday banter like, 'What should we eat tonight? Seen any good movies lately?'"
+        },
+        "q5": {
+            "situation": "During the date, traffic is terrible, the GPS is acting up, and you are about to be late for your restaurant reservation.",
+            "text": "How do you handle this?",
+            "a1": "'Oh well! Let's just walk into any place nearby that looks nice!' I spontaneously switch to Plan B.",
+            "a2": "I quickly open 3 map apps to find the best alternative route and call the restaurant to explain."
+        },
+        "q6": {
+            "situation": "Nighttime at the dorm, talking with same-sex participants. You hear a rumor that your crush is flirting with someone else.",
+            "text": "What are your inner thoughts and subsequent actions?",
+            "a1": "'My feelings are what matter most!' I ignore what others say and keep pursuing them straight on.",
+            "a2": "'The atmosphere is going bad...' I realize the seriousness of the situation, take a step back, and revise my strategy."
+        },
+        "q7": {
+            "situation": "A mission to win a date choice! There are two boxes in front of you.",
+            "text": "On what basis do you choose a box?",
+            "a1": "'My intuition is never wrong!' I rely on my gut feeling and immediately pick the one I'm drawn to.",
+            "a2": "'Looking at the pattern so far...' I analyze the results of previous choices and carefully pick the statistically safest box."
+        },
+        "q8": {
+            "situation": "After a pleasant date, you lie in bed at the dorm. What is going through your mind?",
+            "text": "What are your thoughts right now?",
+            "a1": "'What did they really mean by what they said at sunset... Could this be... destiny?' A chain of endless imagination.",
+            "a2": "'That restaurant earlier was really good. Tomorrow morning, I need to wake up early to do my makeup.' Reviewing today's facts and tomorrow's checklist."
+        },
+        "q9": {
+            "situation": "It's the morning of the final date! You must choose your best outfit from the closet.",
+            "text": "How do you pick your clothes?",
+            "a1": "I perfectly prepared my shirt, socks, and accessories last night based on the weather forecast and date course!",
+            "a2": "I have to try them on to know! I mix and match on the spot based on today's weather and my mood!"
+        },
+        "q10": {
+            "situation": "Right before the final selection, your crush carefully approaches and confesses their true feelings only to you.",
+            "text": "What is your reaction?",
+            "a1": "'Really? I liked you a lot too!' Unable to hide my joy, I smile brightly with sparkling eyes.",
+            "a2": "My heart feels like it's going to explode, but outwardly I maintain a calm, relaxed smile and say, 'Thank you for telling me that.'"
+        }
+    },
+    "characters": {
+        "m1_youngsoo": {
+            "title": "The Analyst",
+            "description": "The dependable eldest brother type who never loses his reason and logic in any situation. Meticulous and analytical, he excels as a mediator in conflicts. Often an older participant or someone with an engineering/research background, he prefers to observe rationally rather than act hastily in romance.",
+            "loveStyle": "A weighty lover who approaches with actions over words, and reason over emotion.",
+            "keywords": [
+                "Cautious",
+                "Logical",
+                "Mediator",
+                "Dependable"
+            ],
+            "strengths": [
+                "Prudence",
+                "Rational judgment",
+                "Conflict mediation skills"
+            ],
+            "weaknesses": [
+                "Clumsy emotional expression",
+                "Over-observing"
+            ],
+            "advice": [
+                "Rational judgment is important, but occasionally getting swept up in emotions is the beauty of romance.",
+                "Often, what your partner wants is simple empathy rather than a logical solution.",
+                "Shorten your 'observation' period a bit and find the courage to approach first."
+            ]
+        },
+        "m2_youngho": {
+            "title": "The Catalyst",
+            "description": "The life of the party who injects energy and makes things happen wherever he goes. An active younger participant who is emotionally expressive and highly sociable. He occasionally makes slips of the tongue, but his unique cheerfulness makes him impossible to hate.",
+            "loveStyle": "A sparkling lover who follows his heart and acts exactly as he feels!",
+            "keywords": [
+                "Energetic",
+                "Mood Maker",
+                "Sociable",
+                "Proactive"
+            ],
+            "strengths": [
+                "Abundant energy",
+                "Affability",
+                "Honest with emotions"
+            ],
+            "weaknesses": [
+                "Unintentional slips of the tongue",
+                "Can appear frivolous"
+            ],
+            "advice": [
+                "Practice picking up your partner's emotions as well as pouring out your own.",
+                "Consider the weight of your words. It is good to take a breath during important moments.",
+                "When you show the sincerity hidden behind your cheerfulness, your partner will be deeply moved."
+            ]
+        },
+        "m3_youngsik": {
+            "title": "The Caretaker",
+            "description": "The model student with a clean-cut appearance and a strong work ethic. He blends in seamlessly in any situation and seeks stable relationships. Rather than putting himself forward, he quietly steps back to reliably protect and support his partner.",
+            "loveStyle": "A dependable, tree-like lover who quietly takes care of you from behind.",
+            "keywords": [
+                "Model Student",
+                "Wholesome",
+                "Stability-seeking",
+                "Sincere"
+            ],
+            "strengths": [
+                "Soundness",
+                "Sense of stability",
+                "Quiet consideration"
+            ],
+            "weaknesses": [
+                "Reluctant to reveal himself",
+                "Lacks initiative"
+            ],
+            "advice": [
+                "Consideration is good, but sometimes you need the selfishness to clearly express what you want.",
+                "Practice walking side-by-side instead of staying behind your partner.",
+                "Go beyond just being 'easygoing' and take the initiative to draw your partner in firmly, like a compass needle."
+            ]
+        },
+        "m4_youngchul": {
+            "title": "The Anti-hero",
+            "description": "A macho, straight-shooter who charges toward what he wants without caring about rules or others' opinions. Though he appears rough, he exudes a peculiar charm through his strong masculinity and action-oriented nature. Goal-driven, he never beats around the bush.",
+            "loveStyle": "An instinctive, wild lover who accelerates straight ahead without calculation.",
+            "keywords": [
+                "Straight-shooter",
+                "Direct",
+                "Action-oriented",
+                "Masculine"
+            ],
+            "strengths": [
+                "Strong drive",
+                "Transparent emotional expression",
+                "Macho charm"
+            ],
+            "weaknesses": [
+                "Side effects of bluntness",
+                "Conflicts from ignoring others' views"
+            ],
+            "advice": [
+                "Check your rearview mirror occasionally to see if your speed is burdening your partner.",
+                "True connection forms when you show the soft, vulnerable side behind your strong exterior.",
+                "Practice the 'aesthetics of waiting' to leave some space for your partner to approach."
+            ]
+        },
+        "m5_kwangsoo": {
+            "title": "The Bureaucrat",
+            "description": "An elite with a unique worldview who values knowledge and discipline. Using his brilliant mind and impressive specs as weapons, he speaks the language of logic. However, his slightly unpolished emotional connectivity sometimes leads to unpredictable, quirky behavior.",
+            "loveStyle": "A quirky romantic who studies his partner's heart as if solving an algorithm.",
+            "keywords": [
+                "Elite",
+                "Unique",
+                "Logic-driven",
+                "Scholar"
+            ],
+            "strengths": [
+                "Intellectual curiosity",
+                "Expertise",
+                "Unique charm"
+            ],
+            "weaknesses": [
+                "Lack of social tact",
+                "Absence of emotional empathy"
+            ],
+            "advice": [
+                "Love is to be shared, not proven. Focus on the journey rather than finding the exact answer.",
+                "When your partner wants emotional comfort, a simple 'I see' works much better than a solution.",
+                "Adjust your eye level a bit when inviting someone into your unique world."
+            ]
+        },
+        "m6_sangchul": {
+            "title": "The Benefactor",
+            "description": "A well-rounded, stable individual with a 'hexagonal balance'. He possesses the open-mindedness to get along with anyone and flexible coping skills. Without leaning too much toward any specific profession or trait, his rounded personality provides a sense of comfort.",
+            "loveStyle": "A pacifist lover who remains unshaken by any wave and considers everyone.",
+            "keywords": [
+                "Well-rounded",
+                "Open-minded",
+                "Flexible",
+                "Helper"
+            ],
+            "strengths": [
+                "Adaptability",
+                "Inclusiveness",
+                "Stable balance"
+            ],
+            "weaknesses": [
+                "Lacks a distinct personal 'color'",
+                "Misunderstandings due to being overly nice to everyone"
+            ],
+            "advice": [
+                "You are kind to everyone; now cultivate a 'selfish' kindness shown only to that one special person.",
+                "Being too agreeable can be boring. Show off your sharp, specific tastes from time to time.",
+                "When conflict arises, don't just avoid or accommodate—sometimes clashing is what smooths off the rough edges."
+            ]
+        },
+        "f1_youngsook": {
+            "title": "The Ruler",
+            "description": "A classic beauty with a strong will and a solid ego. She proactively leads relationships and is the sharp-witted type who is most likely to secure a stable, unwavering marriage (the ultimate outcome). She leads the connection with a profound sense of responsibility.",
+            "loveStyle": "A convicted lover who knows exactly what she wants and takes the lead.",
+            "keywords": [
+                "Sharp-witted",
+                "Classic Beauty",
+                "Proactive",
+                "Strong-willed"
+            ],
+            "strengths": [
+                "Strong ego",
+                "Pursuit of stability",
+                "Proactive relationship building"
+            ],
+            "weaknesses": [
+                "Stubbornness",
+                "Can find it hard to compromise"
+            ],
+            "advice": [
+                "Leading is great, but practice handing the steering wheel to your partner and taking a break sometimes.",
+                "Allow yourself the leeway to accept that your principles aren't the right answer for everyone.",
+                "Occasionally letting your guard down and showing vulnerability creates room for your partner to approach."
+            ]
+        },
+        "f2_jungsook": {
+            "title": "The Curmudgeon",
+            "description": "The eldest sister type who delivers unvarnished 'fact bombs' with unapologetically direct speech. She doesn't hide her emotions, which can make her seem cynical or intense, but she possesses a transparent personality with absolutely no hidden agenda.",
+            "loveStyle": "A 100% transparent, spicy lover who pours out her feelings honestly and boldly.",
+            "keywords": [
+                "Direct",
+                "Eldest Sister",
+                "Honest",
+                "No Hidden Agenda"
+            ],
+            "strengths": [
+                "Honesty",
+                "Intense presence",
+                "Holds no grudges"
+            ],
+            "weaknesses": [
+                "Can unintentionally hurt others by skipping filters",
+                "Somewhat harsh expressions"
+            ],
+            "advice": [
+                "Attitude is more important than facts. Practice filtering your words just one more time.",
+                "Try honestly verbally expressing the tender heart hidden beneath your strong exterior.",
+                "Instead of immediately refuting your partner's opinions, take 3 seconds to absorb them first."
+            ]
+        },
+        "f3_soonja": {
+            "title": "The Explorer",
+            "description": "An individualistic 'my-way' character who remains unswayed by fierce competition or public opinion. She values her own pace and emotions over the standards of others, displaying the unique charm of continuing her own quiet exploration.",
+            "loveStyle": "An independent lover who loves in her own way, unbothered by others' pace.",
+            "keywords": [
+                "My Way",
+                "Independent",
+                "Individualistic",
+                "Own Pace"
+            ],
+            "strengths": [
+                "Independence",
+                "Doesn't care what others think",
+                "Her own set of standards"
+            ],
+            "weaknesses": [
+                "Distance due to individualism",
+                "Can seem aloof in group settings"
+            ],
+            "advice": [
+                "True 'my-way' means not being afraid to forge connections with others.",
+                "Actively invite your partner to take a tour of your small, personal world occasionally.",
+                "Rather than hiding behind the wall of independence, cautiously try learning how to lean on someone."
+            ]
+        },
+        "f4_youngja": {
+            "title": "The Child",
+            "description": "The epitome of pure emotion, armed with bubbliness and charm (aegyo). She is the most instinctive, true to her feelings, and quick to shed tears. She displays an uncalculated innocence combined with a subtle vulnerability that triggers others' protective instincts.",
+            "loveStyle": "A flawless, 100% emotional lover who laughs and cries just as her heart dictates.",
+            "keywords": [
+                "Charming",
+                "Sensitive",
+                "Innocent",
+                "Instinctive"
+            ],
+            "strengths": [
+                "Rich expressions",
+                "Charm and innocence",
+                "Stimulates protective instincts"
+            ],
+            "weaknesses": [
+                "Emotional mood swings",
+                "Overly emotion-driven judgments"
+            ],
+            "advice": [
+                "Relationships cannot be sustained by emotion alone. Learn to manage the waves of feeling rather than just riding them.",
+                "Expressing what you want with clear words rather than tears communicates your needs much better.",
+                "Go beyond just being protected; occasionally show a mature side by embracing and taking care of your partner."
+            ]
+        },
+        "f5_oksoon": {
+            "title": "The Dreamer",
+            "description": "The standard of overwhelming visuals that captures everyone's attention the moment she appears. With a glamorous and magnetic presence, she firmly stands at the center of romance. An object of envy who receives affection from many, she often creates dramatic emotional storylines.",
+            "loveStyle": "A lover who enjoys everyone's gaze and is loved like the protagonist of a romantic fairytale.",
+            "keywords": [
+                "Visuals",
+                "Center of Attention",
+                "Dreamer",
+                "Glamorous"
+            ],
+            "strengths": [
+                "Overwhelming charm",
+                "Confidence",
+                "Protagonist of romance"
+            ],
+            "weaknesses": [
+                "Easily swayed by too much attention",
+                "Pressure from external image"
+            ],
+            "advice": [
+                "Rather than leaning on the admiration or popularity of the crowd, find the one person who recognizes your inner essence.",
+                "Break out of the shell of outward glamour and try sharing your everyday, unadorned emotions.",
+                "If you are used to receiving love, try becoming the proactive subject who abundantly gives love first."
+            ]
+        },
+        "f6_hyunsook": {
+            "title": "The Wise Mentor",
+            "description": "An ace who proves her worth through brilliant intellect and excellent social skills rather than flashy appearances. A wise mentor type who simultaneously wins the respect and affection of men, she is a late bloomer whose popularity skyrockets toward the latter half of the journey.",
+            "loveStyle": "A mature lover who shares deep conversations with a partner she can truly respect.",
+            "keywords": [
+                "Intellectual Beauty",
+                "Wise",
+                "Ace",
+                "Mentor"
+            ],
+            "strengths": [
+                "Intellect and social skills",
+                "Mature conversational ability",
+                "Deep, profound charm"
+            ],
+            "weaknesses": [
+                "Lacks initial attention-grabbing flashiness",
+                "Tends to overthink things"
+            ],
+            "advice": [
+                "Step down from your role as mentor or counselor, and occasionally try acting like a whiny child.",
+                "Instead of trying to teach or analyze your partner, simply enjoy your differences as they are.",
+                "Intellect is a fantastic charm, but don't forget the romance of expressing love through the language of emotion."
+            ]
+        }
+    },
+    "about": {
+        "header": "About Us",
+        "title": "I am Solo Test <br />(Love Archetype)",
+        "desc1": "Welcome! 'I am Solo Test' is a free psychological archetype analysis web service designed to easily and funnily unravel the complex psychology of human relationships and romance. Beyond simple fun, it aims to mirror your unconscious behavior patterns and dating styles.",
+        "desc2": "In modern society, we all wear different masks (Persona) and live our lives. But in the moment of love, when deeply loving someone, the most essential self inevitably emerges. This test captures exactly that point, asking and answering who you are and what kind of love you want.",
+        "bg_title": "Psychological Background",
+        "bg_desc": "The algorithm for deriving the results of this test is structured independently by borrowing Carl Jung's analytical psychological Archetype theory and the four preference tendencies of personality type indicators.",
+        "list_ei": "<strong className=\"text-vibrant-pink\">E/I (Energy Direction):</strong> Initiative in relationships and direction of energy emission",
+        "list_ns": "<strong className=\"text-vibrant-pink\">N/S (Perception Method):</strong> Intuition vs. experience when going on dates or understanding partners",
+        "list_tf": "<strong className=\"text-vibrant-pink\">T/F (Judgment Method):</strong> Logic vs. emotional empathy in conflict situations",
+        "list_jp": "<strong className=\"text-vibrant-pink\">J/P (Lifestyle):</strong> Planning vs. improvisation that leads the dating process",
+        "result_guide_title": "Result Type Guide",
+        "result_guide_desc1": "Based on the user's response data, one of 12 attractive 'Solo Land' characters (6 men, 6 women) is derived as a result. Each character, such as the stoic analyst 'Youngsoo', the ruler 'Youngsook', and the fact-bomber 'Jungsook', vividly reflects real-world dating archetypes.",
+        "result_guide_desc2": "The derived result page provides not only the character name but also your strengths and weaknesses, the perfect partner type, and three sincere dating advice for a better relationship. Try sharing the results with friends or lovers to use it as an opportunity to understand each other's differences.",
+        "caution_badge": "Caution",
+        "caution_desc": "This psychological test is produced for the purpose of entertainment and interest. It cannot replace medical or professional psychological counseling, and the results do not perfectly define an individual's disposition. Please enjoy it lightly and use it as a small window to understand others.",
+        "start_btn": "Start Test"
+    },
+    "privacy": {
+        "header": "Privacy Policy",
+        "date": "Effective Date: January 1, 2025 &nbsp;·&nbsp; Last Modified: December 1, 2025",
+        "summary": "<strong className=\"text-vibrant-pink\">I am Solo Dating Archetype Test</strong> has no membership registration and does not collect personally identifiable information such as name and contact details. However, cookies may be used for the operation of the Google AdSense advertising service.",
+        "s1_title": "1. Service Introduction",
+        "s1_p1": "The I am Solo Dating Archetype Test (hereinafter 'Service') is a dating psychology tendency analysis service that combines the Archetype theory of psychology and tendency analysis with the popular dating entertainment program 'I am Solo' as the theme.",
+        "s1_p2": "This service is a free service available to anyone without separate membership registration or login.",
+        "s2_title": "2. Personal Information Collected",
+        "s2_p1": "This service <strong className=\"text-deep-charcoal\">does not collect personally identifiable information such as the user's name, date of birth, email, or phone number.</strong>",
+        "s2_p2": "The test response results are processed only as parameters of the result page URL, and are not stored on a separate server or passed on to third parties.",
+        "s2_items": "✅ Items Collected",
+        "s2_none": "No personal information collected (non-identifying service)",
+        "s3_title": "3. Cookies and Similar Technologies",
+        "s3_p1": "This service may use cookies to improve service quality and post advertisements. A cookie is a small data file stored in your browser when you visit a website.",
+        "s3_p2": "<strong className=\"text-deep-charcoal\">How to reject cookies:</strong> You can set whether to accept cookies yourself in your browser's settings menu. However, if you disable cookies, there may be restrictions on using some services.",
+        "s3_li1": "Chrome: Settings → Privacy and security → Cookies and other site data",
+        "s3_li2": "Safari: Preferences → Privacy → Block all cookies",
+        "s3_li3": "Firefox: Options → Privacy & Security → Cookies and Site Data",
+        "s4_title": "4. Third-Party Advertising Service (Google AdSense)",
+        "s4_p1": "This service uses the <strong className=\"text-deep-charcoal\">Google AdSense</strong> advertising service provided by Google LLC. Google AdSense may use cookies to display personalized ads that match user interests.",
+        "s4_p2": "Google uses user cookies to serve ads based on their visits to that site and other sites on the Internet. For more information on how Google uses advertising cookies, please refer to the link below.",
+        "s4_link1": "→ Google Privacy Policy",
+        "s4_link2": "→ Google Ads Settings Page",
+        "s4_warn": "⚠️ If you saw Google ads on a Google ad partner site, Google cookies are also used. You can opt out of personalized advertising on the 'Ads Settings Page' above.",
+        "s5_title": "5. External Links",
+        "s5_p1": "If you move to another website through an external link included in this service, the privacy policy of that site applies. This service is not responsible for the processing of personal information on external sites.",
+        "s6_title": "6. Disclaimer",
+        "s6_p1": "The result of this test is an <strong className=\"text-deep-charcoal\">archetype analysis based on psychological archetype theory for the purpose of entertainment and self-understanding</strong>, not a medical or psychological counseling diagnosis.",
+        "s6_p2": "The result may partially reflect individual tendencies, but it is not an absolute standard. If professional psychological counseling is needed, please contact a related expert.",
+        "s7_title": "7. Changes to the Privacy Policy",
+        "s7_p1": "This privacy policy may be changed according to laws, policies, or service changes. In the event of a change, we will notify you by updating the 'Last Modified' date at the top of this page.",
+        "s8_title": "8. Inquiries Regarding Personal Information",
+        "s8_p1": "If you have any questions about the Privacy Policy, please contact us via the route below.",
+        "s8_box1": "Service Operation",
+        "s8_box2": "I am Solo Dating Archetype Test",
+        "go_home": "Return Home"
     }
-  },
-  "home": {
-    "title": "I am Solo Personality Test",
-    "subtitle": "Which character from 'Solo Land'\nmatches my relationship style?",
-    "startBtn": "Find My Character",
-    "statUsers": "100K+ Users",
-    "statSatisfaction": "4.9 Satisfaction",
-    "statAnonymous": "100% Anonymous",
-    "footerDesc": "This is an unofficial personality test created for fun,\ninspired by characters from the ENA show 'I am SOLO'.",
-    "footerCopyright": "© 2024 Solo Love Test. All rights reserved.",
-    "footerPrivacy": "Privacy Policy",
-    "footerAbout": "About Service",
-    "badge": "I am Solo Dating Archetype Test",
-    "title_line1": "My dating traits,\n",
-    "title_line2": "Which Solo Land character do I resemble?",
-    "badge_100_sync": "100% Sync Rate",
-    "btn_check_character": "Check My Character",
-    "trust_users": "100K+ Users",
-    "trust_satisfaction": "4.9 Satisfaction",
-    "trust_anonymous": "100% Anonymous",
-    "method_title": "How do we analyze?",
-    "method_desc": "We combined tens of thousands of relationship psychology data<br />with personality type algorithms.",
-    "method_cards": [
-      {
-        "title": "12 Characters",
-        "desc": "Complete analysis of\nvarious Solo Land characters"
-      },
-      {
-        "title": "Deep Psychology",
-        "desc": "Identifying unconscious traits\nhidden in behavior patterns"
-      },
-      {
-        "title": "Custom Advice",
-        "desc": "From perfect matches\nto dating growth tips"
-      }
-    ],
-    "characters_title": "Solo Land Character Dictionary",
-    "characters_total": "Total 12 Characters",
-    "btn_start_test": "Start Test"
-  },
-  "test": {
-    "genderSelect": "Please select your gender",
-    "male": "Male",
-    "female": "Female",
-    "questionBadge": "QUESTION {{step}}",
-    "prevBtn": "Previous",
-    "nextBtn": "Next",
-    "title": "Solo Character Test",
-    "genderSelectTitle": "What is my <span className=\"text-vibrant-pink\">Gender</span>?",
-    "genderSelectDesc": "The result character changes based on your selection",
-    "maleMatch": "Male Match",
-    "femaleMatch": "Female Match",
-    "maleSub": "Male",
-    "femaleSub": "Female",
-    "genderNotice": "💕 You can enjoy the test regardless of the gender you choose"
-  },
-  "result": {
-    "titleBase": "You are Solo Land's",
-    "traits": "My Relationship Traits",
-    "chemistry": "Who is my best match?",
-    "bestMatch": "Perfect Match",
-    "worstMatch": "Worst Match",
-    "shareBtn": "Share Test",
-    "restartBtn": "Retake Test",
-    "m1_youngsoo": "Youngsoo",
-    "m2_youngho": "Youngho",
-    "m3_youngsik": "Youngsik",
-    "m4_youngchul": "Youngchul",
-    "m5_kwangsoo": "Kwangsoo",
-    "m6_sangchul": "Sangchul",
-    "f1_youngsook": "Youngsook",
-    "f2_jungsook": "Jungsook",
-    "f3_soonja": "Soonja",
-    "f4_youngja": "Youngja",
-    "f5_oksoon": "Oksoon",
-    "f6_hyunsook": "Hyunsook",
-    "top_title": "My Matched Character",
-    "match_result": "Match Result",
-    "dating_characteristics": "Dating Characteristics",
-    "chemistry_title": "Perfect Chemistry Match",
-    "bestMatchBadge": "Best Match",
-    "worstMatchBadge": "Worst Match",
-    "dating_advice": "Dating Growth Advice",
-    "share_copied": "Link Copied!",
-    "share_btn": "Share Result & Ask for a Date",
-    "shareTitle": "I am Solo Test — My Character is {{name}}?",
-    "shareText": "Check your dating archetype! 💕",
-    "copyAlert": "Please copy the link manually: "
-  },
-  "questions": {
-    "q1": {
-      "situation": "You tentatively enter 'Solo Land'. At the very first gathering with everyone, what do you do?",
-      "text": "What is your behavior at the first gathering?",
-      "a1": "I take the lead, make jokes, and try to break the ice.",
-      "a2": "I sit quietly, scan people's faces and behaviors, and figure out their personalities."
-    },
-    "q2": {
-      "situation": "The BBQ party has started. While everyone is happily grilling meat, you spot someone you like.",
-      "text": "How do you approach them?",
-      "a1": "I go right next to them, grill the meat for them, and actively show my interest.",
-      "a2": "I quietly hover around and hand them water or a drink right when they need it most."
-    },
-    "q3": {
-      "situation": "It's self-introduction time. Age and jobs are revealed, and the person you liked has specs completely different from what you expected.",
-      "text": "What is your inner thought?",
-      "a1": "'The person is more important than specs.' Their unexpected twist actually makes them more attractive.",
-      "a2": "'Hmm... real-world conditions can't be ignored.' My brain quickly starts calculating the pros and cons."
-    },
-    "q4": {
-      "situation": "You got lucky and are on a 1:1 random date with your crush.",
-      "text": "What is your preferred topic of conversation for the date?",
-      "a1": "Deep, imaginative conversations like, 'What if we had met 10 years ago?'",
-      "a2": "Concrete, everyday banter like, 'What should we eat tonight? Seen any good movies lately?'"
-    },
-    "q5": {
-      "situation": "During the date, traffic is terrible, the GPS is acting up, and you are about to be late for your restaurant reservation.",
-      "text": "How do you handle this?",
-      "a1": "'Oh well! Let's just walk into any place nearby that looks nice!' I spontaneously switch to Plan B.",
-      "a2": "I quickly open 3 map apps to find the best alternative route and call the restaurant to explain."
-    },
-    "q6": {
-      "situation": "Nighttime at the dorm, talking with same-sex participants. You hear a rumor that your crush is flirting with someone else.",
-      "text": "What are your inner thoughts and subsequent actions?",
-      "a1": "'My feelings are what matter most!' I ignore what others say and keep pursuing them straight on.",
-      "a2": "'The atmosphere is going bad...' I realize the seriousness of the situation, take a step back, and revise my strategy."
-    },
-    "q7": {
-      "situation": "A mission to win a date choice! There are two boxes in front of you.",
-      "text": "On what basis do you choose a box?",
-      "a1": "'My intuition is never wrong!' I rely on my gut feeling and immediately pick the one I'm drawn to.",
-      "a2": "'Looking at the pattern so far...' I analyze the results of previous choices and carefully pick the statistically safest box."
-    },
-    "q8": {
-      "situation": "After a pleasant date, you lie in bed at the dorm. What is going through your mind?",
-      "text": "What are your thoughts right now?",
-      "a1": "'What did they really mean by what they said at sunset... Could this be... destiny?' A chain of endless imagination.",
-      "a2": "'That restaurant earlier was really good. Tomorrow morning, I need to wake up early to do my makeup.' Reviewing today's facts and tomorrow's checklist."
-    },
-    "q9": {
-      "situation": "It's the morning of the final date! You must choose your best outfit from the closet.",
-      "text": "How do you pick your clothes?",
-      "a1": "I perfectly prepared my shirt, socks, and accessories last night based on the weather forecast and date course!",
-      "a2": "I have to try them on to know! I mix and match on the spot based on today's weather and my mood!"
-    },
-    "q10": {
-      "situation": "Right before the final selection, your crush carefully approaches and confesses their true feelings only to you.",
-      "text": "What is your reaction?",
-      "a1": "'Really? I liked you a lot too!' Unable to hide my joy, I smile brightly with sparkling eyes.",
-      "a2": "My heart feels like it's going to explode, but outwardly I maintain a calm, relaxed smile and say, 'Thank you for telling me that.'"
-    }
-  },
-  "characters": {
-    "m1_youngsoo": {
-      "title": "The Analyst",
-      "description": "The dependable eldest brother type who never loses his reason and logic in any situation. Meticulous and analytical, he excels as a mediator in conflicts. Often an older participant or someone with an engineering/research background, he prefers to observe rationally rather than act hastily in romance.",
-      "loveStyle": "A weighty lover who approaches with actions over words, and reason over emotion.",
-      "keywords": [
-        "Cautious",
-        "Logical",
-        "Mediator",
-        "Dependable"
-      ],
-      "strengths": [
-        "Prudence",
-        "Rational judgment",
-        "Conflict mediation skills"
-      ],
-      "weaknesses": [
-        "Clumsy emotional expression",
-        "Over-observing"
-      ],
-      "advice": [
-        "Rational judgment is important, but occasionally getting swept up in emotions is the beauty of romance.",
-        "Often, what your partner wants is simple empathy rather than a logical solution.",
-        "Shorten your 'observation' period a bit and find the courage to approach first."
-      ]
-    },
-    "m2_youngho": {
-      "title": "The Catalyst",
-      "description": "The life of the party who injects energy and makes things happen wherever he goes. An active younger participant who is emotionally expressive and highly sociable. He occasionally makes slips of the tongue, but his unique cheerfulness makes him impossible to hate.",
-      "loveStyle": "A sparkling lover who follows his heart and acts exactly as he feels!",
-      "keywords": [
-        "Energetic",
-        "Mood Maker",
-        "Sociable",
-        "Proactive"
-      ],
-      "strengths": [
-        "Abundant energy",
-        "Affability",
-        "Honest with emotions"
-      ],
-      "weaknesses": [
-        "Unintentional slips of the tongue",
-        "Can appear frivolous"
-      ],
-      "advice": [
-        "Practice picking up your partner's emotions as well as pouring out your own.",
-        "Consider the weight of your words. It is good to take a breath during important moments.",
-        "When you show the sincerity hidden behind your cheerfulness, your partner will be deeply moved."
-      ]
-    },
-    "m3_youngsik": {
-      "title": "The Caretaker",
-      "description": "The model student with a clean-cut appearance and a strong work ethic. He blends in seamlessly in any situation and seeks stable relationships. Rather than putting himself forward, he quietly steps back to reliably protect and support his partner.",
-      "loveStyle": "A dependable, tree-like lover who quietly takes care of you from behind.",
-      "keywords": [
-        "Model Student",
-        "Wholesome",
-        "Stability-seeking",
-        "Sincere"
-      ],
-      "strengths": [
-        "Soundness",
-        "Sense of stability",
-        "Quiet consideration"
-      ],
-      "weaknesses": [
-        "Reluctant to reveal himself",
-        "Lacks initiative"
-      ],
-      "advice": [
-        "Consideration is good, but sometimes you need the selfishness to clearly express what you want.",
-        "Practice walking side-by-side instead of staying behind your partner.",
-        "Go beyond just being 'easygoing' and take the initiative to draw your partner in firmly, like a compass needle."
-      ]
-    },
-    "m4_youngchul": {
-      "title": "The Anti-hero",
-      "description": "A macho, straight-shooter who charges toward what he wants without caring about rules or others' opinions. Though he appears rough, he exudes a peculiar charm through his strong masculinity and action-oriented nature. Goal-driven, he never beats around the bush.",
-      "loveStyle": "An instinctive, wild lover who accelerates straight ahead without calculation.",
-      "keywords": [
-        "Straight-shooter",
-        "Direct",
-        "Action-oriented",
-        "Masculine"
-      ],
-      "strengths": [
-        "Strong drive",
-        "Transparent emotional expression",
-        "Macho charm"
-      ],
-      "weaknesses": [
-        "Side effects of bluntness",
-        "Conflicts from ignoring others' views"
-      ],
-      "advice": [
-        "Check your rearview mirror occasionally to see if your speed is burdening your partner.",
-        "True connection forms when you show the soft, vulnerable side behind your strong exterior.",
-        "Practice the 'aesthetics of waiting' to leave some space for your partner to approach."
-      ]
-    },
-    "m5_kwangsoo": {
-      "title": "The Bureaucrat",
-      "description": "An elite with a unique worldview who values knowledge and discipline. Using his brilliant mind and impressive specs as weapons, he speaks the language of logic. However, his slightly unpolished emotional connectivity sometimes leads to unpredictable, quirky behavior.",
-      "loveStyle": "A quirky romantic who studies his partner's heart as if solving an algorithm.",
-      "keywords": [
-        "Elite",
-        "Unique",
-        "Logic-driven",
-        "Scholar"
-      ],
-      "strengths": [
-        "Intellectual curiosity",
-        "Expertise",
-        "Unique charm"
-      ],
-      "weaknesses": [
-        "Lack of social tact",
-        "Absence of emotional empathy"
-      ],
-      "advice": [
-        "Love is to be shared, not proven. Focus on the journey rather than finding the exact answer.",
-        "When your partner wants emotional comfort, a simple 'I see' works much better than a solution.",
-        "Adjust your eye level a bit when inviting someone into your unique world."
-      ]
-    },
-    "m6_sangchul": {
-      "title": "The Benefactor",
-      "description": "A well-rounded, stable individual with a 'hexagonal balance'. He possesses the open-mindedness to get along with anyone and flexible coping skills. Without leaning too much toward any specific profession or trait, his rounded personality provides a sense of comfort.",
-      "loveStyle": "A pacifist lover who remains unshaken by any wave and considers everyone.",
-      "keywords": [
-        "Well-rounded",
-        "Open-minded",
-        "Flexible",
-        "Helper"
-      ],
-      "strengths": [
-        "Adaptability",
-        "Inclusiveness",
-        "Stable balance"
-      ],
-      "weaknesses": [
-        "Lacks a distinct personal 'color'",
-        "Misunderstandings due to being overly nice to everyone"
-      ],
-      "advice": [
-        "You are kind to everyone; now cultivate a 'selfish' kindness shown only to that one special person.",
-        "Being too agreeable can be boring. Show off your sharp, specific tastes from time to time.",
-        "When conflict arises, don't just avoid or accommodate—sometimes clashing is what smooths off the rough edges."
-      ]
-    },
-    "f1_youngsook": {
-      "title": "The Ruler",
-      "description": "A classic beauty with a strong will and a solid ego. She proactively leads relationships and is the sharp-witted type who is most likely to secure a stable, unwavering marriage (the ultimate outcome). She leads the connection with a profound sense of responsibility.",
-      "loveStyle": "A convicted lover who knows exactly what she wants and takes the lead.",
-      "keywords": [
-        "Sharp-witted",
-        "Classic Beauty",
-        "Proactive",
-        "Strong-willed"
-      ],
-      "strengths": [
-        "Strong ego",
-        "Pursuit of stability",
-        "Proactive relationship building"
-      ],
-      "weaknesses": [
-        "Stubbornness",
-        "Can find it hard to compromise"
-      ],
-      "advice": [
-        "Leading is great, but practice handing the steering wheel to your partner and taking a break sometimes.",
-        "Allow yourself the leeway to accept that your principles aren't the right answer for everyone.",
-        "Occasionally letting your guard down and showing vulnerability creates room for your partner to approach."
-      ]
-    },
-    "f2_jungsook": {
-      "title": "The Curmudgeon",
-      "description": "The eldest sister type who delivers unvarnished 'fact bombs' with unapologetically direct speech. She doesn't hide her emotions, which can make her seem cynical or intense, but she possesses a transparent personality with absolutely no hidden agenda.",
-      "loveStyle": "A 100% transparent, spicy lover who pours out her feelings honestly and boldly.",
-      "keywords": [
-        "Direct",
-        "Eldest Sister",
-        "Honest",
-        "No Hidden Agenda"
-      ],
-      "strengths": [
-        "Honesty",
-        "Intense presence",
-        "Holds no grudges"
-      ],
-      "weaknesses": [
-        "Can unintentionally hurt others by skipping filters",
-        "Somewhat harsh expressions"
-      ],
-      "advice": [
-        "Attitude is more important than facts. Practice filtering your words just one more time.",
-        "Try honestly verbally expressing the tender heart hidden beneath your strong exterior.",
-        "Instead of immediately refuting your partner's opinions, take 3 seconds to absorb them first."
-      ]
-    },
-    "f3_soonja": {
-      "title": "The Explorer",
-      "description": "An individualistic 'my-way' character who remains unswayed by fierce competition or public opinion. She values her own pace and emotions over the standards of others, displaying the unique charm of continuing her own quiet exploration.",
-      "loveStyle": "An independent lover who loves in her own way, unbothered by others' pace.",
-      "keywords": [
-        "My Way",
-        "Independent",
-        "Individualistic",
-        "Own Pace"
-      ],
-      "strengths": [
-        "Independence",
-        "Doesn't care what others think",
-        "Her own set of standards"
-      ],
-      "weaknesses": [
-        "Distance due to individualism",
-        "Can seem aloof in group settings"
-      ],
-      "advice": [
-        "True 'my-way' means not being afraid to forge connections with others.",
-        "Actively invite your partner to take a tour of your small, personal world occasionally.",
-        "Rather than hiding behind the wall of independence, cautiously try learning how to lean on someone."
-      ]
-    },
-    "f4_youngja": {
-      "title": "The Child",
-      "description": "The epitome of pure emotion, armed with bubbliness and charm (aegyo). She is the most instinctive, true to her feelings, and quick to shed tears. She displays an uncalculated innocence combined with a subtle vulnerability that triggers others' protective instincts.",
-      "loveStyle": "A flawless, 100% emotional lover who laughs and cries just as her heart dictates.",
-      "keywords": [
-        "Charming",
-        "Sensitive",
-        "Innocent",
-        "Instinctive"
-      ],
-      "strengths": [
-        "Rich expressions",
-        "Charm and innocence",
-        "Stimulates protective instincts"
-      ],
-      "weaknesses": [
-        "Emotional mood swings",
-        "Overly emotion-driven judgments"
-      ],
-      "advice": [
-        "Relationships cannot be sustained by emotion alone. Learn to manage the waves of feeling rather than just riding them.",
-        "Expressing what you want with clear words rather than tears communicates your needs much better.",
-        "Go beyond just being protected; occasionally show a mature side by embracing and taking care of your partner."
-      ]
-    },
-    "f5_oksoon": {
-      "title": "The Dreamer",
-      "description": "The standard of overwhelming visuals that captures everyone's attention the moment she appears. With a glamorous and magnetic presence, she firmly stands at the center of romance. An object of envy who receives affection from many, she often creates dramatic emotional storylines.",
-      "loveStyle": "A lover who enjoys everyone's gaze and is loved like the protagonist of a romantic fairytale.",
-      "keywords": [
-        "Visuals",
-        "Center of Attention",
-        "Dreamer",
-        "Glamorous"
-      ],
-      "strengths": [
-        "Overwhelming charm",
-        "Confidence",
-        "Protagonist of romance"
-      ],
-      "weaknesses": [
-        "Easily swayed by too much attention",
-        "Pressure from external image"
-      ],
-      "advice": [
-        "Rather than leaning on the admiration or popularity of the crowd, find the one person who recognizes your inner essence.",
-        "Break out of the shell of outward glamour and try sharing your everyday, unadorned emotions.",
-        "If you are used to receiving love, try becoming the proactive subject who abundantly gives love first."
-      ]
-    },
-    "f6_hyunsook": {
-      "title": "The Wise Mentor",
-      "description": "An ace who proves her worth through brilliant intellect and excellent social skills rather than flashy appearances. A wise mentor type who simultaneously wins the respect and affection of men, she is a late bloomer whose popularity skyrockets toward the latter half of the journey.",
-      "loveStyle": "A mature lover who shares deep conversations with a partner she can truly respect.",
-      "keywords": [
-        "Intellectual Beauty",
-        "Wise",
-        "Ace",
-        "Mentor"
-      ],
-      "strengths": [
-        "Intellect and social skills",
-        "Mature conversational ability",
-        "Deep, profound charm"
-      ],
-      "weaknesses": [
-        "Lacks initial attention-grabbing flashiness",
-        "Tends to overthink things"
-      ],
-      "advice": [
-        "Step down from your role as mentor or counselor, and occasionally try acting like a whiny child.",
-        "Instead of trying to teach or analyze your partner, simply enjoy your differences as they are.",
-        "Intellect is a fantastic charm, but don't forget the romance of expressing love through the language of emotion."
-      ]
-    }
-  },
-  "about": {
-    "header": "About Us",
-    "title": "I am Solo Test <br />(Love Archetype)",
-    "desc1": "Welcome! 'I am Solo Test' is a free psychological archetype analysis web service designed to easily and funnily unravel the complex psychology of human relationships and romance. Beyond simple fun, it aims to mirror your unconscious behavior patterns and dating styles.",
-    "desc2": "In modern society, we all wear different masks (Persona) and live our lives. But in the moment of love, when deeply loving someone, the most essential self inevitably emerges. This test captures exactly that point, asking and answering who you are and what kind of love you want.",
-    "bg_title": "Psychological Background",
-    "bg_desc": "The algorithm for deriving the results of this test is structured independently by borrowing Carl Jung's analytical psychological Archetype theory and the four preference tendencies of personality type indicators.",
-    "list_ei": "<strong className=\"text-vibrant-pink\">E/I (Energy Direction):</strong> Initiative in relationships and direction of energy emission",
-    "list_ns": "<strong className=\"text-vibrant-pink\">N/S (Perception Method):</strong> Intuition vs. experience when going on dates or understanding partners",
-    "list_tf": "<strong className=\"text-vibrant-pink\">T/F (Judgment Method):</strong> Logic vs. emotional empathy in conflict situations",
-    "list_jp": "<strong className=\"text-vibrant-pink\">J/P (Lifestyle):</strong> Planning vs. improvisation that leads the dating process",
-    "result_guide_title": "Result Type Guide",
-    "result_guide_desc1": "Based on the user's response data, one of 12 attractive 'Solo Land' characters (6 men, 6 women) is derived as a result. Each character, such as the stoic analyst 'Youngsoo', the ruler 'Youngsook', and the fact-bomber 'Jungsook', vividly reflects real-world dating archetypes.",
-    "result_guide_desc2": "The derived result page provides not only the character name but also your strengths and weaknesses, the perfect partner type, and three sincere dating advice for a better relationship. Try sharing the results with friends or lovers to use it as an opportunity to understand each other's differences.",
-    "caution_badge": "Caution",
-    "caution_desc": "This psychological test is produced for the purpose of entertainment and interest. It cannot replace medical or professional psychological counseling, and the results do not perfectly define an individual's disposition. Please enjoy it lightly and use it as a small window to understand others.",
-    "start_btn": "Start Test"
-  },
-  "privacy": {
-    "header": "Privacy Policy",
-    "date": "Effective Date: January 1, 2025 &nbsp;·&nbsp; Last Modified: December 1, 2025",
-    "summary": "<strong className=\"text-vibrant-pink\">I am Solo Dating Archetype Test</strong> has no membership registration and does not collect personally identifiable information such as name and contact details. However, cookies may be used for the operation of the Google AdSense advertising service.",
-    "s1_title": "1. Service Introduction",
-    "s1_p1": "The I am Solo Dating Archetype Test (hereinafter 'Service') is a dating psychology tendency analysis service that combines the Archetype theory of psychology and tendency analysis with the popular dating entertainment program 'I am Solo' as the theme.",
-    "s1_p2": "This service is a free service available to anyone without separate membership registration or login.",
-    "s2_title": "2. Personal Information Collected",
-    "s2_p1": "This service <strong className=\"text-deep-charcoal\">does not collect personally identifiable information such as the user's name, date of birth, email, or phone number.</strong>",
-    "s2_p2": "The test response results are processed only as parameters of the result page URL, and are not stored on a separate server or passed on to third parties.",
-    "s2_items": "✅ Items Collected",
-    "s2_none": "No personal information collected (non-identifying service)",
-    "s3_title": "3. Cookies and Similar Technologies",
-    "s3_p1": "This service may use cookies to improve service quality and post advertisements. A cookie is a small data file stored in your browser when you visit a website.",
-    "s3_p2": "<strong className=\"text-deep-charcoal\">How to reject cookies:</strong> You can set whether to accept cookies yourself in your browser's settings menu. However, if you disable cookies, there may be restrictions on using some services.",
-    "s3_li1": "Chrome: Settings → Privacy and security → Cookies and other site data",
-    "s3_li2": "Safari: Preferences → Privacy → Block all cookies",
-    "s3_li3": "Firefox: Options → Privacy & Security → Cookies and Site Data",
-    "s4_title": "4. Third-Party Advertising Service (Google AdSense)",
-    "s4_p1": "This service uses the <strong className=\"text-deep-charcoal\">Google AdSense</strong> advertising service provided by Google LLC. Google AdSense may use cookies to display personalized ads that match user interests.",
-    "s4_p2": "Google uses user cookies to serve ads based on their visits to that site and other sites on the Internet. For more information on how Google uses advertising cookies, please refer to the link below.",
-    "s4_link1": "→ Google Privacy Policy",
-    "s4_link2": "→ Google Ads Settings Page",
-    "s4_warn": "⚠️ If you saw Google ads on a Google ad partner site, Google cookies are also used. You can opt out of personalized advertising on the 'Ads Settings Page' above.",
-    "s5_title": "5. External Links",
-    "s5_p1": "If you move to another website through an external link included in this service, the privacy policy of that site applies. This service is not responsible for the processing of personal information on external sites.",
-    "s6_title": "6. Disclaimer",
-    "s6_p1": "The result of this test is an <strong className=\"text-deep-charcoal\">archetype analysis based on psychological archetype theory for the purpose of entertainment and self-understanding</strong>, not a medical or psychological counseling diagnosis.",
-    "s6_p2": "The result may partially reflect individual tendencies, but it is not an absolute standard. If professional psychological counseling is needed, please contact a related expert.",
-    "s7_title": "7. Changes to the Privacy Policy",
-    "s7_p1": "This privacy policy may be changed according to laws, policies, or service changes. In the event of a change, we will notify you by updating the 'Last Modified' date at the top of this page.",
-    "s8_title": "8. Inquiries Regarding Personal Information",
-    "s8_p1": "If you have any questions about the Privacy Policy, please contact us via the route below.",
-    "s8_box1": "Service Operation",
-    "s8_box2": "I am Solo Dating Archetype Test",
-    "go_home": "Return Home"
-  }
 }
