@@ -85,20 +85,16 @@ export default function ResultClient() {
 
             {/* Overlapping Hero Card Wrapper */}
             <div className="px-6 relative -mt-16 z-10 max-w-md mx-auto w-full animate-slide-up ">
-                <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center justify-center relative border border-slate-50 group hover:-translate-y-2 transition-transform duration-500">
-                    {/* Abstract decorative elements using correct Stitch colors */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-soft-pink rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-lavender-tag rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
-
-                    <div className="w-48 h-48 mb-12 z-10 drop-shadow-xl animate-float-y group-hover:scale-110 transition-transform duration-500 rounded-full overflow-hidden border-4 border-white shadow-soft-card">
-                        <img src={character.imageUrl} alt={character.name} className="w-full h-full object-cover" />
+                <div className="w-full overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center relative border border-slate-50 group hover:-translate-y-2 transition-transform duration-500">
+                    <div className="w-full aspect-square relative z-10 overflow-hidden bg-soft-pink/10">
+                        <img src={character.imageUrl} alt={character.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
 
-                    <div className="absolute bottom-6 left-6 right-6 z-10 text-center">
-                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[10px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md opacity-90 backdrop-blur-sm">
+                    <div className="py-8 px-6 w-full text-center relative z-10 bg-white">
+                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[11px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md">
                             {character.title}
                         </span>
-                        <h3 className="text-deep-charcoal text-3xl font-extrabold leading-tight break-keep">
+                        <h3 className="text-deep-charcoal text-[32px] font-extrabold leading-none break-keep">
                             {character.name}
                         </h3>
                     </div>
