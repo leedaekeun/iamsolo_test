@@ -2,28 +2,39 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { CHARACTERS, Archetype } from '@/data/characters';
 
+/* ─────────────────────────────────────────
+   캐릭터 아바타 설정 (imageUrl 없으므로 이모지+그라디언트)
+───────────────────────────────────────── */
+const CHAR_AVATAR: Record<string, { emoji: string; from: string; to: string }> = {
+    'm1_youngsoo': { emoji: '🧐', from: '#C7D2FE', to: '#818CF8' },
+    'm2_youngho':  { emoji: '😄', from: '#FDE68A', to: '#FBBF24' },
+    'm3_youngsik': { emoji: '🤗', from: '#A7F3D0', to: '#34D399' },
+    'm4_youngchul':{ emoji: '😤', from: '#FECACA', to: '#F87171' },
+    'm5_kwangsoo': { emoji: '🤓', from: '#BFDBFE', to: '#60A5FA' },
+    'm6_sangchul': { emoji: '😊', from: '#E2E8F0', to: '#94A3B8' },
+    'f1_youngsook':{ emoji: '👑', from: '#FEF3C7', to: '#FCD34D' },
+    'f2_jungsook': { emoji: '🔥', from: '#FECACA', to: '#F87171' },
+    'f3_soonja':   { emoji: '🏕️', from: '#A7F3D0', to: '#34D399' },
+    'f4_youngja':  { emoji: '🥺', from: '#FBCFE8', to: '#F472B6' },
+    'f5_oksoon':   { emoji: '✨', from: '#D1FAE5', to: '#6EE7B7' },
+    'f6_hyunsook': { emoji: '📚', from: '#C7D2FE', to: '#818CF8' },
+};
+
 /* ═══════════════════════════════════════════
-   PREMIUM WHITE RESULT PAGE
+   RESULT PAGE
 ═══════════════════════════════════════════ */
 export default function ResultClient() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const characterId = searchParams.get('resultId');
-    // const matchPct = Math.min(Math.max(parseInt(searchParams.get('match') || '0', 10), 0), 100);
 
     const [character, setCharacter] = useState<Archetype | null>(null);
     const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
 
     useEffect(() => {
-        if (!characterId) {
-            navigate('/');
-            return;
-        }
+        if (!characterId) { navigate('/'); return; }
         const found = CHARACTERS.find(c => c.id === characterId);
-        if (!found) {
-            navigate('/');
-            return;
-        }
+        if (!found) { navigate('/'); return; }
         setCharacter(found);
     }, [characterId, navigate]);
 
@@ -34,6 +45,8 @@ export default function ResultClient() {
             </div>
         );
     }
+
+    const av = CHAR_AVATAR[character.id] ?? { emoji: '💕', from: '#FBCFE8', to: '#F472B6' };
 
     const handleShare = async () => {
         const url = window.location.href;
@@ -55,96 +68,115 @@ export default function ResultClient() {
         }
     };
 
-    // Removed emoji usage to display generated character illustrations.
-
     return (
-        <div className="relative w-full min-h-screen flex flex-col bg-off-white font-sans text-deep-charcoal antialiased overflow-x-hidden selection:bg-vibrant-pink selection:text-white pb-0">
-            {/* Header mapped precisely like the Home wrapper starting in white */}
-            <div className="bg-white rounded-b-[3.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] z-50 mb-0 px-6 py-6 pb-20 relative">
+        <div className="relative w-full min-h-screen flex flex-col bg-off-white text-deep-charcoal overflow-x-hidden">
+
+            {/* ── 상단 헤더 ── */}
+            <div className="bg-white rounded-section-b shadow-natural px-6 pt-6 pb-20 relative z-20">
                 <header className="flex items-center justify-between mx-auto max-w-md w-full mb-10">
-                    <Link to="/" className="flex size-12 items-center justify-center rounded-full hover:bg-off-white transition-colors">
+                    <Link
+                        to="/"
+                        className="flex size-11 items-center justify-center rounded-full hover:bg-off-white transition-colors"
+                        aria-label="홈으로"
+                    >
                         <span className="material-symbols-outlined text-deep-charcoal">home</span>
                     </Link>
-                    <h2 className="text-xl font-bold tracking-tight flex-1 text-center text-deep-charcoal">나의 매칭 캐릭터</h2>
-                    <button onClick={handleShare} className="flex size-12 items-center justify-center rounded-full hover:bg-off-white transition-colors">
+                    <h2 className="text-card-title flex-1 text-center">나의 매칭 캐릭터</h2>
+                    <button
+                        onClick={handleShare}
+                        className="flex size-11 items-center justify-center rounded-full hover:bg-off-white transition-colors"
+                        aria-label="공유"
+                    >
                         <span className="material-symbols-outlined text-deep-charcoal">share</span>
                     </button>
                 </header>
 
-                {/* Result Title */}
+                {/* 결과 타이틀 */}
                 <div className="text-center space-y-4 animate-slide-up">
-                    <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-soft-pink/40 border border-soft-pink mx-auto">
-                        <span className="text-[10px] font-bold text-vibrant-pink tracking-widest uppercase">Match Result</span>
-                    </div>
-                    <h1 className="text-3xl md:text-4xl font-extrabold leading-tight px-2 text-deep-charcoal break-keep">
+                    <div className="badge mx-auto w-fit">Match Result</div>
+                    <h1 className="text-page-title px-2 break-keep">
                         당신은 '솔로나라'의<br />
                         <span className="text-vibrant-pink">{character.name}</span>
                     </h1>
                 </div>
             </div>
 
-            {/* Overlapping Hero Card Wrapper */}
-            <div className="px-6 relative -mt-16 z-10 max-w-md mx-auto w-full animate-slide-up ">
-                <div className="w-full overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center relative border border-slate-50 group hover:-translate-y-2 transition-transform duration-500">
-                    <div className="w-full aspect-square relative z-10 overflow-hidden bg-soft-pink/10">
-                        <img src={character.imageUrl} alt={character.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            {/* ── 캐릭터 히어로 카드 (헤더에 반쯤 올라옴) ── */}
+            <div className="px-6 relative -mt-14 z-10 max-w-md mx-auto w-full animate-slide-up">
+                <div className="card overflow-hidden flex flex-col items-center group hover:-translate-y-2 transition-transform duration-500">
+
+                    {/* 아바타 영역 — 이모지 + 그라디언트 */}
+                    <div
+                        className="w-full aspect-square flex items-center justify-center text-8xl"
+                        style={{ background: `linear-gradient(135deg, ${av.from}, ${av.to})` }}
+                    >
+                        {av.emoji}
                     </div>
 
-                    <div className="py-8 px-6 w-full text-center relative z-10 bg-white">
-                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[11px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md">
+                    {/* 캐릭터 이름·타이틀 */}
+                    <div className="py-7 px-6 w-full text-center bg-white">
+                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-caption rounded-full mb-3 tracking-wider shadow-sm">
                             {character.title}
                         </span>
-                        <h3 className="text-deep-charcoal text-[32px] font-extrabold leading-none break-keep">
+                        <p className="text-[32px] font-extrabold leading-none tracking-tight text-deep-charcoal">
                             {character.name}
-                        </h3>
+                        </p>
                     </div>
                 </div>
             </div>
 
-            {/* Main content pulling up via rounded-t */}
-            <main className="flex-1 w-full bg-white rounded-t-[3.5rem] shadow-[0_-20px_60px_rgba(0,0,0,0.03)] px-6 py-20 mt-12 pb-32">
-                <div className="max-w-md mx-auto">
-                    {/* Description */}
-                    <div className="text-center mb-16 px-2 animate-slide-up delay-100">
-                        <p className="text-slate-grey text-[15px] font-medium leading-9 break-keep relative">
-                            <span className="text-vibrant-pink font-bold text-4xl leading-3 absolute -top-4 -left-2 opacity-30">"</span>
+            {/* ── 본문 콘텐츠 ── */}
+            <main className="flex-1 w-full panel-section px-6 pt-16 pb-24 mt-10">
+                <div className="max-w-md mx-auto space-y-10">
+
+                    {/* 캐릭터 설명 */}
+                    <div className="text-center px-2 animate-slide-up delay-100">
+                        <p className="text-body leading-9 break-keep relative px-4">
+                            <span className="text-vibrant-pink font-bold text-4xl absolute -top-3 -left-1 opacity-25 leading-none">"</span>
                             {character.description}
-                            <span className="text-vibrant-pink font-bold text-4xl leading-3 absolute -bottom-6 -right-2 opacity-30">"</span>
+                            <span className="text-vibrant-pink font-bold text-4xl absolute -bottom-5 -right-1 opacity-25 leading-none">"</span>
                         </p>
                     </div>
 
-                    {/* Traits List */}
-                    <div className="space-y-6 animate-slide-up delay-200">
-                        <h4 className="text-xl font-bold text-deep-charcoal pl-2 mb-2">나의 연애 특징</h4>
-                        <div className="grid grid-cols-1 gap-5">
-                            <div className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-floating transition-all duration-300 hover:-translate-y-1">
+                    {/* 나의 연애 특징 */}
+                    <div className="animate-slide-up delay-200">
+                        <h4 className="text-section-title pl-1 mb-5">나의 연애 특징</h4>
+                        <div className="space-y-4">
+
+                            {/* 연애 스타일 */}
+                            <div className="card p-6 group">
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-soft-pink/50 p-3 rounded-full shrink-0 group-hover:scale-110 group-hover:bg-vibrant-pink group-hover:text-white transition-all duration-300 shadow-sm">
+                                    <div className="bg-soft-pink p-3 rounded-full shrink-0 group-hover:bg-vibrant-pink transition-colors duration-300">
                                         <span className="material-symbols-outlined text-vibrant-pink group-hover:text-white transition-colors">favorite</span>
                                     </div>
                                     <div>
-                                        <p className="font-bold text-deep-charcoal text-[15px] mb-3 leading-relaxed">{character.loveStyle}</p>
-                                        <div className="flex flex-wrap gap-2 mt-2">
+                                        <p className="font-bold text-deep-charcoal text-[15px] mb-3 leading-relaxed">
+                                            {character.loveStyle}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
                                             {character.keywords.map(kw => (
-                                                <span key={kw} className="px-3 py-1.5 bg-lavender-tag text-deep-purple text-[10px] font-bold rounded-xl tracking-wide uppercase border border-deep-purple/10">
-                                                    #{kw}
-                                                </span>
+                                                <span key={kw} className="tag">#{kw}</span>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            {/* 강점 카드 */}
                             {character.strengths.slice(0, 2).map((str, idx) => (
-                                <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-floating transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-20 h-20 bg-soft-pink/30 rounded-full blur-xl -translate-y-1/2 translate-x-1/3 group-hover:scale-150 transition-transform duration-500"></div>
+                                <div key={idx} className="card p-6 group overflow-hidden relative">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-soft-pink rounded-full blur-2xl -translate-y-1/2 translate-x-1/3 group-hover:scale-150 transition-transform duration-500 opacity-60" />
                                     <div className="flex items-start gap-4 relative z-10">
-                                        <div className="bg-off-white p-3 rounded-full shrink-0 group-hover:scale-110 group-hover:bg-deep-charcoal group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100">
+                                        <div className="bg-off-white p-3 rounded-full shrink-0 border border-slate-100 group-hover:bg-deep-charcoal transition-colors duration-300">
                                             <span className="material-symbols-outlined text-deep-charcoal group-hover:text-white transition-colors">verified</span>
                                         </div>
                                         <div>
-                                            <p className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-1.5 group-hover:text-vibrant-pink transition-colors">장점 포인트 {idx + 1}</p>
-                                            <p className="text-[14px] font-semibold text-deep-charcoal leading-relaxed">{str}</p>
+                                            <p className="text-caption text-slate-400 mb-1.5 group-hover:text-vibrant-pink transition-colors">
+                                                장점 포인트 {idx + 1}
+                                            </p>
+                                            <p className="text-body text-[14px] font-semibold text-deep-charcoal">
+                                                {str}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -152,51 +184,67 @@ export default function ResultClient() {
                         </div>
                     </div>
 
-                    {/* Matches */}
-                    <div className="mt-16 animate-slide-up delay-300">
-                        <div className="flex items-center gap-3 pl-2 mb-6">
-                            <h4 className="text-xl font-bold text-deep-charcoal">환상의 케미 매칭</h4>
-                            <div className="h-px flex-1 bg-slate-100 rounded-full"></div>
+                    {/* 궁합 리포트 */}
+                    <div className="animate-slide-up delay-300">
+                        <div className="flex items-center gap-3 pl-1 mb-5">
+                            <h4 className="text-section-title">환상의 케미 매칭</h4>
+                            <div className="h-px flex-1 bg-slate-100 rounded-full" />
                         </div>
-                        <div className="grid grid-cols-2 gap-5">
-                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-floating transition-all duration-300 hover:-translate-y-1 group">
-                                <p className="inline-block border border-vibrant-pink/20 bg-soft-pink/30 px-3 py-1 rounded-full text-[10px] text-vibrant-pink font-bold mb-4 uppercase tracking-wider group-hover:bg-vibrant-pink group-hover:text-white transition-colors">최고의 궁합</p>
-                                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 relative group-hover:scale-110 transition-transform duration-300">
+                        <div className="grid grid-cols-2 gap-4">
+                            {/* 최고의 궁합 */}
+                            <div className="card p-6 text-center group">
+                                <p className="badge mb-4 w-fit mx-auto group-hover:bg-vibrant-pink group-hover:text-white transition-colors">
+                                    최고의 궁합
+                                </p>
+                                <div className="w-14 h-14 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
                                     <span className="material-symbols-outlined text-vibrant-pink text-3xl">volunteer_activism</span>
-                                    {/* Small overlapping badge representing character correlation */}
                                 </div>
-                                <p className="font-bold text-deep-charcoal text-sm">{character.bestMatch}</p>
+                                <p className="font-bold text-deep-charcoal">{character.bestMatch}</p>
                             </div>
 
-                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-floating transition-all duration-300 hover:-translate-y-1 group">
-                                <p className="inline-block border border-slate-200 bg-off-white px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold mb-4 uppercase tracking-wider group-hover:bg-deep-charcoal group-hover:text-white group-hover:border-deep-charcoal transition-colors">최악의 궁합</p>
-                                <div className="w-16 h-16 bg-off-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 group-hover:scale-110 transition-transform duration-300">
+                            {/* 최악의 궁합 */}
+                            <div className="card p-6 text-center group">
+                                <p className="text-caption text-slate-500 bg-off-white border border-slate-200 px-3 py-1.5 rounded-full mb-4 w-fit mx-auto group-hover:bg-deep-charcoal group-hover:text-white group-hover:border-deep-charcoal transition-colors">
+                                    최악의 궁합
+                                </p>
+                                <div className="w-14 h-14 bg-off-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
                                     <span className="material-symbols-outlined text-slate-400 text-3xl">sentiment_dissatisfied</span>
                                 </div>
-                                <p className="font-bold text-deep-charcoal text-sm">{character.worstMatch}</p>
+                                <p className="font-bold text-deep-charcoal">{character.worstMatch}</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="mt-20 space-y-4 animate-slide-up delay-400">
-                        <button
-                            onClick={handleShare}
-                            className="w-full bg-vibrant-pink text-white font-bold text-[17px] py-[1.125rem] rounded-full shadow-btn transform active:scale-95 hover:-translate-y-1 hover:shadow-[0_12px_24px_-6px_rgba(255,45,120,0.4)] transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group"
-                        >
-                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></div>
-                            <span className="material-symbols-outlined text-[22px] relative z-10">share</span>
-                            <span className="relative z-10">{shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}</span>
-                        </button>
+                    {/* 연애 성장 조언 */}
+                    <div className="animate-slide-up delay-400">
+                        <div className="flex items-center gap-3 pl-1 mb-5">
+                            <h4 className="text-section-title">연애 성장 조언</h4>
+                            <div className="h-px flex-1 bg-slate-100 rounded-full" />
+                        </div>
+                        <div className="space-y-3">
+                            {character.advice.map((tip, i) => (
+                                <div key={i} className="card p-5 flex items-start gap-4">
+                                    <span className="shrink-0 w-7 h-7 rounded-full bg-soft-pink border border-mid-pink flex items-center justify-center text-xs font-bold text-vibrant-pink">
+                                        {i + 1}
+                                    </span>
+                                    <p className="text-body text-[14px]">{tip}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
-                        <Link
-                            to="/"
-                            className="w-full bg-white border border-slate-200 text-deep-charcoal font-bold text-[17px] py-[1.125rem] rounded-full shadow-sm transform active:scale-95 hover:bg-slate-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
-                        >
-                            <span className="material-symbols-outlined text-[22px]">refresh</span>
+                    {/* 액션 버튼 */}
+                    <div className="space-y-3 animate-slide-up delay-400 pt-4">
+                        <button onClick={handleShare} className="btn-primary">
+                            <span className="material-symbols-outlined text-[20px]">share</span>
+                            <span>{shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}</span>
+                        </button>
+                        <Link to="/" className="btn-secondary">
+                            <span className="material-symbols-outlined text-[20px]">refresh</span>
                             테스트 다시하기
                         </Link>
                     </div>
+
                 </div>
             </main>
         </div>

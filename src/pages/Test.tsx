@@ -119,11 +119,11 @@ export default function TestPage() {
     const currentQuestion = currentStep > 0 ? QUESTIONS[currentStep - 1] : null;
 
     return (
-        <div className="relative min-h-screen w-full flex flex-col bg-[#fcfcfc] overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white pb-8">
+        <div className="relative min-h-screen w-full flex flex-col bg-off-white overflow-x-hidden text-deep-charcoal pb-8">
 
             {/* Top Navigation & Progress Bar (Only during questions) */}
             {currentStep > 0 && (
-                <div className="fixed top-0 left-0 w-full bg-[#fcfcfc]/95 backdrop-blur-md z-50">
+                <div className="fixed top-0 left-0 w-full bg-off-white/95 backdrop-blur-md z-50 border-b border-slate-100">
                     <div className="max-w-md mx-auto w-full px-5 py-3 pt-4">
                         <div className="flex items-center justify-between mb-3">
                             <button onClick={handleBack} className="flex size-8 items-center justify-center cursor-pointer hover:bg-slate-100 rounded-full transition-colors active:scale-95 text-slate-400 hover:text-deep-charcoal" aria-label="이전으로">
@@ -152,7 +152,7 @@ export default function TestPage() {
 
             {/* Header (Only show for Gender Selection step) */}
             {currentStep === 0 && (
-                <div className="bg-white rounded-b-[3.5rem] shadow-natural z-20 pb-4 mb-6 relative">
+                <div className="bg-white rounded-section-b shadow-natural z-20 pb-4 mb-6 relative">
                     <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
                         <button onClick={handleBack} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="이전으로">
                             <span className="material-symbols-outlined text-deep-charcoal">arrow_back_ios_new</span>
@@ -227,7 +227,7 @@ export default function TestPage() {
                             </button>
                         </div>
 
-                        <div className="mt-10 bg-white border border-slate-50 rounded-[1.5rem] p-5 text-center shadow-soft-card">
+                        <div className="mt-10 bg-white border border-slate-100 rounded-[1.5rem] p-5 text-center shadow-card">
                             <p className="text-xs font-bold text-slate-grey tracking-wide leading-relaxed">
                                 💕 어떤 성별을 선택해도 테스트를 즐길 수 있어요
                             </p>
@@ -240,7 +240,7 @@ export default function TestPage() {
                     <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[5rem]">
 
                         {/* Image Container (Filled inside rounded box) */}
-                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-soft-card mb-10 border border-slate-50/50">
+                        <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-10 border border-slate-100">
                             <img
                                 src={currentQuestion.imageUrl}
                                 alt={`상황 ${currentStep} 이미지`}
