@@ -127,7 +127,7 @@ export default function Home() {
             </header>
 
             {/* ── 분석 방법 섹션 ── */}
-            <section className="px-6 py-20 bg-off-white">
+            <section className="px-6 py-12 md:py-20 bg-off-white">
                 <div className="text-center mb-14">
                     <h2 className="text-section-title mb-4">{t('home.method_title')}</h2>
                     <div className="divider-pink mx-auto mb-5" />
@@ -152,7 +152,7 @@ export default function Home() {
             </section>
 
             {/* ── 캐릭터 카드 섹션 ── */}
-            <section className="px-6 pt-20 pb-16 panel-section">
+            <section className="px-6 pt-12 md:pt-20 pb-16 panel-section">
                 <div className="flex flex-col items-center justify-center text-center mb-10 gap-3">
                     <h2 className="text-section-title">{t('home.characters_title')}</h2>
                     <span className="text-caption font-semibold tracking-wide text-slate-500 bg-white shadow-sm border border-slate-100 px-4 py-1.5 rounded-full">
