@@ -29,8 +29,8 @@ export default function ResultClient() {
 
     if (!character) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white">
-                <div className="w-10 h-10 rounded-full border-4 animate-spin border-slate-200 border-t-primary" />
+            <div className="min-h-screen flex items-center justify-center bg-off-white">
+                <div className="w-10 h-10 rounded-full border-4 animate-spin border-slate-200 border-t-vibrant-pink" />
             </div>
         );
     }
@@ -50,12 +50,12 @@ export default function ResultClient() {
                 setShareStatus('copied');
                 setTimeout(() => setShareStatus('idle'), 2500);
             } catch {
-                alert('링크를 trực tiếp 복사해주세요: ' + url);
+                alert('링크를 직접 복사해주세요: ' + url);
             }
         }
     };
 
-    // Convert character ID 'm1_youngsoo' or 'f1_youngsook' to emojis for display since we don't have custom images for all
+    // Keep using emojis for the hero shot for now since we don't have individual big result illustrations
     const getCharacterEmoji = (id: string) => {
         const emojiMap: Record<string, string> = {
             'm1_youngsoo': '🧐', 'm2_youngho': '😄', 'm3_youngsik': '🤗',
@@ -67,65 +67,81 @@ export default function ResultClient() {
     };
 
     return (
-        <div className="max-w-md mx-auto min-h-screen flex flex-col relative bg-white shadow-xl font-display text-deep-black antialiased overflow-x-hidden animate-fade-in">
-            {/* Header */}
-            <header className="sticky top-0 z-50 flex items-center bg-white/90 backdrop-blur-md px-4 py-3 justify-between border-b border-slate-100">
-                <Link to="/" className="flex size-10 items-center justify-center rounded-full hover:bg-slate-50 transition-colors">
-                    <span className="material-symbols-outlined text-deep-black">home</span>
-                </Link>
-                <h2 className="text-lg font-bold tracking-tight flex-1 text-center">테스트 결과</h2>
-                <button onClick={handleShare} className="flex size-10 items-center justify-center rounded-full hover:bg-slate-50 transition-colors">
-                    <span className="material-symbols-outlined text-deep-black">share</span>
-                </button>
-            </header>
+        <div className="relative w-full min-h-screen flex flex-col bg-off-white font-sans text-deep-charcoal antialiased overflow-x-hidden selection:bg-vibrant-pink selection:text-white pb-0">
+            {/* Header mapped precisely like the Home wrapper starting in white */}
+            <div className="bg-white rounded-b-[3.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] z-50 mb-0 px-6 py-6 pb-20 relative">
+                <header className="flex items-center justify-between mx-auto max-w-md w-full mb-10">
+                    <Link to="/" className="flex size-12 items-center justify-center rounded-full hover:bg-off-white transition-colors">
+                        <span className="material-symbols-outlined text-deep-charcoal">home</span>
+                    </Link>
+                    <h2 className="text-xl font-bold tracking-tight flex-1 text-center text-deep-charcoal">나의 매칭 캐릭터</h2>
+                    <button onClick={handleShare} className="flex size-12 items-center justify-center rounded-full hover:bg-off-white transition-colors">
+                        <span className="material-symbols-outlined text-deep-charcoal">share</span>
+                    </button>
+                </header>
 
-            <main className="flex-1 pb-32">
-                <div className="px-5 py-6">
+                {/* Result Title */}
+                <div className="text-center space-y-4 animate-slide-up">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-soft-pink/40 border border-soft-pink mx-auto">
+                        <span className="text-[10px] font-bold text-vibrant-pink tracking-widest uppercase">Match Result</span>
+                    </div>
+                    <h1 className="text-3xl md:text-4xl font-extrabold leading-tight px-2 text-deep-charcoal break-keep">
+                        당신은 '솔로나라'의<br />
+                        <span className="text-vibrant-pink">{character.name}</span>
+                    </h1>
+                </div>
+            </div>
 
-                    {/* Character Card / Image */}
-                    <div className="relative group animate-slide-down">
-                        <div className="w-full aspect-[4/5] overflow-hidden rounded-[32px] shadow-xl bg-primary/5 flex flex-col items-center justify-center relative border border-slate-100">
-                            {/* Abstract decorative elements */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
+            {/* Overlapping Hero Card Wrapper */}
+            <div className="px-6 relative -mt-16 z-10 max-w-md mx-auto w-full animate-slide-up ">
+                <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-floating bg-white flex flex-col items-center justify-center relative border border-slate-50">
+                    {/* Abstract decorative elements using correct Stitch colors */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-soft-pink rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-70"></div>
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-lavender-tag rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 opacity-70"></div>
 
-                            <div className="text-8xl mb-8 z-10 drop-shadow-xl animate-float-y">
-                                {getCharacterEmoji(character.id)}
-                            </div>
-
-                            <div className="absolute bottom-6 left-6 right-6 z-10">
-                                <span className="inline-block px-3 py-1 bg-primary text-white text-[10px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md shadow-primary/20">
-                                    {character.title}
-                                </span>
-                                <h3 className="text-deep-black text-3xl font-extrabold leading-tight break-keep">
-                                    {character.name}
-                                </h3>
-                            </div>
-                        </div>
+                    <div className="text-8xl mb-12 z-10 drop-shadow-xl animate-float-y">
+                        {getCharacterEmoji(character.id)}
                     </div>
 
+                    <div className="absolute bottom-6 left-6 right-6 z-10 text-center">
+                        <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-[10px] font-bold rounded-full mb-3 uppercase tracking-wider shadow-md opacity-90">
+                            {character.title}
+                        </span>
+                        <h3 className="text-deep-charcoal text-3xl font-extrabold leading-tight break-keep">
+                            {character.name}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main content pulling up via rounded-t */}
+            <main className="flex-1 w-full bg-white rounded-t-[3.5rem] shadow-[0_-20px_60px_rgba(0,0,0,0.03)] px-6 py-20 mt-12 pb-32">
+                <div className="max-w-md mx-auto">
                     {/* Description */}
-                    <div className="mt-8 text-center space-y-4 animate-slide-up delay-100">
-                        <h1 className="text-2xl font-bold leading-tight px-2 text-deep-black break-keep">
-                            당신은 '솔로나라'의<br />{character.name}
-                        </h1>
-                        <p className="text-neutral-gray text-base font-medium leading-relaxed px-2 break-keep">
+                    <div className="text-center mb-16 px-2 animate-slide-up delay-100">
+                        <p className="text-slate-grey text-[15px] font-medium leading-9 break-keep relative">
+                            <span className="text-vibrant-pink font-bold text-4xl leading-3 absolute -top-4 -left-2 opacity-30">"</span>
                             {character.description}
+                            <span className="text-vibrant-pink font-bold text-4xl leading-3 absolute -bottom-6 -right-2 opacity-30">"</span>
                         </p>
                     </div>
 
-                    {/* Traits List (Strengths/Keywords wrapper) */}
-                    <div className="mt-10 space-y-4 animate-slide-up delay-200">
-                        <h4 className="text-lg font-bold px-1">나의 연애 특징</h4>
-                        <div className="grid grid-cols-1 gap-3">
-                            <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-soft">
-                                <div className="flex items-start gap-3">
-                                    <span className="material-symbols-outlined text-primary mt-1">favorite</span>
+                    {/* Traits List */}
+                    <div className="space-y-6 animate-slide-up delay-200">
+                        <h4 className="text-xl font-bold text-deep-charcoal pl-2 mb-2">나의 연애 특징</h4>
+                        <div className="grid grid-cols-1 gap-5">
+                            <div className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-lg transition-transform hover:-translate-y-1">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-soft-pink/50 p-3 rounded-full shrink-0 group-hover:scale-110 transition-transform">
+                                        <span className="material-symbols-outlined text-vibrant-pink">favorite</span>
+                                    </div>
                                     <div>
-                                        <p className="font-bold text-deep-black text-sm">{character.loveStyle}</p>
-                                        <div className="flex flex-wrap gap-1.5 mt-2">
+                                        <p className="font-bold text-deep-charcoal text-[15px] mb-3 leading-relaxed">{character.loveStyle}</p>
+                                        <div className="flex flex-wrap gap-2 mt-2">
                                             {character.keywords.map(kw => (
-                                                <span key={kw} className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">#{kw}</span>
+                                                <span key={kw} className="px-3 py-1 bg-lavender-tag text-deep-purple text-[10px] font-bold rounded-xl tracking-wide uppercase">
+                                                    #{kw}
+                                                </span>
                                             ))}
                                         </div>
                                     </div>
@@ -133,12 +149,14 @@ export default function ResultClient() {
                             </div>
 
                             {character.strengths.slice(0, 2).map((str, idx) => (
-                                <div key={idx} className="bg-white p-4 rounded-xl border border-slate-100 shadow-soft">
-                                    <div className="flex items-start gap-3">
-                                        <span className="material-symbols-outlined text-primary mt-1">auto_awesome</span>
+                                <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-soft-card group hover:shadow-lg transition-transform hover:-translate-y-1">
+                                    <div className="flex items-start gap-4">
+                                        <div className="bg-off-white p-3 rounded-full shrink-0 group-hover:scale-110 transition-transform">
+                                            <span className="material-symbols-outlined text-deep-charcoal">verified</span>
+                                        </div>
                                         <div>
-                                            <p className="font-bold text-deep-black text-sm">강점 포인트 {idx + 1}</p>
-                                            <p className="text-xs text-neutral-gray mt-1">{str}</p>
+                                            <p className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-1.5">장점 포인트 {idx + 1}</p>
+                                            <p className="text-sm font-semibold text-deep-charcoal leading-relaxed">{str}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -147,44 +165,43 @@ export default function ResultClient() {
                     </div>
 
                     {/* Matches */}
-                    <div className="mt-10 animate-slide-up delay-300">
-                        <h4 className="text-lg font-bold px-1 mb-4">환상의 케미 매칭</h4>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white border border-slate-100 rounded-[24px] p-5 text-center shadow-soft">
-                                <p className="text-[10px] text-primary font-bold mb-3 uppercase tracking-tighter">BEST MATCH</p>
-                                <div className="w-14 h-14 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-primary text-2xl">favorite</span>
+                    <div className="mt-16 animate-slide-up delay-300">
+                        <h4 className="text-xl font-bold pl-2 mb-6 text-deep-charcoal">환상의 케미 매칭</h4>
+                        <div className="grid grid-cols-2 gap-5">
+                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-lg transition-shadow">
+                                <p className="inline-block border border-vibrant-pink/20 bg-soft-pink/30 px-3 py-1 rounded-full text-[10px] text-vibrant-pink font-bold mb-4 uppercase tracking-wider">최고의 궁합</p>
+                                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50 relative">
+                                    <span className="material-symbols-outlined text-vibrant-pink text-3xl">volunteer_activism</span>
+                                    {/* Small overlapping badge representing character correlation */}
                                 </div>
-                                <p className="font-bold text-deep-black text-sm">{character.bestMatch}</p>
-                                <span className="inline-block mt-2 px-2 py-0.5 bg-slate-50 text-slate-500 rounded-full text-[10px] font-bold">#환상의짝꿍</span>
+                                <p className="font-bold text-deep-charcoal text-sm">{character.bestMatch}</p>
                             </div>
 
-                            <div className="bg-white border border-slate-100 rounded-[24px] p-5 text-center shadow-soft">
-                                <p className="text-[10px] text-slate-400 font-bold mb-3 uppercase tracking-tighter">WORST MATCH</p>
-                                <div className="w-14 h-14 bg-slate-50 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-slate-400 text-2xl">heart_broken</span>
+                            <div className="bg-white border border-slate-50 rounded-[2rem] p-6 text-center shadow-soft-card hover:shadow-lg transition-shadow">
+                                <p className="inline-block border border-slate-200 bg-off-white px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold mb-4 uppercase tracking-wider">최악의 궁합</p>
+                                <div className="w-16 h-16 bg-off-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-inner border border-slate-50">
+                                    <span className="material-symbols-outlined text-slate-400 text-3xl">sentiment_dissatisfied</span>
                                 </div>
-                                <p className="font-bold text-deep-black text-sm">{character.worstMatch}</p>
-                                <span className="inline-block mt-2 px-2 py-0.5 bg-slate-50 text-slate-500 rounded-full text-[10px] font-bold">#환장의짝꿍</span>
+                                <p className="font-bold text-deep-charcoal text-sm">{character.worstMatch}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="mt-12 space-y-3 animate-slide-up delay-400">
+                    <div className="mt-20 space-y-4 animate-slide-up delay-400">
                         <button
                             onClick={handleShare}
-                            className="w-full bg-primary text-white font-bold py-4 rounded-full shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
+                            className="w-full bg-vibrant-pink text-white font-bold text-lg py-5 rounded-full shadow-btn transform active:scale-95 hover:scale-[1.02] hover:bg-[#E00055] transition-all flex items-center justify-center gap-3"
                         >
-                            <span className="material-symbols-outlined font-normal">share</span>
-                            {shareStatus === 'copied' ? '링크가 복사되었습니다!' : '결과 공유하고 데이트 신청하기'}
+                            <span className="material-symbols-outlined text-[20px]">share</span>
+                            {shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}
                         </button>
 
                         <Link
                             to="/"
-                            className="w-full bg-slate-100 text-deep-black font-bold py-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
+                            className="w-full bg-off-white border border-slate-100 text-deep-charcoal font-bold text-lg py-5 rounded-full shadow-sm transform active:scale-95 hover:bg-slate-50 transition-all flex items-center justify-center gap-3"
                         >
-                            <span className="material-symbols-outlined font-normal">refresh</span>
+                            <span className="material-symbols-outlined text-[20px]">refresh</span>
                             테스트 다시하기
                         </Link>
                     </div>

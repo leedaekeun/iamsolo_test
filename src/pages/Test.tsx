@@ -110,105 +110,106 @@ export default function TestPage() {
     const currentQuestion = currentStep > 0 ? QUESTIONS[currentStep - 1] : null;
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col bg-background-light overflow-x-hidden max-w-md mx-auto shadow-2xl font-display text-deep-black">
+        <div className="relative flex min-h-screen w-full flex-col bg-off-white overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white">
 
-            {/* Header Section */}
-            <header className="flex items-center bg-white px-4 py-3 justify-between border-b border-neutral-200 sticky top-0 z-20">
-                <button onClick={handleBack} className="flex size-10 items-center justify-center cursor-pointer hover:bg-neutral-50 rounded-full transition-colors" aria-label="이전으로">
-                    <span className="material-symbols-outlined text-deep-black">arrow_back_ios_new</span>
-                </button>
-                <h2 className="text-deep-black text-lg font-bold leading-tight tracking-tight flex-1 text-center">
-                    나는 솔로 퀴즈
-                </h2>
-                <button onClick={handleClose} className="flex size-10 items-center justify-center cursor-pointer hover:bg-neutral-50 rounded-full transition-colors" aria-label="닫기">
-                    <span className="material-symbols-outlined text-deep-black">close</span>
-                </button>
-            </header>
+            {/* Header / Progress Section merged as a solid rounded-b header */}
+            <div className="bg-white rounded-b-[2.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] z-20 pb-4 mb-6">
+                <header className="flex items-center px-6 py-4 justify-between">
+                    <button onClick={handleBack} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="이전으로">
+                        <span className="material-symbols-outlined text-deep-charcoal">arrow_back_ios_new</span>
+                    </button>
+                    <h2 className="text-deep-charcoal text-lg font-bold leading-tight tracking-tight flex-1 text-center">
+                        나는 솔로 퀴즈
+                    </h2>
+                    <button onClick={handleClose} className="flex size-12 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors active:scale-95" aria-label="닫기">
+                        <span className="material-symbols-outlined text-deep-charcoal">close</span>
+                    </button>
+                </header>
 
-            {/* Progress Indicator (only after gender selection) */}
-            {currentStep > 0 && (
-                <div className="flex flex-col gap-2 p-5 bg-white shadow-sm z-10 sticky top-[64px]">
-                    <div className="flex justify-between items-end">
-                        <span className="text-primary text-sm font-bold tracking-widest uppercase">
-                            Question {String(currentStep).padStart(2, '0')}
-                        </span>
-                        <p className="text-neutral-gray text-xs font-medium">{currentStep} / {totalSteps}</p>
+                {/* Progress Indicator (only after gender selection) */}
+                {currentStep > 0 && (
+                    <div className="px-8 mt-2 transition-all duration-300">
+                        <div className="flex justify-between items-end mb-3">
+                            <span className="text-vibrant-pink text-[10px] font-bold tracking-widest uppercase">
+                                Question {String(currentStep).padStart(2, '0')}
+                            </span>
+                            <p className="text-slate-grey text-xs font-bold">{currentStep} <span className="text-slate-300 font-normal">/ {totalSteps}</span></p>
+                        </div>
+                        <div className="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                            <div
+                                className="h-full rounded-full bg-vibrant-pink transition-all duration-300 ease-out"
+                                style={{
+                                    width: `${(currentStep / totalSteps) * 100}%`,
+                                    boxShadow: '0 0 12px rgba(255, 45, 120, 0.4)'
+                                }}
+                            />
+                        </div>
                     </div>
-                    <div className="h-1.5 w-full rounded-full bg-slate-200 overflow-hidden">
-                        <div
-                            className="h-full rounded-full bg-primary transition-all duration-300 ease-out"
-                            style={{
-                                width: `${(currentStep / totalSteps) * 100}%`,
-                                boxShadow: '0 0 8px rgba(19, 236, 164, 0.4)'
-                            }}
-                        />
-                    </div>
-                </div>
-            )}
+                )}
+            </div>
 
             {/* Main Content Area */}
-            <main
-                className={`flex-1 px-5 pt-6 pb-24 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
-            >
+            <main className={`flex-1 px-6 pt-2 pb-24 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+
                 {/* ── 성별 선택 ── */}
                 {currentStep === 0 && (
                     <div className="animate-slide-up space-y-6">
-                        <div className="text-center space-y-2 mb-8 mt-4">
-                            <h2 className="text-2xl font-extrabold tracking-tight text-deep-black leading-tight">
+                        <div className="text-center space-y-3 mb-10 mt-6">
+                            <h2 className="text-3xl font-bold tracking-tight text-deep-charcoal leading-tight">
                                 매칭되고 싶은<br />
-                                <span className="text-primary">상대의 성별</span>은?
+                                <span className="text-vibrant-pink">상대의 성별</span>은?
                             </h2>
-                            <p className="text-neutral-gray text-sm font-medium mt-2">
+                            <p className="text-slate-grey text-sm font-medium mt-2 tracking-wide leading-relaxed">
                                 선택에 따라 결과 캐릭터가 달라져요
                             </p>
                         </div>
 
-                        <div className="flex flex-col gap-4 mt-6">
+                        <div className="flex flex-col gap-5 mt-6">
                             {/* 여성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('F')}
-                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 hover:bg-primary/5 rounded-[24px] transition-all shadow-soft active:scale-[0.98]"
+                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/40 rounded-[2rem] transition-all shadow-soft-card active:scale-[0.98] group"
                             >
-                                <div className="w-16 h-16 mr-4 shrink-0">
+                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner">
                                     <GirlIllustration />
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <p className="font-bold text-base text-deep-black mb-1">
+                                    <p className="font-bold text-lg text-deep-charcoal mb-1">
                                         여성 출연진
                                     </p>
-                                    <p className="text-xs text-neutral-gray">
-                                        영숙 · 정숙 · 순자 · 영자 · 옥순 · 현숙
+                                    <p className="text-[11px] text-slate-grey font-semibold tracking-wide uppercase">
+                                        Female characters
                                     </p>
                                 </div>
-                                <div className="text-primary flex items-center justify-center">
-                                    <span className="material-symbols-outlined">chevron_right</span>
+                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center">
+                                    <span className="material-symbols-outlined text-3xl">chevron_right</span>
                                 </div>
                             </button>
 
                             {/* 남성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('M')}
-                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 hover:bg-primary/5 rounded-[24px] transition-all shadow-soft active:scale-[0.98]"
+                                className="w-full flex items-center p-5 bg-white border border-slate-50 hover:border-vibrant-pink hover:bg-soft-pink/40 rounded-[2rem] transition-all shadow-soft-card active:scale-[0.98] group"
                             >
-                                <div className="w-16 h-16 mr-4 shrink-0">
+                                <div className="w-[4.5rem] h-[4.5rem] mr-5 shrink-0 bg-off-white rounded-full overflow-hidden shadow-inner">
                                     <BoyIllustration />
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <p className="font-bold text-base text-deep-black mb-1">
+                                    <p className="font-bold text-lg text-deep-charcoal mb-1">
                                         남성 출연진
                                     </p>
-                                    <p className="text-xs text-neutral-gray">
-                                        영수 · 영호 · 영식 · 영철 · 광수 · 상철
+                                    <p className="text-[11px] text-slate-grey font-semibold tracking-wide uppercase">
+                                        Male characters
                                     </p>
                                 </div>
-                                <div className="text-primary flex items-center justify-center">
-                                    <span className="material-symbols-outlined">chevron_right</span>
+                                <div className="text-slate-300 group-hover:text-vibrant-pink transition-colors flex items-center justify-center">
+                                    <span className="material-symbols-outlined text-3xl">chevron_right</span>
                                 </div>
                             </button>
                         </div>
 
-                        <div className="mt-8 bg-primary/10 rounded-[20px] p-5 text-center">
-                            <p className="text-sm font-bold text-primary">
+                        <div className="mt-10 bg-white border border-slate-50 rounded-[1.5rem] p-5 text-center shadow-soft-card">
+                            <p className="text-xs font-bold text-slate-grey tracking-wide leading-relaxed">
                                 💕 어떤 성별을 선택해도 테스트를 즐길 수 있어요
                             </p>
                         </div>
@@ -217,42 +218,41 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up space-y-6">
-
+                    <div className="animate-slide-up space-y-8">
                         {/* Question Illustration Card */}
-                        <div className="w-full bg-white rounded-xl overflow-hidden shadow-soft border border-slate-100 mb-8">
-                            <div className="w-full aspect-[4/3] bg-neutral-100 flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 opacity-5 bg-primary/20 mix-blend-multiply"></div>
+                        <div className="w-full bg-white rounded-[2.5rem] overflow-hidden shadow-natural border border-slate-50 mb-10 group">
+                            <div className="w-full aspect-[4/3] bg-off-white flex items-center justify-center relative overflow-hidden">
+                                <div className="absolute inset-0 opacity-[0.03] bg-vibrant-pink mix-blend-multiply transition-opacity group-hover:opacity-10"></div>
                                 <img
                                     src={currentQuestion.imageUrl}
                                     alt={`상황 ${currentStep} 이미지`}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="p-6">
-                                <p className="text-primary text-xs font-bold mb-2 text-center">
+                            <div className="p-8">
+                                <p className="text-vibrant-pink text-[10px] font-bold mb-3 text-center uppercase tracking-widest border border-soft-pink inline-block px-3 py-1 bg-soft-pink/30 rounded-full mx-auto block w-fit">
                                     {currentQuestion.situation}
                                 </p>
-                                <h3 className="text-deep-black text-xl font-bold leading-relaxed text-center break-keep">
+                                <h3 className="text-deep-charcoal text-[22px] font-bold leading-snug text-center break-keep mt-4">
                                     {currentQuestion.text}
                                 </h3>
                             </div>
                         </div>
 
                         {/* Choice Options */}
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-4">
                             {currentQuestion.answers.map((answer, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handleAnswerClick(answer)}
-                                    className="w-full p-5 text-left bg-white border border-slate-200 rounded-[20px] hover:border-primary/50 hover:bg-primary/5 hover:shadow-md transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/20 group"
+                                    className="w-full p-6 text-left bg-white border border-slate-50 rounded-[2rem] hover:border-vibrant-pink hover:bg-soft-pink/30 transition-all shadow-soft-card active:scale-[0.98] focus:outline-none group hover:shadow-lg hover:-translate-y-1"
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-slate-200 text-sm font-bold text-neutral-gray bg-slate-50 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/30 transition-colors">
+                                    <div className="flex items-center gap-5">
+                                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-slate-100 text-[13px] font-extrabold text-slate-400 bg-off-white group-hover:bg-white group-hover:text-vibrant-pink group-hover:border-vibrant-pink/30 shadow-inner group-hover:shadow-none transition-all">
                                             {String.fromCharCode(65 + index)}
                                         </span>
-                                        <p className="text-deep-black font-medium leading-snug flex-1">
+                                        <p className="text-deep-charcoal font-bold text-[15px] leading-relaxed flex-1 group-hover:-translate-x-1 transition-transform">
                                             {answer.text}
                                         </p>
                                     </div>
