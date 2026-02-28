@@ -7,16 +7,16 @@ import { CHARACTERS, Archetype } from '@/data/characters';
 ───────────────────────────────────────── */
 const CHAR_AVATAR: Record<string, { emoji: string; from: string; to: string }> = {
     'm1_youngsoo': { emoji: '🧐', from: '#C7D2FE', to: '#818CF8' },
-    'm2_youngho':  { emoji: '😄', from: '#FDE68A', to: '#FBBF24' },
+    'm2_youngho': { emoji: '😄', from: '#FDE68A', to: '#FBBF24' },
     'm3_youngsik': { emoji: '🤗', from: '#A7F3D0', to: '#34D399' },
-    'm4_youngchul':{ emoji: '😤', from: '#FECACA', to: '#F87171' },
+    'm4_youngchul': { emoji: '😤', from: '#FECACA', to: '#F87171' },
     'm5_kwangsoo': { emoji: '🤓', from: '#BFDBFE', to: '#60A5FA' },
     'm6_sangchul': { emoji: '😊', from: '#E2E8F0', to: '#94A3B8' },
-    'f1_youngsook':{ emoji: '👑', from: '#FEF3C7', to: '#FCD34D' },
+    'f1_youngsook': { emoji: '👑', from: '#FEF3C7', to: '#FCD34D' },
     'f2_jungsook': { emoji: '🔥', from: '#FECACA', to: '#F87171' },
-    'f3_soonja':   { emoji: '🏕️', from: '#A7F3D0', to: '#34D399' },
-    'f4_youngja':  { emoji: '🥺', from: '#FBCFE8', to: '#F472B6' },
-    'f5_oksoon':   { emoji: '✨', from: '#D1FAE5', to: '#6EE7B7' },
+    'f3_soonja': { emoji: '🏕️', from: '#A7F3D0', to: '#34D399' },
+    'f4_youngja': { emoji: '🥺', from: '#FBCFE8', to: '#F472B6' },
+    'f5_oksoon': { emoji: '✨', from: '#D1FAE5', to: '#6EE7B7' },
     'f6_hyunsook': { emoji: '📚', from: '#C7D2FE', to: '#818CF8' },
 };
 
@@ -32,23 +32,33 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
                     <h3 className="text-card-title">{character.name}</h3>
                     <p className="text-caption text-slate-400 mt-1">{character.title}</p>
                 </div>
-                <span className={`text-caption px-3 py-1 rounded-full ${
-                    isFemale
-                        ? 'bg-vibrant-pink text-white'
-                        : 'bg-deep-charcoal text-white'
-                }`}>
+                <span className={`text-caption px-3 py-1 rounded-full ${isFemale
+                    ? 'bg-vibrant-pink text-white'
+                    : 'bg-deep-charcoal text-white'
+                    }`}>
                     {isFemale ? 'Female' : 'Male'}
                 </span>
             </div>
 
-            {/* 아바타 — 이모지 + 그라디언트 배경 */}
-            <div
-                className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center text-6xl"
-                style={{
-                    background: `linear-gradient(135deg, ${av.from}, ${av.to})`,
-                }}
-            >
-                {av.emoji}
+            {/* 아바타 — 이미지 렌더링 (없을 시 기존 이모지) */}
+            <div className="w-full aspect-square rounded-[2rem] mb-6 overflow-hidden shadow-card border border-slate-100 flex items-center justify-center relative">
+                {character.imageUrl ? (
+                    <img
+                        src={character.imageUrl}
+                        alt={character.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy"
+                    />
+                ) : (
+                    <div
+                        className="w-full h-full flex items-center justify-center text-6xl"
+                        style={{
+                            background: `linear-gradient(135deg, ${av.from}, ${av.to})`,
+                        }}
+                    >
+                        {av.emoji}
+                    </div>
+                )}
             </div>
 
             <p className="text-body text-sm line-clamp-2 mb-5">
@@ -77,14 +87,14 @@ export default function Home() {
             <header className="relative pt-24 pb-16 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
 
                 {/* 배지 */}
-                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-soft-pink border border-mid-pink mb-10">
-                    <span className="text-caption text-vibrant-pink">Love Psychology Test</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-10 w-fit mx-auto">
+                    <span className="text-caption text-vibrant-pink text-center tracking-wide inline-block translate-y-[2px]">Love Psychology Test</span>
                 </div>
 
                 {/* 제목 */}
                 <h1 className="text-hero mb-5">
-                    나는 솔로<br />
-                    <span className="text-vibrant-pink">어떤 캐릭터일까?</span>
+                    솔로 나라에서<br />
+                    <span className="text-vibrant-pink">나는 무슨 이름일까?</span>
                 </h1>
 
                 {/* 서브 */}
@@ -149,8 +159,8 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
                     {[
                         { icon: 'diversity_3', title: '실전 연애 상황', desc: '솔로나라에서 일어날 법한\n리얼한 상황을 제시합니다', pink: true },
-                        { icon: 'psychology',  title: '심리학 기반 분석', desc: 'Archetype 이론과\n정밀 성향 척도를 적용합니다', pink: false },
-                        { icon: 'style',       title: '12가지 연애 유형', desc: '나만의 연애 패턴과\n매칭 궁합을 알려드립니다', pink: true },
+                        { icon: 'psychology', title: '심리학 기반 분석', desc: 'Archetype 이론과\n정밀 성향 척도를 적용합니다', pink: false },
+                        { icon: 'style', title: '12가지 연애 유형', desc: '나만의 연애 패턴과\n매칭 궁합을 알려드립니다', pink: true },
                     ].map(({ icon, title, desc, pink }) => (
                         <div key={title} className="flex flex-col items-center text-center group">
                             <div className={`mb-5 transition-transform duration-300 group-hover:-translate-y-2 ${pink ? 'text-vibrant-pink' : 'text-deep-charcoal'}`}>
@@ -165,9 +175,9 @@ export default function Home() {
 
             {/* ── 캐릭터 카드 섹션 ── */}
             <section className="px-6 pt-20 pb-16 panel-section">
-                <div className="flex items-center justify-between mb-10 max-w-md mx-auto">
+                <div className="flex flex-col items-center justify-center text-center mb-10 gap-3">
                     <h2 className="text-section-title">12가지 캐릭터</h2>
-                    <span className="text-caption text-slate-500 bg-off-white border border-slate-100 px-3 py-1.5 rounded-full">
+                    <span className="text-caption font-semibold tracking-wide text-slate-500 bg-white shadow-sm border border-slate-100 px-4 py-1.5 rounded-full">
                         Total 12 Types
                     </span>
                 </div>

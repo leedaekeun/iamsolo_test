@@ -21,19 +21,21 @@ function Section({ title, children }: SectionProps) {
 
 export default function PrivacyPage() {
     return (
-        <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-off-white text-deep-charcoal font-sans">
+        <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal font-sans">
             {/* Header */}
-            <header className="flex items-center bg-white p-4 sticky top-0 z-10 border-b border-soft-pink/50 shadow-sm rounded-b-3xl">
-                <Link to="/" className="text-deep-charcoal flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors">
-                    <span className="material-symbols-outlined">arrow_back</span>
-                </Link>
-                <h1 className="text-deep-charcoal text-lg font-bold leading-tight flex-1 text-center pr-10">
-                    개인정보처리방침
-                </h1>
+            <header className="bg-white sticky top-0 z-10 border-b border-soft-pink/50 shadow-sm rounded-b-3xl">
+                <div className="max-w-md mx-auto flex items-center p-4">
+                    <Link to="/" className="btn-icon" aria-label="이전으로">
+                        <span className="material-symbols-outlined">arrow_back_ios_new</span>
+                    </Link>
+                    <h1 className="text-deep-charcoal text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">
+                        개인정보처리방침
+                    </h1>
+                </div>
             </header>
 
             {/* Content Area */}
-            <main className="flex-1 px-6 py-8">
+            <main className="flex-1 w-full max-w-md mx-auto px-6 py-8">
 
                 <div className="mb-10 text-center">
                     <span className="inline-block px-3 py-1 bg-soft-pink text-vibrant-pink text-[10px] font-bold rounded-full uppercase tracking-wider mb-4 border border-vibrant-pink/10">
@@ -48,8 +50,8 @@ export default function PrivacyPage() {
                 </div>
 
                 {/* Summary Card */}
-                <div className="bg-white rounded-[2rem] p-6 mb-10 shadow-soft-card border border-soft-pink/30 flex items-start gap-4">
-                    <span className="text-2xl flex-shrink-0">📋</span>
+                <div className="bg-white rounded-[2rem] p-6 mb-10 shadow-card border border-soft-pink/30 flex items-start gap-4">
+                    <span className="material-symbols-outlined text-vibrant-pink/80 mt-1">shield_lock</span>
                     <p className="text-sm font-medium leading-relaxed text-slate-grey">
                         <strong className="text-vibrant-pink">나는솔로 연애유형 테스트</strong>는 회원 가입이 없으며
                         성명, 연락처 등 개인 식별 정보를 수집하지 않습니다.
@@ -165,7 +167,7 @@ export default function PrivacyPage() {
                     <p>
                         개인정보처리방침에 관한 문의사항이 있으시면 아래 경로로 연락 주시기 바랍니다.
                     </p>
-                    <div className="rounded-2xl p-5 bg-white shadow-soft-card border border-soft-pink/30 mt-4 text-center">
+                    <div className="rounded-2xl p-5 bg-white shadow-card border border-soft-pink/30 mt-4 text-center">
                         <p className="text-xs font-bold text-vibrant-pink mb-1">서비스 운영</p>
                         <p className="text-sm text-deep-charcoal font-bold">나는솔로 연애유형 테스트</p>
                         <p className="text-xs mt-2 text-slate-grey font-medium">
@@ -178,7 +180,7 @@ export default function PrivacyPage() {
                 <div className="flex justify-center mt-12 mb-4">
                     <Link
                         to="/"
-                        className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-vibrant-pink text-white text-lg font-bold leading-normal tracking-wide shadow-btn hover:scale-[1.02] active:scale-[0.98] transition-all"
+                        className="btn-primary w-full"
                     >
                         홈으로 돌아가기
                     </Link>

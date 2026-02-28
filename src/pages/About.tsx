@@ -4,19 +4,21 @@ import Footer from '@/components/Footer';
 
 export default function About() {
     return (
-        <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-off-white text-deep-charcoal font-sans">
+        <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal font-sans">
             {/* Header */}
-            <div className="flex items-center bg-white p-4 sticky top-0 z-10 border-b border-soft-pink/50 shadow-sm rounded-b-3xl">
-                <Link to="/" className="text-deep-charcoal flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-off-white rounded-full transition-colors">
-                    <span className="material-symbols-outlined">arrow_back</span>
-                </Link>
-                <h1 className="text-deep-charcoal text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">
-                    서비스 소개
-                </h1>
-            </div>
+            <header className="sticky top-0 z-50 bg-off-white/80 backdrop-blur-md border-b border-slate-100">
+                <div className="max-w-md mx-auto flex items-center p-4">
+                    <Link to="/" className="btn-icon" aria-label="이전으로">
+                        <span className="material-symbols-outlined">arrow_back_ios_new</span>
+                    </Link>
+                    <h1 className="text-deep-charcoal text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">
+                        서비스 소개
+                    </h1>
+                </div>
+            </header>
 
             {/* Content Area */}
-            <div className="px-6 py-8 flex-1">
+            <main className="flex-1 w-full max-w-md mx-auto px-6 py-8">
 
                 <section className="mb-10">
                     <h2 className="text-2xl font-extrabold text-deep-charcoal mb-4">나는 솔로 테스트 <br />(I am Solo Test)</h2>
@@ -30,7 +32,7 @@ export default function About() {
                     </p>
                 </section>
 
-                <section className="mb-10 bg-white p-6 rounded-[2rem] shadow-soft-card border border-soft-pink/30">
+                <section className="mb-10 bg-white p-6 rounded-[2rem] shadow-card border border-soft-pink/30">
                     <h3 className="text-xl font-bold text-deep-charcoal mb-3">심리학적 배경</h3>
                     <p className="text-slate-grey text-sm font-medium leading-relaxed mb-4">
                         본 테스트의 결과 도출 알고리즘은 칼 융(Carl Jung)의 분석심리학적 원형(Archetype) 이론과 성격 유형 지표의 4가지 선호 경향성을 차용하여 자체적으로 구성되었습니다.
@@ -66,15 +68,15 @@ export default function About() {
                 <div className="flex justify-center mt-12 mb-4">
                     <Link
                         to="/test"
-                        className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-vibrant-pink text-white text-lg font-bold leading-normal tracking-wide shadow-btn hover:scale-[1.02] active:scale-[0.98] transition-all"
+                        className="btn-primary w-full"
                     >
                         테스트 시작하기
                     </Link>
                 </div>
 
-            </div>
+            </main>
 
             <Footer />
-        </div>
+        </div >
     );
 }
