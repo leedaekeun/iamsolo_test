@@ -30,7 +30,7 @@ export default function Home() {
                 <div className="relative w-full max-w-[340px] mx-auto aspect-[4/3] mb-14 group z-10">
                     <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-natural bg-white transform transition-transform duration-700 hover:scale-[1.01]">
                         <img
-                            src="/main_new.png"
+                            src="/images/main.jpg"
                             alt="Main Illustration"
                             className="w-full h-full object-cover"
                         />
