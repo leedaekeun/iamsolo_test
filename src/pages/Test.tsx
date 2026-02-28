@@ -61,6 +61,7 @@ export default function TestPage() {
     const [genderPref, setGenderPref] = useState<'M' | 'F' | null>(null);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number | null>(null);
+    const totalSteps = QUESTIONS.length;
 
     const handleGenderSelect = (gender: 'M' | 'F') => {
         setIsTransitioning(true);
@@ -72,16 +73,12 @@ export default function TestPage() {
         }, 200);
     };
 
-    const handleAnswerSelect = (index: number) => {
+    const handleAnswerClick = (answer: Answer, index: number) => {
         if (isTransitioning) return;
         setSelectedAnswerIndex(index);
-    };
-
-    const handleNext = () => {
-        if (selectedAnswerIndex === null || isTransitioning) return;
         setIsTransitioning(true);
-        const selectedAnswer = currentQuestion!.answers[selectedAnswerIndex];
-        const newAnswers = [...answers, selectedAnswer];
+
+        const newAnswers = [...answers, answer];
 
         setTimeout(() => {
             if (currentStep < QUESTIONS.length) {
@@ -94,7 +91,7 @@ export default function TestPage() {
                 navigate(`/result?resultId=${result.character.id}&match=${result.matchPercentage}`);
             }
             setIsTransitioning(false);
-        }, 250);
+        }, 300); // 300ms delay to briefly show the checkmark styled state
     };
 
     const handleBack = () => {
@@ -122,7 +119,36 @@ export default function TestPage() {
     const currentQuestion = currentStep > 0 ? QUESTIONS[currentStep - 1] : null;
 
     return (
-        <div className="relative min-h-screen w-full flex flex-col bg-[#fcfcfc] overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white">
+        <div className="relative min-h-screen w-full flex flex-col bg-[#fcfcfc] overflow-x-hidden text-deep-charcoal font-sans selection:bg-vibrant-pink selection:text-white pb-8">
+
+            {/* Top Navigation & Progress Bar (Only during questions) */}
+            {currentStep > 0 && (
+                <div className="fixed top-0 left-0 w-full bg-[#fcfcfc]/95 backdrop-blur-md z-50">
+                    <div className="max-w-md mx-auto w-full px-5 py-3 pt-4">
+                        <div className="flex items-center justify-between mb-3">
+                            <button onClick={handleBack} className="flex size-8 items-center justify-center cursor-pointer hover:bg-slate-100 rounded-full transition-colors active:scale-95 text-slate-400 hover:text-deep-charcoal" aria-label="이전으로">
+                                <span className="material-symbols-outlined text-[24px]">chevron_left</span>
+                            </button>
+                            <span className="text-vibrant-pink text-xs font-bold tracking-widest uppercase">
+                                PROGRESS
+                            </span>
+                            <button onClick={handleClose} className="flex size-8 items-center justify-center cursor-pointer hover:bg-slate-100 rounded-full transition-colors active:scale-95 text-slate-400 hover:text-deep-charcoal" aria-label="닫기">
+                                <span className="material-symbols-outlined text-[24px]">close</span>
+                            </button>
+                        </div>
+                        {/* Thin 10-Segment Progress Bar */}
+                        <div className="flex gap-1 w-full h-[3px]">
+                            {Array.from({ length: totalSteps }).map((_, i) => (
+                                <div
+                                    key={i}
+                                    className={`h-full flex-1 rounded-full bg-vibrant-pink transition-all duration-300 ${i < currentStep ? 'opacity-100' : 'opacity-15'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Header (Only show for Gender Selection step) */}
             {currentStep === 0 && (
@@ -211,13 +237,7 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-8">
-                        {/* Question Badge */}
-                        <div className="flex justify-center mb-10 mt-2">
-                            <span className="text-vibrant-pink text-sm font-extrabold tracking-[0.15em] uppercase bg-soft-pink/30 px-6 py-2 rounded-full border border-vibrant-pink/10 shadow-sm">
-                                QUESTION {String(currentStep).padStart(2, '0')}
-                            </span>
-                        </div>
+                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[5rem]">
 
                         {/* Image Container (Filled inside rounded box) */}
                         <div className="w-full aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-soft-card mb-10 border border-slate-50/50">
@@ -249,10 +269,10 @@ export default function TestPage() {
                                 return (
                                     <button
                                         key={index}
-                                        onClick={() => handleAnswerSelect(index)}
+                                        onClick={() => handleAnswerClick(answer, index)}
                                         className={`w-full p-6 text-left rounded-[1.5rem] transition-all duration-300 focus:outline-none flex flex-col relative ${isSelected
-                                                ? 'bg-white border-[2.5px] border-vibrant-pink shadow-md hover:-translate-y-0.5'
-                                                : 'bg-white border border-slate-200/80 shadow-sm hover:border-vibrant-pink/40 hover:bg-soft-pink/5 hover:-translate-y-0.5'
+                                            ? 'bg-white border-[2.5px] border-vibrant-pink shadow-md hover:-translate-y-0.5'
+                                            : 'bg-white border border-slate-200/80 shadow-sm hover:border-vibrant-pink/40 hover:bg-soft-pink/5 hover:-translate-y-0.5'
                                             }`}
                                     >
                                         <div className="flex justify-between items-center w-full mb-3">
@@ -260,8 +280,8 @@ export default function TestPage() {
                                                 {String.fromCharCode(65 + index)}
                                             </span>
                                             <div className={`flex items-center justify-center size-7 rounded-full border-2 transition-colors ${isSelected
-                                                    ? 'bg-vibrant-pink border-vibrant-pink'
-                                                    : 'bg-transparent border-slate-200'
+                                                ? 'bg-vibrant-pink border-vibrant-pink'
+                                                : 'bg-transparent border-slate-200'
                                                 }`}>
                                                 {isSelected && (
                                                     <span className="material-symbols-outlined text-white text-[18px] font-bold leading-none" style={{ marginTop: '1px' }}>
@@ -281,31 +301,6 @@ export default function TestPage() {
                 )}
             </main>
 
-            {/* Bottom Sticky Navigation (Only for Questions) */}
-            {currentStep > 0 && (
-                <div className="fixed bottom-0 left-0 w-full bg-[#fcfcfc]/90 backdrop-blur-md border-t border-slate-100/50 z-50 py-5 px-6 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
-                    <div className="max-w-md mx-auto w-full flex gap-3">
-                        <button
-                            onClick={handleBack}
-                            className="flex-1 py-4 bg-slate-100/80 text-slate-500 font-extrabold text-[16px] rounded-[1.2rem] flex items-center justify-center gap-2 hover:bg-slate-200 transition-colors"
-                        >
-                            <span className="material-symbols-outlined text-[19px]">arrow_back</span>
-                            이전
-                        </button>
-                        <button
-                            onClick={handleNext}
-                            disabled={selectedAnswerIndex === null || isTransitioning}
-                            className={`flex-[1.8] py-4 font-extrabold text-[17px] rounded-[1.2rem] flex items-center justify-center gap-2 transition-all duration-300 ${selectedAnswerIndex !== null && !isTransitioning
-                                    ? 'bg-vibrant-pink text-white hover:bg-[#eb1163] shadow-btn active:scale-95'
-                                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
-                                }`}
-                        >
-                            다음 질문
-                            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                        </button>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
