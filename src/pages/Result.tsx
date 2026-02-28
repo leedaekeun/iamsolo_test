@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 import { CHARACTERS, Archetype } from '@/data/characters';
 
 /* ─────────────────────────────────────────
@@ -27,6 +28,7 @@ export default function ResultClient() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const characterId = searchParams.get('resultId');
+    const { t } = useTranslation();
 
     const [character, setCharacter] = useState<Archetype | null>(null);
     const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
@@ -54,8 +56,8 @@ export default function ResultClient() {
     const handleShare = async () => {
         const url = window.location.href;
         const shareData = {
-            title: `나는 솔로 테스트 — 내 캐릭터는 ${character.name}?`,
-            text: `연애 성향 캐릭터를 확인해보세요! 💕`,
+            title: t('result.shareTitle', { name: t(`result.${character.id}`) }),
+            text: t('result.shareText'),
             url,
         };
         if (navigator.share) {
@@ -66,7 +68,7 @@ export default function ResultClient() {
                 setShareStatus('copied');
                 setTimeout(() => setShareStatus('idle'), 2500);
             } catch {
-                alert('링크를 직접 복사해주세요: ' + url);
+                alert(t('result.copyAlert') + url);
             }
         }
     };
@@ -84,7 +86,7 @@ export default function ResultClient() {
                     >
                         <span className="material-symbols-outlined">home</span>
                     </Link>
-                    <h2 className="text-[20px] font-bold text-deep-charcoal leading-tight tracking-tight flex-1 text-center">나의 매칭 캐릭터</h2>
+                    <h2 className="text-[20px] font-bold text-deep-charcoal leading-tight tracking-tight flex-1 text-center">{t('result.top_title')}</h2>
                     <button
                         onClick={handleShare}
                         className="btn-icon"
@@ -96,9 +98,9 @@ export default function ResultClient() {
 
                 {/* 결과 타이틀 */}
                 <div className="text-center space-y-4 animate-slide-up">
-                    <div className="badge mx-auto w-fit">Match Result</div>
+                    <div className="badge mx-auto w-fit">{t('result.match_result')}</div>
                     <h1 className="text-[26px] font-extrabold px-2 break-keep leading-snug">
-                        당신은 '솔로나라'의 <span className="text-vibrant-pink">{character.name}</span>
+                        {t('result.titleBase')} <span className="text-vibrant-pink">{t(`result.${character.id}`)}</span>
                     </h1>
                 </div>
             </div>
@@ -136,18 +138,18 @@ export default function ResultClient() {
                         {/* 캐릭터 이름·타이틀·설명 */}
                         <div className="py-7 px-6 w-full text-center bg-transparent backdrop-blur-md">
                             <span className="inline-block px-4 py-1.5 bg-deep-charcoal text-white text-caption rounded-full mb-3 tracking-wider shadow-sm">
-                                {character.title}
+                                {t(`characters.${character.id}.title`)}
                             </span>
                             <p className="text-[32px] font-extrabold leading-none tracking-tight text-deep-charcoal mb-4">
-                                {character.name}
+                                {t(`result.${character.id}`)}
                             </p>
                             <p className="text-[15px] font-medium leading-relaxed text-slate-600 break-keep">
-                                {character.description}
+                                {t(`characters.${character.id}.description`)}
                             </p>
 
                             {/* 나의 연애 특징 (아이콘 요약바) */}
                             <div className="mt-8 pt-6 border-t border-slate-200/50">
-                                <p className="text-[11px] font-bold text-slate-400 mb-4 uppercase tracking-wider">Dating Characteristics</p>
+                                <p className="text-[11px] font-bold text-slate-400 mb-4 uppercase tracking-wider">{t('result.dating_characteristics')}</p>
                                 <div className="flex justify-center gap-4">
                                     {character.keywords.slice(0, 3).map((kw, idx) => {
                                         const icons = ['favorite', 'stars', 'lightbulb'];
@@ -161,7 +163,7 @@ export default function ResultClient() {
                                                 <div className={`p-3 rounded-full ${colorClasses[idx]} flex items-center justify-center shadow-sm`}>
                                                     <span className="material-symbols-outlined text-[20px]">{icons[idx]}</span>
                                                 </div>
-                                                <span className="text-[12px] font-extrabold text-deep-charcoal break-keep leading-tight">{kw}</span>
+                                                <span className="text-[12px] font-extrabold text-deep-charcoal break-keep leading-tight">{t(`characters.${character.id}.keywords.${idx}`)}</span>
                                             </div>
                                         )
                                     })}
@@ -179,7 +181,7 @@ export default function ResultClient() {
                     {/* 궁합 리포트 */}
                     <div className="animate-slide-up delay-300">
                         <div className="flex items-center gap-3 pl-1 mb-5">
-                            <h4 className="text-section-title">환상의 케미 매칭</h4>
+                            <h4 className="text-section-title">{t('result.chemistry_title')}</h4>
                             <div className="h-px flex-1 bg-slate-100 rounded-full" />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -193,14 +195,14 @@ export default function ResultClient() {
                                     )}
                                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-max z-10">
                                         <p className="text-[11px] font-bold text-white bg-vibrant-pink px-3 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                                            최고의 궁합
+                                            {t('result.bestMatchBadge')}
                                         </p>
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                                 </div>
                                 <div className="p-4 w-full bg-white relative z-10 -mt-2">
-                                    <p className="font-extrabold text-deep-charcoal text-[19px]">{character.bestMatch}</p>
-                                    <p className="text-[13px] font-semibold text-slate-500 mt-1">{bestMatchChar?.title}</p>
+                                    <p className="font-extrabold text-deep-charcoal text-[19px]">{bestMatchChar ? t(`result.${bestMatchChar.id}`) : character.bestMatch}</p>
+                                    <p className="text-[13px] font-semibold text-slate-500 mt-1">{bestMatchChar ? t(`characters.${bestMatchChar.id}.title`) : ''}</p>
                                 </div>
                             </div>
 
@@ -214,14 +216,14 @@ export default function ResultClient() {
                                     )}
                                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-max z-10">
                                         <p className="text-[11px] font-bold text-slate-600 bg-white/90 backdrop-blur-sm border border-slate-200/50 px-3 py-1.5 rounded-full shadow-sm">
-                                            최악의 궁합
+                                            {t('result.worstMatchBadge')}
                                         </p>
                                     </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                                 </div>
                                 <div className="p-4 w-full bg-white relative z-10 -mt-2">
-                                    <p className="font-bold text-slate-700 text-[18px]">{character.worstMatch}</p>
-                                    <p className="text-[13px] font-medium text-slate-500 mt-1">{worstMatchChar?.title}</p>
+                                    <p className="font-bold text-slate-700 text-[18px]">{worstMatchChar ? t(`result.${worstMatchChar.id}`) : character.worstMatch}</p>
+                                    <p className="text-[13px] font-medium text-slate-500 mt-1">{worstMatchChar ? t(`characters.${worstMatchChar.id}.title`) : ''}</p>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +232,7 @@ export default function ResultClient() {
                     {/* 연애 성장 조언 */}
                     <div className="animate-slide-up delay-400">
                         <div className="flex items-center gap-3 pl-1 mb-5">
-                            <h4 className="text-section-title">연애 성장 조언</h4>
+                            <h4 className="text-section-title">{t('result.dating_advice')}</h4>
                             <div className="h-px flex-1 bg-slate-100 rounded-full" />
                         </div>
                         <div className="space-y-3">
@@ -239,7 +241,7 @@ export default function ResultClient() {
                                     <span className="shrink-0 w-7 h-7 rounded-full bg-soft-pink border border-mid-pink flex items-center justify-center text-xs font-bold text-vibrant-pink">
                                         {i + 1}
                                     </span>
-                                    <p className="text-body text-[14px]">{tip}</p>
+                                    <p className="text-body text-[14px]">{t(`characters.${character.id}.advice.${i}`)}</p>
                                 </div>
                             ))}
                         </div>
@@ -249,11 +251,11 @@ export default function ResultClient() {
                     <div className="space-y-3 animate-slide-up delay-400 pt-4">
                         <button onClick={handleShare} className="btn-primary">
                             <span className="material-symbols-outlined text-[20px]">share</span>
-                            <span>{shareStatus === 'copied' ? '링크 복사 완료!' : '결과 공유하고 데이트 신청'}</span>
+                            <span>{shareStatus === 'copied' ? t('result.share_copied') : t('result.share_btn')}</span>
                         </button>
                         <Link to="/" className="btn-secondary">
                             <span className="material-symbols-outlined text-[20px]">refresh</span>
-                            테스트 다시하기
+                            {t('result.restartBtn')}
                         </Link>
                     </div>
 

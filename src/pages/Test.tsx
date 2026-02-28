@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 import { QUESTIONS, Answer } from '@/data/questions';
 import { getBestMatch } from '@/lib/algorithm';
 
@@ -9,6 +10,7 @@ import { getBestMatch } from '@/lib/algorithm';
 ═══════════════════════════════════════════ */
 export default function TestPage() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<Answer[]>([]);
     const [genderPref, setGenderPref] = useState<'M' | 'F' | null>(null);
@@ -83,7 +85,7 @@ export default function TestPage() {
                                 <span className="material-symbols-outlined">arrow_back_ios_new</span>
                             </button>
                             <span className="text-deep-charcoal text-[20px] font-bold text-center flex-1">
-                                나는 솔로 캐릭터 테스트
+                                {t('test.title')}
                             </span>
                             <button onClick={handleClose} className="btn-icon" aria-label="닫기">
                                 <span className="material-symbols-outlined">close</span>
@@ -113,7 +115,7 @@ export default function TestPage() {
                             <span className="material-symbols-outlined">arrow_back_ios_new</span>
                         </button>
                         <h2 className="text-deep-charcoal text-[20px] font-bold leading-tight tracking-tight flex-1 text-center">
-                            나는 솔로 캐릭터 테스트
+                            {t('test.title')}
                         </h2>
                         <button onClick={handleClose} className="btn-icon" aria-label="닫기">
                             <span className="material-symbols-outlined">close</span>
@@ -130,10 +132,10 @@ export default function TestPage() {
                     <div className="animate-slide-up space-y-4">
                         <div className="text-center space-y-2 mb-6 mt-2">
                             <h2 className="text-3xl font-bold tracking-tight text-deep-charcoal leading-tight">
-                                나의 <span className="text-vibrant-pink">성별</span>은?
+                                <Trans i18nKey="test.genderSelectTitle" />
                             </h2>
                             <p className="text-slate-grey text-sm font-medium mt-2 tracking-wide leading-relaxed">
-                                선택에 따라 결과 캐릭터가 달라져요
+                                {t('test.genderSelectDesc')}
                             </p>
                         </div>
 
@@ -148,10 +150,10 @@ export default function TestPage() {
 
                                 <div className="relative z-20 w-full text-center pb-6">
                                     <p className="font-extrabold text-[22px] text-white tracking-wide drop-shadow-md">
-                                        남성 매칭
+                                        {t('test.maleMatch')}
                                     </p>
                                     <p className="text-[12px] text-white/90 font-semibold tracking-widest uppercase mt-1 drop-shadow-sm">
-                                        Male
+                                        {t('test.maleSub')}
                                     </p>
                                 </div>
                             </button>
@@ -166,10 +168,10 @@ export default function TestPage() {
 
                                 <div className="relative z-20 w-full text-center pb-6">
                                     <p className="font-extrabold text-[22px] text-white tracking-wide drop-shadow-md">
-                                        여성 매칭
+                                        {t('test.femaleMatch')}
                                     </p>
                                     <p className="text-[12px] text-white/90 font-semibold tracking-widest uppercase mt-1 drop-shadow-sm">
-                                        Female
+                                        {t('test.femaleSub')}
                                     </p>
                                 </div>
                             </button>
@@ -177,7 +179,7 @@ export default function TestPage() {
 
                         <div className="mt-10 bg-white border border-slate-100 rounded-[1.5rem] p-5 text-center shadow-card">
                             <p className="text-xs font-bold text-slate-grey tracking-wide leading-relaxed">
-                                💕 어떤 성별을 선택해도 테스트를 즐길 수 있어요
+                                {t('test.genderNotice')}
                             </p>
                         </div>
                     </div>
@@ -201,10 +203,10 @@ export default function TestPage() {
                         <div className="text-center px-1 mb-8">
                             <h3 className="text-deep-charcoal text-[20px] font-extrabold leading-snug break-keep">
                                 {/* Replacing newline with <br/> for UI string */}
-                                {currentQuestion.situation.split('\n').map((line, i) => (
+                                {t(`questions.q${currentStep}.situation`).split('\n').map((line, i) => (
                                     <span key={i}>
                                         {line}
-                                        {i !== currentQuestion.situation.split('\n').length - 1 && <br />}
+                                        {i !== t(`questions.q${currentStep}.situation`).split('\n').length - 1 && <br />}
                                     </span>
                                 ))}
                             </h3>
@@ -241,7 +243,7 @@ export default function TestPage() {
                                         </div>
                                         <div className="mt-auto">
                                             <p className={`text-[14px] leading-[1.5] break-keep transition-colors ${isSelected ? 'text-white font-bold' : 'text-slate-600 font-semibold sm:group-hover:text-white'}`}>
-                                                {answer.text}
+                                                {t(`questions.q${currentStep}.a${index + 1}`)}
                                             </p>
                                         </div>
                                     </button>
