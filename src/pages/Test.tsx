@@ -107,7 +107,7 @@ export default function TestPage() {
 
             {/* Header (Only show for Gender Selection step) */}
             {currentStep === 0 && (
-                <div className="bg-white rounded-section-b shadow-natural z-20 pb-4 mb-6 relative">
+                <div className="bg-white rounded-section-b shadow-natural z-20 pb-3 mb-4 relative">
                     <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
                         <button onClick={handleBack} className="btn-icon" aria-label="이전으로">
                             <span className="material-symbols-outlined">arrow_back_ios_new</span>
@@ -123,12 +123,12 @@ export default function TestPage() {
             )}
 
             {/* Main Content Area */}
-            <main className={`flex-1 flex flex-col px-6 pt-2 pb-32 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'} h-full`}>
+            <main className={`flex-1 flex flex-col px-6 pt-0 pb-24 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'} h-full`}>
 
                 {/* ── 성별 선택 ── */}
                 {currentStep === 0 && (
-                    <div className="animate-slide-up space-y-6">
-                        <div className="text-center space-y-3 mb-10 mt-6">
+                    <div className="animate-slide-up space-y-4">
+                        <div className="text-center space-y-2 mb-6 mt-2">
                             <h2 className="text-3xl font-bold tracking-tight text-deep-charcoal leading-tight">
                                 나의 <span className="text-vibrant-pink">성별</span>은?
                             </h2>
@@ -137,7 +137,7 @@ export default function TestPage() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4 mt-6 px-1 aspect-[4/5] min-h-[290px]">
+                        <div className="grid grid-cols-2 gap-4 mt-4 px-1 aspect-[4/5] min-h-[290px]">
                             {/* 남자 카드 (왼쪽) */}
                             <button
                                 onClick={() => handleGenderSelect('M')}
