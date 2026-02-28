@@ -17,6 +17,7 @@ export type Archetype = {
     keywords: string[];   // 성향 키워드 태그
     advice: string[];     // 연애 성장 조언 3가지
     loveStyle: string;    // 연애 스타일 한 줄 요약
+    imageUrl: string;     // 캐릭터 일러스트 이미지 경로
 };
 
 export const CHARACTERS: Archetype[] = [
@@ -39,6 +40,7 @@ export const CHARACTERS: Archetype[] = [
             '상대방이 바라는 것은 논리적인 해결책보다 단순한 공감일 때가 많습니다.',
             '"관망"의 기간을 조금 줄이고 먼저 다가가는 용기를 내보세요.',
         ],
+        imageUrl: '/images/characters/m1_youngsoo.png',
     },
     {
         id: 'm2_youngho',
@@ -58,6 +60,7 @@ export const CHARACTERS: Archetype[] = [
             '말 한마디의 무게를 생각하며, 중요한 순간에는 한 템포 쉬어가는 것이 좋습니다.',
             '유쾌함 이면에 숨겨진 당신만의 진중함을 보여줄 때 상대는 더 큰 감동을 받습니다.',
         ],
+        imageUrl: '/images/characters/m2_youngho.png',
     },
     {
         id: 'm3_youngsik',
@@ -77,6 +80,7 @@ export const CHARACTERS: Archetype[] = [
             '상대 뒤에 머물지 말고 옆으로 나란히 걷는 연습을 해보세요.',
             '무난함을 넘어 나침반의 바늘처럼 상대방을 꽉 끌어당기는 주도성을 가져보세요.',
         ],
+        imageUrl: '/images/characters/m3_youngsik.png',
     },
     {
         id: 'm4_youngchul',
@@ -96,6 +100,7 @@ export const CHARACTERS: Archetype[] = [
             '강한 모습 이면의 부드럽고 취약한 부분도 보여줄 때 진짜 연결이 형성됩니다.',
             '상대방이 다가올 수 있는 여백을 남겨주는 "기다림의 미학"을 실천해보세요.',
         ],
+        imageUrl: '/images/characters/m4_youngchul.png',
     },
     {
         id: 'm5_kwangsoo',
@@ -115,6 +120,7 @@ export const CHARACTERS: Archetype[] = [
             '상대가 감정적인 위로를 원할 때, 해결책보다는 "그랬구나"라는 한 마디가 특효약입니다.',
             '자신만의 독특한 세계에 상대를 초대할 때 눈높이를 조금 맞춰주세요.',
         ],
+        imageUrl: '/images/characters/m5_kwangsoo.png',
     },
     {
         id: 'm6_sangchul',
@@ -134,6 +140,7 @@ export const CHARACTERS: Archetype[] = [
             '너무 무난하면 지루해질 수 있습니다. 가끔은 당신의 뾰족한 취향도 드러내세요.',
             '상대방과 갈등이 생기면 무조건 피하거나 맞추려 하지 말고 부딪혀 둥글게 다듬는 것도 좋습니다.',
         ],
+        imageUrl: '/images/characters/m6_sangchul.png',
     },
 
     // ── 여성 캐릭터 (6명) ──────────────────────────────
@@ -155,6 +162,7 @@ export const CHARACTERS: Archetype[] = [
             '나의 원칙이 모든 사람에게 정답은 아님을 인정하고 받아들이는 여유를 가지세요.',
             '가끔은 무너지고 약한 모습을 보여야 상대방도 다가갈 틈이 생깁니다.',
         ],
+        imageUrl: '/images/characters/f1_youngsook.png',
     },
     {
         id: 'f2_jungsook',
@@ -174,6 +182,7 @@ export const CHARACTERS: Archetype[] = [
             '강해 보이는 이면의 여린 마음을 상대방에게 솔직하게 언어로 털어놓아 보세요.',
             '상대방의 의견에 직각으로 반박하기보다 3초 정도 수용하는 시간을 가져보세요.',
         ],
+        imageUrl: '/images/characters/f2_jungsook.png',
     },
     {
         id: 'f3_soonja',
@@ -193,6 +202,7 @@ export const CHARACTERS: Archetype[] = [
             '가끔은 당신의 작은 세상을 상대방에게 적극적으로 구경시켜 주세요.',
             '독립성이라는 벽 뒤에 숨기보단, 의존하는 법도 조심스레 시도해보세요.',
         ],
+        imageUrl: '/images/characters/f3_soonja.png',
     },
     {
         id: 'f4_youngja',
@@ -212,6 +222,7 @@ export const CHARACTERS: Archetype[] = [
             '눈물 대신 확실한 말로 내가 원하는 바를 표현하는 것이 상대에게 더 명확히 전달됩니다.',
             '보호받는 것을 넘어, 가끔은 상대를 안아주고 챙겨주는 어른스러운 모습을 보여주세요.',
         ],
+        imageUrl: '/images/characters/f4_youngja.png',
     },
     {
         id: 'f5_oksoon',
@@ -231,6 +242,7 @@ export const CHARACTERS: Archetype[] = [
             '외적인 화려함의 껍질을 깨고 일상적이고 수수한 민낯의 감정을 나눠보세요.',
             '사랑을 받는 것에 익숙하다면, 이제는 내가 먼저 사랑을 듬뿍 주는 주체가 되어보세요.',
         ],
+        imageUrl: '/images/characters/f5_oksoon.png',
     },
     {
         id: 'f6_hyunsook',
@@ -250,5 +262,6 @@ export const CHARACTERS: Archetype[] = [
             '상대방을 가르치거나 분석하려고 하기보다 서로 다름을 있는 그대로 즐기세요.',
             '지성이 훌륭한 매력이지만, 감정의 언어로 사랑을 표현하는 낭만도 잊지 마세요.',
         ],
+        imageUrl: '/images/characters/f6_hyunsook.png',
     }
 ];

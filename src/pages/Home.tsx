@@ -150,13 +150,10 @@ export default function Home() {
                                     </span>
                                 </div>
 
-                                <div className="w-full aspect-[16/9] bg-slate-50 rounded-2xl mb-7 overflow-hidden relative shadow-inner">
+                                <div className="w-full aspect-square bg-slate-50 rounded-2xl mb-7 overflow-hidden relative shadow-inner">
                                     <img
-                                        src={`/images/${character.id}.jpg`}
+                                        src={character.imageUrl}
                                         alt={character.name}
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/notionists/svg?seed=${character.name}&backgroundColor=f8f9fa`;
-                                        }}
                                         className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>

@@ -55,16 +55,7 @@ export default function ResultClient() {
         }
     };
 
-    // Keep using emojis for the hero shot for now since we don't have individual big result illustrations
-    const getCharacterEmoji = (id: string) => {
-        const emojiMap: Record<string, string> = {
-            'm1_youngsoo': '🧐', 'm2_youngho': '😄', 'm3_youngsik': '🤗',
-            'm4_youngchul': '😤', 'm5_kwangsoo': '🤓', 'm6_sangchul': '😊',
-            'f1_youngsook': '👑', 'f2_jungsook': '🔥', 'f3_soonja': '🏕️',
-            'f4_youngja': '🥺', 'f5_oksoon': '✨', 'f6_hyunsook': '📚'
-        };
-        return emojiMap[id] || '💕';
-    };
+    // Removed emoji usage to display generated character illustrations.
 
     return (
         <div className="relative w-full min-h-screen flex flex-col bg-off-white font-sans text-deep-charcoal antialiased overflow-x-hidden selection:bg-vibrant-pink selection:text-white pb-0">
@@ -99,8 +90,8 @@ export default function ResultClient() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-soft-pink rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-lavender-tag rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
 
-                    <div className="text-8xl mb-12 z-10 drop-shadow-xl animate-float-y group-hover:scale-110 transition-transform duration-500">
-                        {getCharacterEmoji(character.id)}
+                    <div className="w-48 h-48 mb-12 z-10 drop-shadow-xl animate-float-y group-hover:scale-110 transition-transform duration-500 rounded-full overflow-hidden border-4 border-white shadow-soft-card">
+                        <img src={character.imageUrl} alt={character.name} className="w-full h-full object-cover" />
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 z-10 text-center">
