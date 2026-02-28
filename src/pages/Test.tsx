@@ -139,7 +139,7 @@ export default function TestPage() {
                             className="h-full rounded-full bg-primary transition-all duration-300 ease-out"
                             style={{
                                 width: `${(currentStep / totalSteps) * 100}%`,
-                                boxShadow: '0 0 8px rgba(230, 10, 21, 0.4)'
+                                boxShadow: '0 0 8px rgba(19, 236, 164, 0.4)'
                             }}
                         />
                     </div>
@@ -167,7 +167,7 @@ export default function TestPage() {
                             {/* 여성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('F')}
-                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 rounded-2xl transition-all shadow-soft active:scale-[0.98]"
+                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 hover:bg-primary/5 rounded-[24px] transition-all shadow-soft active:scale-[0.98]"
                             >
                                 <div className="w-16 h-16 mr-4 shrink-0">
                                     <GirlIllustration />
@@ -188,7 +188,7 @@ export default function TestPage() {
                             {/* 남성 카드 */}
                             <button
                                 onClick={() => handleGenderSelect('M')}
-                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 rounded-2xl transition-all shadow-soft active:scale-[0.98]"
+                                className="w-full flex items-center p-4 bg-white border border-neutral-200 hover:border-primary/50 hover:bg-primary/5 rounded-[24px] transition-all shadow-soft active:scale-[0.98]"
                             >
                                 <div className="w-16 h-16 mr-4 shrink-0">
                                     <BoyIllustration />
@@ -207,8 +207,8 @@ export default function TestPage() {
                             </button>
                         </div>
 
-                        <div className="mt-8 bg-pink-50 rounded-xl p-4 text-center">
-                            <p className="text-xs font-semibold text-primary">
+                        <div className="mt-8 bg-primary/10 rounded-[20px] p-5 text-center">
+                            <p className="text-sm font-bold text-primary">
                                 💕 어떤 성별을 선택해도 테스트를 즐길 수 있어요
                             </p>
                         </div>
@@ -246,7 +246,7 @@ export default function TestPage() {
                                 <button
                                     key={index}
                                     onClick={() => handleAnswerClick(answer)}
-                                    className="w-full p-5 text-left bg-white border border-slate-200 rounded-xl hover:border-primary/50 hover:shadow-md transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/20"
+                                    className="w-full p-5 text-left bg-white border border-slate-200 rounded-[20px] hover:border-primary/50 hover:bg-primary/5 hover:shadow-md transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/20 group"
                                 >
                                     <div className="flex items-center gap-4">
                                         <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-slate-200 text-sm font-bold text-neutral-gray bg-slate-50 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/30 transition-colors">

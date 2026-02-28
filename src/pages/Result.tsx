@@ -84,10 +84,10 @@ export default function ResultClient() {
 
                     {/* Character Card / Image */}
                     <div className="relative group animate-slide-down">
-                        <div className="w-full aspect-[4/5] overflow-hidden rounded-2xl shadow-xl bg-pink-50 flex flex-col items-center justify-center relative border border-slate-100">
+                        <div className="w-full aspect-[4/5] overflow-hidden rounded-[32px] shadow-xl bg-teal-50 flex flex-col items-center justify-center relative border border-slate-100">
                             {/* Abstract decorative elements */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
+                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
 
                             <div className="text-8xl mb-8 z-10 drop-shadow-xl animate-float-y">
                                 {getCharacterEmoji(character.id)}
@@ -125,7 +125,7 @@ export default function ResultClient() {
                                         <p className="font-bold text-deep-black text-sm">{character.loveStyle}</p>
                                         <div className="flex flex-wrap gap-1.5 mt-2">
                                             {character.keywords.map(kw => (
-                                                <span key={kw} className="px-2 py-0.5 bg-pink-50 text-primary text-[10px] font-bold rounded-full">#{kw}</span>
+                                                <span key={kw} className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">#{kw}</span>
                                             ))}
                                         </div>
                                     </div>
@@ -150,16 +150,16 @@ export default function ResultClient() {
                     <div className="mt-10 animate-slide-up delay-300">
                         <h4 className="text-lg font-bold px-1 mb-4">환상의 케미 매칭</h4>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white border border-slate-100 rounded-xl p-5 text-center shadow-soft">
+                            <div className="bg-white border border-slate-100 rounded-[24px] p-5 text-center shadow-soft">
                                 <p className="text-[10px] text-primary font-bold mb-3 uppercase tracking-tighter">BEST MATCH</p>
-                                <div className="w-14 h-14 bg-pink-50 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <div className="w-14 h-14 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
                                     <span className="material-symbols-outlined text-primary text-2xl">favorite</span>
                                 </div>
                                 <p className="font-bold text-deep-black text-sm">{character.bestMatch}</p>
                                 <span className="inline-block mt-2 px-2 py-0.5 bg-slate-50 text-slate-500 rounded-full text-[10px] font-bold">#환상의짝꿍</span>
                             </div>
 
-                            <div className="bg-white border border-slate-100 rounded-xl p-5 text-center shadow-soft">
+                            <div className="bg-white border border-slate-100 rounded-[24px] p-5 text-center shadow-soft">
                                 <p className="text-[10px] text-slate-400 font-bold mb-3 uppercase tracking-tighter">WORST MATCH</p>
                                 <div className="w-14 h-14 bg-slate-50 rounded-full mx-auto mb-3 flex items-center justify-center">
                                     <span className="material-symbols-outlined text-slate-400 text-2xl">heart_broken</span>
