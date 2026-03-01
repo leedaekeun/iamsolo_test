@@ -127,7 +127,7 @@ export default function Home() {
             </header>
 
             {/* ── 분석 방법 섹션 ── */}
-            <section className="px-6 py-12 md:py-20 bg-off-white">
+            <section className="px-6 pt-7 md:pt-11 pb-8 md:pb-10 bg-off-white">
                 <div className="text-center mb-14">
                     <h2 className="text-section-title mb-4">{t('home.method_title')}</h2>
                     <div className="divider-pink mx-auto mb-5" />
@@ -151,8 +151,40 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* ── 스토리 & 상세 설명 섹션 (AdSense 최적화) ── */}
+            <section className="relative py-8 md:py-12 overflow-hidden bg-[#222222] flex items-center justify-center border-y border-[#333]">
+                {/* 12캐릭터 루프 배경 (좌->우 스크롤) */}
+                <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-40 pointer-events-none">
+                    <div className="flex w-max animate-marquee-right gap-6 px-4">
+                        {[...CHARACTERS, ...CHARACTERS].map((char, idx) => (
+                            <div key={idx} className="w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden flex-shrink-0 shadow-xl border border-white/10">
+                                {char.imageUrl ? (
+                                    <img src={char.imageUrl} alt="character loop" className="w-full h-full object-cover" />
+                                ) : (
+                                    <div className="w-full h-full bg-slate-800" />
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 텍스트 박스 */}
+                <div className="relative z-10 px-6 w-full max-w-3xl">
+                    <div className="bg-white/95 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-2xl text-center">
+                        <h2 className="text-xl md:text-3xl font-extrabold mb-6 text-deep-charcoal tracking-tight">
+                            {t('home.story_title')}
+                        </h2>
+                        <div className="space-y-5 text-body md:text-lg text-sm leading-loose text-slate-700 font-medium break-keep">
+                            <p>{t('home.story_desc1')}</p>
+                            <p>{t('home.story_desc2')}</p>
+                            <p>{t('home.story_desc3')}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ── 캐릭터 카드 섹션 ── */}
-            <section className="px-6 pt-12 md:pt-20 pb-16 panel-section">
+            <section className="px-6 pt-8 md:pt-10 pb-16 panel-section">
                 <div className="flex flex-col items-center justify-center text-center mb-10 gap-3">
                     <h2 className="text-section-title">{t('home.characters_title')}</h2>
                     <span className="text-caption font-semibold tracking-wide text-slate-500 bg-white shadow-sm border border-slate-100 px-4 py-1.5 rounded-full">

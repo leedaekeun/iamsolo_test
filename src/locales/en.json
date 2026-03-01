@@ -53,7 +53,11 @@
         ],
         "characters_title": "Solo Land Character Dictionary",
         "characters_total": "Total 12 Characters",
-        "btn_start_test": "Start Test"
+        "btn_start_test": "Start Test",
+        "story_title": "Why 12 Characters?",
+        "story_desc1": "Modern romance has become much more complex. Beyond simple personality differences, each person's life experiences, values, and unconscious psychological patterns determine the success or failure of a relationship.",
+        "story_desc2": "To unravel this complexity, we analyzed Carl Jung's analytical psychology and modern personality type (MBTI) algorithms. As a result, we derived 12 pure archetypes that prominently appear in the dating process.",
+        "story_desc3": "Face the 'true face of romance' hidden within you. Beyond simple amusement, this test will serve as a first step to understanding the differences between you and others and building healthier relationships."
     },
     "test": {
         "genderSelect": "Please select your gender",

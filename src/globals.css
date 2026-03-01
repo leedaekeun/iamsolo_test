@@ -104,6 +104,23 @@
   }
 }
 
+@keyframes slideRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-right {
+  animation: slideRight 60s linear infinite;
+  will-change: transform;
+}
+
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
