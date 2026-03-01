@@ -125,7 +125,7 @@ export default function TestPage() {
             )}
 
             {/* Main Content Area */}
-            <main className={`flex-1 flex flex-col px-6 pt-0 pb-24 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'} h-full`}>
+            <main className={`flex-1 flex flex-col px-6 pb-24 transition-opacity duration-200 max-w-md mx-auto w-full ${isTransitioning ? 'opacity-0' : 'opacity-100'} h-full ${currentStep > 0 ? 'pt-[112px]' : 'pt-0'}`}>
 
                 {/* ── 성별 선택 ── */}
                 {currentStep === 0 && (
@@ -188,10 +188,10 @@ export default function TestPage() {
 
                 {/* ── 질문 ── */}
                 {currentStep > 0 && currentQuestion && (
-                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full pt-[3.5rem]">
+                    <div className="animate-slide-up flex flex-col h-full relative z-10 w-full">
 
                         {/* Image Container (Filled inside rounded box) */}
-                        <div className="w-full aspect-[16/9] sm:aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-4 border border-slate-100 mt-[40px] sm:mt-[76px] max-h-[220px]">
+                        <div className="w-full aspect-[16/9] sm:aspect-[4/3] bg-white rounded-[2rem] overflow-hidden shadow-card mb-4 border border-slate-100 max-h-[220px]">
                             <img
                                 src={`/images/questions/q${currentStep}_${genderPref === 'M' ? 'm' : 'w'}.png`}
                                 alt={`상황 ${currentStep} 이미지`}
