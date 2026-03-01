@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import Footer from '@/components/Footer';
 import { CHARACTERS, Archetype } from '@/data/characters';
+import { useSEO } from '@/lib/useSEO';
 
 /* ─────────────────────────────────────────
    캐릭터 아바타 설정 (imageUrl 없으므로 이모지+그라디언트)
@@ -82,6 +83,11 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
 export default function Home() {
     const navigate = useNavigate();
     const { t } = useTranslation();
+
+    useSEO({
+        path: '/',
+        description: '나만의 연애 성향 캐릭터를 찾아보세요! 심리학 원형(Archetype) 이론 기반 12가지 데이트 스타일 무료 심리테스트. 나의 연애 스타일과 찰떡궁합 캐릭터를 확인하세요.',
+    });
 
     return (
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal">

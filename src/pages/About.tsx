@@ -2,9 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from '@/components/Footer';
+import { useSEO } from '@/lib/useSEO';
 
 export default function About() {
     const { t } = useTranslation();
+
+    useSEO({
+        title: '이 테스트에 대하여',
+        description: '솔로나라 심리테스트의 분석 방법과 심리학 원형(Archetype) 이론에 대해 알아보세요. 12가지 연애 성향 캐릭터의 과학적 근거를 확인할 수 있습니다.',
+        path: '/about',
+    });
 
     return (
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal font-sans">

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import { CHARACTERS, Archetype } from '@/data/characters';
+import { useSEO } from '@/lib/useSEO';
 
 /* ─────────────────────────────────────────
    캐릭터 아바타 설정 (imageUrl 없으므로 이모지+그라디언트)
@@ -32,6 +33,21 @@ export default function ResultClient() {
 
     const [character, setCharacter] = useState<Archetype | null>(null);
     const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
+
+    const BASE_URL = 'https://leedaekeun.github.io/iamsolo_test';
+    const seoImage = character?.imageUrl
+        ? `${BASE_URL}${character.imageUrl}`
+        : `${BASE_URL}/images/characters/f1_youngsook.png`;
+    const seoDesc = character
+        ? `${character.name}(${character.title}) - ${character.loveStyle}. 나만의 연애 성향 캐릭터 결과를 확인하세요!`
+        : '나만의 연애 성향 캐릭터 결과를 확인하세요!';
+
+    useSEO({
+        title: character ? `나의 캐릭터: ${character.name} (${character.title})` : '테스트 결과',
+        description: seoDesc,
+        image: seoImage,
+        path: '/result',
+    });
 
     useEffect(() => {
         if (!characterId) { navigate('/'); return; }

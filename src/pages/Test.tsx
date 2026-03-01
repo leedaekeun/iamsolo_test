@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import { QUESTIONS, Answer } from '@/data/questions';
 import { getBestMatch } from '@/lib/algorithm';
+import { useSEO } from '@/lib/useSEO';
 
 
 /* ═══════════════════════════════════════════
@@ -12,6 +13,12 @@ export default function TestPage() {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const [currentStep, setCurrentStep] = useState(0);
+
+    useSEO({
+        title: '연애 성향 테스트 시작',
+        description: '나는솔로 출연자 중 나와 가장 닮은 캐릭터는 누구? 지금 바로 무료 연애 성향 심리테스트를 시작해보세요!',
+        path: '/test',
+    });
     const [answers, setAnswers] = useState<Answer[]>([]);
     const [genderPref, setGenderPref] = useState<'M' | 'F' | null>(null);
     const [isTransitioning, setIsTransitioning] = useState(false);

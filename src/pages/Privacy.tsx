@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from '@/components/Footer';
+import { useSEO } from '@/lib/useSEO';
 
 interface SectionProps {
     title: string;
@@ -22,6 +23,13 @@ function Section({ title, children }: SectionProps) {
 
 export default function PrivacyPage() {
     const { t } = useTranslation();
+
+    useSEO({
+        title: '개인정보처리방침',
+        description: '솔로나라 심리테스트 개인정보처리방침. 개인정보 수집·이용 안내, Google AdSense 및 Analytics 사용 안내.',
+        path: '/privacy',
+        noIndex: true,
+    });
 
     return (
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal font-sans">

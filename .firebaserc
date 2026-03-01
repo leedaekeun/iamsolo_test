@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "iamsolo-test1"
+  },
   "targets": {},
   "etags": {}
 }

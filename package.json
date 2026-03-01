@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh": "tsc -b && vite build --base=/iamsolo_test/",
     "preview": "vite preview",
     "lint": "eslint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build:gh",
+    "deploy": "gh-pages -d dist",
+    "deploy:firebase": "npm run build && firebase deploy --only hosting --project iamsolo-test1"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.4",
