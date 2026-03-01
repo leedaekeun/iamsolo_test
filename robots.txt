@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+# 검색 불필요 리소스 차단
+Disallow: /src/
+Disallow: /node_modules/
+
 Sitemap: https://leedaekeun.github.io/iamsolo_test/sitemap.xml
