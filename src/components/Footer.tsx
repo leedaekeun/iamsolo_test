@@ -76,7 +76,10 @@ export default function Footer() {
                 {[
                     { to: '/', label: t('common.footer.nav_home') },
                     { to: '/test', label: t('common.footer.nav_test') },
+                    { to: '/articles', label: t('common.nav_articles') },
                     { to: '/privacy', label: t('common.footer.nav_privacy') },
+                    { to: '/terms', label: t('common.nav_terms') },
+                    { to: '/contact', label: t('common.nav_contact') },
                 ].map(({ to, label }, i, arr) => (
                     <span key={to} className="flex items-center gap-5">
                         <Link to={to} className="text-xs font-medium text-slate-grey hover:text-vibrant-pink transition-colors">

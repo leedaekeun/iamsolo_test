@@ -11,6 +11,7 @@ interface SEOOptions {
   /** 페이지 고유 제목 (사이트명은 자동 추가됨) */
   title?: string;
   description?: string;
+  keywords?: string;
   /** 절대 경로 이미지 URL */
   image?: string;
   /** 경로 부분만 입력 (예: '/result'). 미입력 시 BASE_URL */
@@ -28,6 +29,7 @@ function setMeta(selector: string, content: string) {
 export function useSEO({
   title,
   description = DEFAULT_DESCRIPTION,
+  keywords,
   image = DEFAULT_IMAGE,
   path,
   type = 'website',
@@ -40,6 +42,7 @@ export function useSEO({
     document.title = fullTitle;
 
     setMeta('meta[name="description"]', description);
+    if (keywords) setMeta('meta[name="keywords"]', keywords);
     setMeta('meta[name="robots"]', noIndex ? 'noindex, nofollow' : 'index, follow');
 
     // Open Graph
@@ -63,6 +66,7 @@ export function useSEO({
       // 언마운트 시 기본값으로 복원
       document.title = DEFAULT_TITLE;
       setMeta('meta[name="description"]', DEFAULT_DESCRIPTION);
+      if (keywords) setMeta('meta[name="keywords"]', '');
       setMeta('meta[property="og:title"]', DEFAULT_TITLE);
       setMeta('meta[property="og:description"]', DEFAULT_DESCRIPTION);
       setMeta('meta[property="og:image"]', DEFAULT_IMAGE);

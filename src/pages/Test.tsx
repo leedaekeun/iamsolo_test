@@ -116,7 +116,7 @@ export default function TestPage() {
 
             {/* Header (Only show for Gender Selection step) */}
             {currentStep === 0 && (
-                <div className="bg-white rounded-section-b shadow-natural z-20 pb-3 mb-4 relative">
+                <div className="z-20 pb-3 mb-4 relative">
                     <header className="flex items-center px-6 py-4 justify-between max-w-md mx-auto w-full">
                         <button onClick={handleBack} className="btn-icon" aria-label="이전으로">
                             <span className="material-symbols-outlined">arrow_back_ios_new</span>

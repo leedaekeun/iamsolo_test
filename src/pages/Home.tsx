@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import Footer from '@/components/Footer';
@@ -83,6 +84,7 @@ function CharacterAvatarCard({ character }: { character: Archetype }) {
 export default function Home() {
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const [showStory, setShowStory] = useState(false);
 
     useSEO({
         path: '/',
@@ -93,7 +95,7 @@ export default function Home() {
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-off-white text-deep-charcoal">
 
             {/* ── 히어로 헤더 ── */}
-            <header className="relative pt-8 sm:pt-16 pb-6 sm:pb-12 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
+            <header className="relative pt-24 sm:pt-32 pb-6 sm:pb-12 px-6 text-center overflow-hidden bg-white rounded-section-b shadow-natural mb-6">
 
                 {/* 배지 */}
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-soft-pink border border-mid-pink mb-4 sm:mb-6 w-fit mx-auto">
@@ -156,46 +158,36 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-
-            {/* ── 스토리 & 상세 설명 섹션 (AdSense 최적화) ── */}
-            <section className="relative py-8 md:py-12 overflow-hidden bg-[#222222] flex items-center justify-center border-y border-[#333]">
-                {/* 12캐릭터 루프 배경 (좌->우 스크롤) */}
-                <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-40 pointer-events-none">
-                    <div className="flex w-max animate-marquee-right gap-6 px-4">
-                        {[...CHARACTERS, ...CHARACTERS].map((char, idx) => (
-                            <div key={idx} className="w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden flex-shrink-0 shadow-xl border border-white/10">
-                                {char.imageUrl ? (
-                                    <img src={char.imageUrl} alt="character loop" className="w-full h-full object-cover" />
-                                ) : (
-                                    <div className="w-full h-full bg-slate-800" />
-                                )}
-                            </div>
-                        ))}
+            {/* ── 캐릭터 카드 섹션 ── */}
+            <section className="px-6 pt-8 md:pt-10 pb-16 panel-section">
+                <div className="flex flex-col items-center justify-center text-center mb-10 gap-3">
+                    <h2 className="text-section-title">{t('home.characters_title')}</h2>
+                    <div className="flex items-center gap-3">
+                        <span className="text-caption font-semibold tracking-wide text-slate-500 bg-white shadow-sm border border-slate-100 px-4 py-1.5 rounded-full">
+                            {t('home.characters_total')}
+                        </span>
+                        <button
+                            onClick={() => setShowStory(!showStory)}
+                            className="text-caption font-semibold tracking-wide text-white bg-vibrant-pink shadow-sm px-4 py-1.5 rounded-full hover:bg-pink-600 transition-colors flex items-center gap-1"
+                        >
+                            {t('home.story_title')}
+                            <span className={`material-symbols-outlined text-[16px] transition-transform duration-300 ${showStory ? 'rotate-180' : ''}`}>
+                                expand_more
+                            </span>
+                        </button>
                     </div>
                 </div>
 
-                {/* 텍스트 박스 */}
-                <div className="relative z-10 px-6 w-full max-w-3xl">
-                    <div className="bg-white/95 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-2xl text-center">
-                        <h2 className="text-xl md:text-3xl font-extrabold mb-6 text-deep-charcoal tracking-tight">
-                            {t('home.story_title')}
-                        </h2>
-                        <div className="space-y-5 text-body md:text-lg text-sm leading-loose text-slate-700 font-medium break-keep">
+                {/* 토글형 스토리 섹션 */}
+                <div className={`transition-all duration-500 overflow-hidden ${showStory ? 'max-h-[1000px] opacity-100 mb-10' : 'max-h-0 opacity-0 mb-0'}`}>
+                    <div className="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-[2rem] shadow-sm border border-slate-100 text-center relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-vibrant-pink to-soft-pink"></div>
+                        <div className="space-y-4 text-body text-sm leading-relaxed text-slate-600 font-medium break-keep">
                             <p>{t('home.story_desc1')}</p>
                             <p>{t('home.story_desc2')}</p>
                             <p>{t('home.story_desc3')}</p>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* ── 캐릭터 카드 섹션 ── */}
-            <section className="px-6 pt-8 md:pt-10 pb-16 panel-section">
-                <div className="flex flex-col items-center justify-center text-center mb-10 gap-3">
-                    <h2 className="text-section-title">{t('home.characters_title')}</h2>
-                    <span className="text-caption font-semibold tracking-wide text-slate-500 bg-white shadow-sm border border-slate-100 px-4 py-1.5 rounded-full">
-                        {t('home.characters_total')}
-                    </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
